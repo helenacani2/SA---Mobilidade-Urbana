@@ -1,0 +1,331 @@
+* {
+
+    margin: 0 auto;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 0;
+
+}
+
+.flexivel {
+
+    padding-top: 1rem; 
+    padding-block-end: 1rem; 
+    display: flex;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+
+#rotas {
+
+    display: flex;
+
+    width: 100%;
+
+    max-width: 800px;
+
+    height: auto;
+
+    margin: 20px auto;
+    font-family: 'Times New Roman', Times, serif;
+    padding-top: 1rem; /*mexe na margem de  cima*/
+    padding-block-end: 1rem; /*mexe na margem de baixo*/
+}
+
+#rotas li {
+    list-style: none;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#mapaRota {
+
+    position: relative;
+    /* Define o container como referência para o posicionamento absoluto */
+
+    max-width: 800px;
+    font-family: 'Times New Roman', Times, serif;
+    width: 100%;
+
+    margin-top: 30px;
+
+}
+
+#mapaRota img {
+
+    width: 100%;
+    font-family: 'Times New Roman', Times, serif;
+    height: auto;
+
+    border-radius: 10px;
+
+}
+
+#rotas input {
+
+    display: none;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#rotas label {
+
+    display: flex;
+
+    height: 10px;
+
+    width: auto;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#rotas li:nth-child(1) label {
+
+    left: 10px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#rotas li:nth-child(2) label {
+
+    left: 90px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#rotas li:nth-child(3) label {
+
+    left: 180px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#rotas label:hover {
+
+    cursor: pointer;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#rotas img {
+
+    opacity: 0;
+
+    visibility: hidden;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#rotas li input:checked~img {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    z-index: 10;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* Posiciona a legenda sobre a imagem */
+#legenda_rota_maior {
+    font-family: 'Times New Roman', Times, serif;
+    position: absolute;
+
+    top: 0;
+    /* Alinha ao topo do contêiner */
+
+    left: 0;
+    /* Alinha à esquerda */
+
+    width: 100%;
+
+    z-index: 10;
+    /* Garante que fique sobre a imagem */
+
+    text-align: center;
+
+}
+
+#legenda_rota_menor {
+    font-family: 'Times New Roman', Times, serif;
+    background-color: rgba(201, 201, 201, 0.7);
+    /* Usamos rgba para definir opacidade */
+
+    border-radius: 10px;
+
+    margin: 10px;
+    /* Dá uma margem interna */
+
+    padding: 5px;
+
+    font-size: 0.75rem;
+
+}
+
+#linha {
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
+
+}
+
+#rota_atual {
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(65, 65, 65);
+
+}
+
+#hora {
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(65, 65, 65);
+
+}
+
+#local_das_imagens {
+    font-family: 'Times New Roman', Times, serif;
+    align-content: center;
+
+    align-items: center;
+
+    justify-content: center;
+
+    align-self: center;
+
+    width: 100%;
+
+    display: flex;
+
+}
+
+#imagem_trem {
+
+    max-width: 770px;
+
+    width: 96%;
+
+    align-self: center;
+
+    display: flex;
+
+    border-radius: 10px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#texto_cinza {
+
+    color: gray;
+
+    display: flex;
+
+    max-width: 770px;
+
+    width: 96%;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#tudo {
+
+    background-color: white;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+
+#body {
+
+    background-color: #285775;
+
+    max-width: 850px;
+
+    width: 100%;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#cobranca {
+
+    display: flex;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+@media screen and (min-width: 1024px) {
+
+    #body {
+
+        background-color: #285775;
+
+        max-width: 1550px;
+
+        width: 100%;
+
+    }
+
+    #mapaRota {
+
+        width: 95%;
+
+        height: auto;
+
+        max-width: 1600px;
+
+    }
+
+    #imagem_rota {
+
+        height: 100%;
+
+    }
+
+    #imagem_trem {
+
+        max-width: 7070px;
+
+        width: 90%;
+
+        align-self: center;
+
+        display: flex;
+
+        border-radius: 10px;
+
+    }
+
+    #rotas {
+
+        display: flex;
+
+        width: 100%;
+
+        max-width: 1600px;
+
+        height: auto;
+
+        margin: 20px auto;
+
+        font-size: xx-large;
+
+    }
+
+    #legenda_rota_menor {
+
+        background-color: rgba(201, 201, 201, 0.7);
+
+        border-radius: 10px;
+
+        margin: 10px;
+
+        padding: 5px;
+
+        font-size: xx-large;
+
+    }
+
+    #texto_cinza {
+
+        max-width: 7070px;
+
+        width: 90%;
+
+        align-self: center;
+
+        font-size: x-large;
+
+    }
+
+    #cobranca {
+
+        display: flex;
+
+        font-size: x-large;
+
+    }
+
+}

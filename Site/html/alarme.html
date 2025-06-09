@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="../midias/logomenor.png" type="icon"> <!-- Ícone da aba do navegador -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alarme de Emergência</title>
+    <link rel="stylesheet" href="../css/alarme.css">
+    <link rel="stylesheet" href="../javascript/teste.js">
+</head>
+
+<header>
+    <section class="topo">
+        <div>
+            <h2>Alerta de Emergência</h2>
+            <br>
+        </div>
+        <div class="texto_alarme">
+            <p>O alarme de emergência foi acionado. Por favor, siga as instruções de segurança das Centrais de Apoio:
+
+                <br>
+                <br>
+
+<div class="instruções">
+1. MANTENHA A CALMA. Não corra nem provoque pânico.
+<br>
+2. NÃO TOQUE NA PORTA enquanto o trem estiver em movimento. Aguarde parada total.
+<br>
+<br>
+EM CASO DE EVACUAÇÃO:
+<br>
+1. Siga as rotas de fuga sinalizadas.
+<br>
+2. Utilize escadas de emergência (evite elevadores).
+<br>
+3. Ajude idosos, crianças e pessoas com dificuldade de locomoção.
+<br>
+<br>
+EM INCÊNDIOS:
+<br>
+1. Cubra nariz e boca com pano úmido.
+<br>
+2. Agache-se se houver fumaça.
+<br>
+INFORME-SE pelos canais oficiais antes de compartilhar informações.
+</div>
+            </p>
+
+            <div class="entrar_pagina2">
+                <a href="pagina_inicial.html"> Voltar</a>
+            </div>
+    </section>
+</header>
+
+<body>
+
+    <br>
+    <br>
+    <div class="audio">
+        <button onclick="som()" class="botao">
+            <img src="https://img.freepik.com/vetores-gratis/sino-de-notificacao-vermelho_78370-6897.jpg?semt=ais_hybrid&w=740"
+                alt="Tocar som" id="zoomable-image" class="zooming">
+        </button>
+        <audio id="alarmeAudio" src="../midias/alarme.mp3"></audio>
+    </div>
+    <script>
+        function som() {
+            var audio = document.getElementById('alarmeAudio');
+            audio.currentTime = 0;
+            audio.play();
+        }
+    </script>
+
+
+
+</body>
+
+</html>

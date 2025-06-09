@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.botoes_topo {
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    padding: 10px;
+    margin: 1rem 0 10px 0;
+    border: 2px solid white;
+    border-radius: 5px;
+    color: rgb(255, 255, 255);
+    background: linear-gradient(to right, #244e68, #43718d);
+    font-size: 14px;
+    font-family: 'Times New Roman', Times, serif;
+    display: flex;
+    justify-content: center;
+
+}
+
+.configura_topo {
+    padding: 1rem;
+    margin: 2rem 3rem;
+    justify-content: center;
+    
+}
+
+#titulo {
+    text-align: center;
+    font-size: 3rem;
+
+}
+
+.bordaStatus {
+    border: 0.1rem solid rgb(126, 126, 126);
+    padding: 1rem 0.5rem ;
+    margin: 1rem;
+    border-radius: 5px;
+}
+
+.bordaRelatorio {
+    border: 0.1rem solid rgb(126, 126, 126);
+    padding: 1rem 9rem 1rem 1rem ;
+    margin: 1rem;
+    border-radius: 5px;
+}
+
+
+#relatorio_de_ganho {
+    display: flex;
+    justify-content: center;
+    
+}
+
+.teste1 {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+}
+
+.posicaoTitulo {
+font-size: 1.2rem;
+font-weight: bold;
+}
+
+.titulorelatorio {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+.pessoas {
+    display: flex;
+}
+.imagemForm {
+    border-radius: 100%;
+    
+}
+
+

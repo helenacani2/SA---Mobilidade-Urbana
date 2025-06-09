@@ -1,0 +1,394 @@
+body {
+
+    background-color: azure;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.flexivel {
+
+    display: flex;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#barra_de_cima {
+
+    background-color: #35739b;
+    font-family: 'Times New Roman', Times, serif;
+    width: 100%;
+
+}
+
+.barra_alinhar {
+
+    margin-top: 10px;
+    display: flex;
+
+    align-items: center;
+
+    align-content: center;
+
+    align-self: center;
+
+    justify-content: center;
+
+    margin-bottom: 10px;
+
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#logo {
+
+    width: 80%;
+
+    align-self: center;
+
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#pesquisa {
+
+    background-color: azure;
+
+    display: flex;
+
+    border-radius: 7px;
+
+    width: 90%;
+
+    padding-left: 10px;
+
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#lupa_pesquisa {
+
+    font-size: x-large;
+
+    color: gray;
+
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#texto_pesquisa {
+
+    font-size: medium;
+
+    color: gray;
+
+    margin-left: 10px;
+
+    margin-top: auto;
+
+    margin-bottom: auto;
+
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#barra_paginas {
+
+    width: 100%;
+
+    height: 60%;
+
+    margin-top: 10px;
+
+    align-items: center;
+
+    align-content: center;
+
+    align-self: center;
+
+    justify-content: center;
+
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#segura_imagem {
+
+    display: block;
+
+    width: 100%;
+
+    max-height: 250px;
+
+    align-self: center;
+
+    overflow: hidden;
+
+    border-radius: 7px;
+
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#paginas_imagem {
+
+    width: 100%;
+
+    height: 100%;
+
+    overflow: hidden;
+
+    align-self: center;
+
+    margin: auto;
+
+    display: block;
+
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#paginas_imagem:hover {
+
+    cursor: pointer;
+
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#paginas_texto {
+
+    position: absolute;
+
+    margin-left: 25px;
+
+    color: azure;
+
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#pontos {
+
+    display: flex;
+
+    color: azure;
+
+    font-size: 50px;
+
+    margin-left: 25px;
+
+    margin-top: -100px;
+
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.redondo {
+
+    text-align: center;
+
+    width: 25%;
+
+    font-size: 50%;
+
+    cursor: pointer;
+
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.redondo img {
+
+    border-radius: 50000px;
+
+    width: 80%;
+
+    height: 66%;
+
+    cursor: pointer;
+
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.quadrado {
+
+    text-align: center;
+
+    width: 33%;
+
+    font-size: 70%;
+
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.quadrado img {
+
+    border-radius: 50px;
+
+    width: 90%;
+
+    height: 70%;
+
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#paginas_redondas {
+
+    margin-top: -60px;
+
+    font-family: 'Times New Roman', Times, serif;
+}
+
+@media screen and (min-width: 1024px) {
+
+    #barra_de_cima {
+
+        background-color: #35739b;
+
+        width: 100%;
+
+        display: flex;
+
+    }
+
+    #logo {
+
+        width: 50%;
+
+        margin-left: -250px;
+
+    }
+
+    .barra_alinhar {
+
+        margin-top: 10px;
+
+        display: flex;
+
+        align-items: center;
+
+        align-content: center;
+
+        align-self: center;
+
+        justify-content: center;
+
+        margin-bottom: 10px;
+
+        width: 100%;
+
+    }
+
+    #pesquisa {
+
+        background-color: azure;
+
+        display: flex;
+
+        border-radius: 7px;
+
+        width: 100%;
+
+        padding-left: 10px;
+
+        margin-left: -250px;
+
+    }
+
+    #segura_imagem {
+
+        display: block;
+
+        width: 100%;
+
+        max-height: 750px;
+
+        align-self: center;
+
+        overflow: hidden;
+
+        border-radius: 7px;
+
+    }
+
+    #paginas_imagem {
+
+        margin-top: -200px;
+
+        width: 100%;
+
+        height: 100%;
+
+        border-radius: 70px;
+
+        align-self: center;
+
+    }
+
+    #pontos {
+
+        display: flex;
+
+        color: azure;
+
+        font-size: 200px;
+
+        margin-left: 50px;
+
+        margin-top: -360px;
+
+    }
+
+    #paginas_texto {
+
+        position: absolute;
+
+        margin-left: 60px;
+
+        color: azure;
+
+        font-size: 100px;
+
+    }
+
+    .redondo img {
+
+        border-radius: 50000px;
+
+        width: 80%;
+
+        height: 85%;
+
+    }
+
+    #paginas_redondas {
+
+        margin-top: -300px;
+
+    }
+
+    #paginas_redondas h1 {
+
+        font-size: 80px;
+
+    }
+
+    #paginas_linhas h1 {
+
+        font-size: 80px;
+
+    }
+
+    .quadrado {
+
+        text-align: center;
+
+        width: 33%;
+
+        font-size: 100%;
+
+    }
+
+    .quadrado img {
+
+        border-radius: 50px;
+
+        width: 90%;
+
+        height: 90%;
+
+    }
+
+    #paginas_redondas {
+
+        margin-top: -100px;
+
+    }
+
+}

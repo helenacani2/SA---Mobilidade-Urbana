@@ -1,0 +1,94 @@
+body {
+    background-color: #d6e0e0;
+    margin: 0;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+header {
+    text-align: center;
+    background-color: white;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#table1 {
+    width: 100%;
+    display: flex;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#table2 {
+    width: 30%;
+    text-align: center;
+    justify-content: center;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#table3 {
+    width: 70%;
+    display: flex;
+    color: #6b7070;
+    justify-content: center;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#divbody {
+    width: 100%;
+    display: flex;
+    background-color: white;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#divbody {
+    width: 100%;
+    display: flex;
+    background-color: white;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#table4 {
+    width: 30%;
+    text-align: center;
+    justify-content: center;
+    color: #828282;
+    border-bottom: 1px solid #828282;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+
+#table4 h2 {
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#table5 h2 {
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#table5 {
+    width: 70%;
+    color: #828282;
+    justify-content: center;
+    border-left: 2px solid #828282;
+    border-bottom: 1px solid #828282;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+footer {
+    background-color: #285775;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+
+#white {
+    background-color: white;
+    text-align: center;
+    margin: 0;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#white h5 {
+    margin: 0;
+    font-family: 'Times New Roman', Times, serif;
+}

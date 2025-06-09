@@ -1,0 +1,295 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    margin: 0%;
+    padding: 0px;
+}
+
+
+header {
+
+    width: 100%;
+    background-color: #285775;
+    font-size: 1.6rem;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* é o texto que fica dentro do topo desta página*/
+.texto_topo {
+    color: #FFFFFF;
+    padding: 8px;
+    font-family: 'Times New Roman', Times, serif;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+.texto_topo2 {
+    color: #FFFFFF;
+    padding: 8px;
+    font-family: 'Times New Roman', Times, serif;
+    margin-top: 11px;
+    align-items: center;
+}
+
+.flex_botao {
+    align-items: center;
+}
+
+#topo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.entrar_pagina2 a {
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    outline: none;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.entrar_pagina1 a {
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    outline: none;
+    margin-right: 2rem;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+hr {
+    color: #FFFFFF;
+}
+
+.selecionado {
+    opacity: 1;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.selecionado_transfome span {
+    font-size: 14px;
+    text-align: center;
+    color: #000;
+    padding-top: 1rem;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* formato e cor  da bolinha de seleção do cliente*/
+.bolinha_selecao {
+    background-color: #ccc;
+    border-radius: 100%;
+    padding: 2rem 2rem;
+    margin: 30px;
+    width: 100%;
+    max-width: 0px;
+    cursor: pointer;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+
+/* Só é utilizado para deixar horizontal as divs*/
+.linha_topo {
+    margin-top: 3rem;
+    display: flex;
+    text-align: center;
+    font-size: 1.2rem;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* Só é utilizado para deixar horizontal as divs*/
+.linha {
+    display: flex;
+    text-align: center;
+    font-size: 1.2rem;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/*Só é utilizado para deixar no centro a div selecionada */
+.centro {
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* Só é utilizado para deixar na direita a div selecionada */
+.direita {
+    margin-right: auto;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/*Só é utilizado para deixar na esquerda a div selecionada */
+.esquerda {
+    margin-left: auto;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.input-container {
+    margin-top: 50px;
+    bottom: 0;
+    padding: 0.5rem;
+    background-color: white;
+    border-top: 1px solid #ccc;
+    z-index: 10;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.pagina_inicial a {
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    width: 50%;
+    padding: 10px;
+    margin: 5px 0 20px 0;
+    border: 2px solid white;
+    border-radius: 5px;
+    color: rgb(255, 255, 255);
+    background: linear-gradient(to right, #244e68, #43718d);
+    font-size: 14px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* Estilo do rótulo */
+#mensagem {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #666;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* Estilo do campo de texto */
+#problem-description {
+    width: 100%;
+    height: 100px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 1rem;
+    font-size: 16px;
+    resize: vertical;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.menu-opcoes {
+    display: none;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    min-width: 120px;
+    z-index: 100;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.menu-opcoes li {
+    padding: 8px 20px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.menu-opcoes li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#menu-toggle:checked+.menu-icon+.menu-opcoes {
+    display: block;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+nav.menu-hamburguer{
+    margin: 10px; /*☰*/
+}
+
+input{
+    all: unset;
+    border: none;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    opacity: 0%;
+}
+
+label.menu-icon{
+    margin: 11px;
+    position: absolute;
+    top: 66px;
+    left: 1.2px;
+    right: 5px;
+}
+
+@media (min-width: 1024px) {
+
+    .bolinha_selecao {
+        background-color: #ccc;
+        border-radius: 100%;
+        padding: 3.5rem 3.5rem;
+        margin: 30px;
+        width: 100%;
+        max-width: 0px;
+        cursor: pointer;
+    }
+}
+
+@media (max-width: 1023px) {}
+
+.grid-bolinhas {
+    display: grid;
+    justify-content: space-evenly;
+    grid-template-columns: auto auto auto;
+}
+
+.texto-bolinha {
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+@media screen and (max-width: 400px) {
+    .grid-bolinhas {
+        display: grid;
+        justify-content: space-evenly;
+        grid-template-columns: auto auto;
+    }
+
+    .texto_topo {
+        color: #FFFFFF;
+        padding: 1rem;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 1rem;
+    }
+
+    .texto-bolinha {
+        font-size: 1.2rem;
+        text-align: center;
+    }
+
+    .enviarProblema {
+        cursor: pointer;
+        text-decoration: none;
+        color: inherit;
+        width: 50%;
+        padding: 10px;
+        margin: 5px 0 20px 0;
+        border: 2px solid white;
+        border-radius: 5px;
+        color: rgb(255, 255, 255);
+        background: linear-gradient(to right, #244e68, #43718d);
+        font-size: 14px;
+        font-family: 'Times New Roman', Times, serif;
+    }
+}

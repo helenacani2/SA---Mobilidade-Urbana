@@ -1,0 +1,86 @@
+<meta charset="UTF-8">
+<html lang="pt_BR">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="../midias/logomenor.png" type="icon"> <!-- Ícone da aba do navegador -->
+<title>Relatórios</title>
+<link rel="stylesheet" href="../css/enviar_relatorio.css">
+</head>
+
+<body>
+    <header>
+        <section id="topo">
+            <div class="entrar_pagina2 ; texto_topo">
+                <a href="central_apoio_condutor.html">Central de Apoio </a>
+            </div>
+            <div class="texto_topo">
+                <a href="central_de_manutencao.html">Relatórios</a>
+                <hr>
+            </div>
+        </section>
+    </header>
+
+    <nav class="menu-hamburguer">
+        <input type="checkbox" id="menu-toggle" />
+        <label for="menu-toggle" class="menu-icon">☰</label>
+
+        <ul class="menu-opcoes">
+            <li><a href="pagina_inicial.html">Início</a></li>
+            <li><a href="teste.html">Perfil</a></li>
+            <li><a href="gestao_rotas.html">Rotas</a></li>
+            <li><a href="dash_board_geral.html">Dashboard</a></li>
+            <li><a href="relatorioAnalise.html">Relatórios</a></li>
+            <li><a href="central_apoio_condutor.html">Central de Apoio</a></li>
+            <li><a href="pagina_login.html">Sair</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="grid-bolinhas">
+            <div type="radio" name="bolinha" data-id="Colisao">
+                <div class="bolinha_selecao"></div>
+                <p class="texto-bolinha">Colisão</p>
+            </div>
+            <div type="radio" name="bolinha" data-id="exame_preventido">
+                <div class="bolinha_selecao"></div>
+                <p class="texto-bolinha">Exame preventivo</p>
+            </div>
+            <div type="radio" name="bolinha" data-id="obras">
+                <div class="bolinha_selecao"></div>
+                <p class="texto-bolinha">Obras</p>
+            </div>
+            <div type="radio" name="bolinha" data-id="trilho_obstruido">
+                <div class="bolinha_selecao"></div>
+                <p class="texto-bolinha">Trilho
+                    obstruído</p>
+            </div>
+            <div type="radio" name="bolinha" data-id="veiculo_parado">
+                <div class="bolinha_selecao"></div>
+                <p class="texto-bolinha">Veículo
+                    Parado</p>
+            </div>
+            <div type="radio" name="bolinha" data-id="Outros_relatorio">
+                <div class="bolinha_selecao"></div>
+                <p class="texto-bolinha">Outros</p>
+            </div>
+        </section>
+        <!--Aqui a baixo fica o lugar para o cliente explicar seu problema-->
+        <section>
+            <!-- Contêiner do campo de texto -->
+            <div class="input-container">
+                <label for="problem-description" id="mensagem">Descreva seu problema relacionado à: <span
+                        id="selected-option"></span></label>
+                <textarea id="problem-description" placeholder="Digite sua descrição aqui..."></textarea>
+            </div>
+            <div class="texto_topo2 ; pagina_inicial">
+                <a href="">Enviar relatorio</a>
+            </div>
+
+        </section>
+    </main>
+    <footer></footer>
+</body>
+
+<script src="central_apoio_condutor.html"></script>
+<script src="../javascript/teste.js"></script>
+
+</html>
