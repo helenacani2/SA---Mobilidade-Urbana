@@ -12,10 +12,11 @@
 
 body {
     background-color: #285775;
+    justify-content: center;
+    align-items: center;
 }
 
 header {
-
     width: 100%;
     background-color: #285775;
     font-size: 1.6rem;
@@ -40,7 +41,6 @@ header {
     align-items: center;
 }
 
-
 #topo {
     display: flex;
     align-items: center;
@@ -48,23 +48,13 @@ header {
     font-family: 'Times New Roman', Times, serif;
 }
 
-.entrar_pagina2 a {
+
+button {
+    margin-left: 15px;
     cursor: pointer;
     text-decoration: none;
     color: inherit;
-    outline: none;
-    font-family: 'Times New Roman', Times, serif;
-}
-
-.flex_botao {
-    display: flex;
-}
-
-.pagina_inicial a {
-    cursor: pointer;
-    text-decoration: none;
-    color: inherit;
-    width: 50%;
+    max-width: 50%;
     padding: 10px;
     margin: 5px 0 20px 0;
     border: 2px solid white;
@@ -74,6 +64,11 @@ header {
     font-size: 14px;
     font-family: 'Times New Roman', Times, serif;
 }
+
+.botao_envio {
+    padding: 5px;
+}
+
 
 hr {
     color: #FFFFFF;
@@ -204,11 +199,12 @@ a {
     font-family: 'Times New Roman', Times, serif;
 }
 
-nav.menu-hamburguer{
-    margin: 10px; /*☰*/
+nav.menu-hamburguer {
+    margin: 10px;
+    /*☰*/
 }
 
-input{
+input {
     all: unset;
     border: none;
     width: 20px;
@@ -217,7 +213,7 @@ input{
     opacity: 0%;
 }
 
-label.menu-icon{
+label.menu-icon {
     margin: 11px;
     position: absolute;
     top: 66px;
@@ -226,6 +222,23 @@ label.menu-icon{
 }
 
 @media (min-width: 1024px) {
+
+    .tudo {
+        border-radius: 15px;
+        max-width: 80%;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+    }
+
+    nav.menu-hamburguer {
+        border-radius: 15px;
+    }
+
+    label.menu-icon {
+        border-radius: 15px;
+    }
+
 
     .bolinha_selecao {
         background-color: #ccc;
@@ -237,8 +250,6 @@ label.menu-icon{
         cursor: pointer;
     }
 }
-
-@media (max-width: 1023px) {}
 
 @media screen and (max-width: 400px) {
     .grid-bolinhas {

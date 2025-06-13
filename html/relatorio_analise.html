@@ -18,6 +18,9 @@
     <header>
 
         <nav class="menu-hamburguer">
+            <br>
+            <br>
+
             <input type="checkbox" id="menu-toggle" />
             <label for="menu-toggle" class="menu-icon">☰</label>
 
@@ -50,9 +53,6 @@
 
     </header>
 
-<div>
-  <canvas id="myChart"></canvas>
-</div>
 
     <main>
         <section id="relatorio_de_ganho" id="ganhoTotal">
@@ -94,7 +94,37 @@
 
         <section id="saldoGeral" class="bordaStatus">
             <div class="posicaoTitulo">Saldo Anual - Tempo real</div>
-            <div> >>GRAFICO AQUI<< </div>
+            <div> >>GRAFICO AQUI<< 
+                <div>
+                    <canvas id="myChart"></canvas>
+                </div>
+
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+            <script>
+                const ctx = document.getElementById('myChart');
+
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: ['Janeiro', 'Fevereiro', 'Maio', 'Abril', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outrubro', 'Novembro', 'Dezembro', '', ''],
+                        datasets: [{
+                            label: 'Renda',
+                            data: [3,4,3,4,2,6,8,5,4,3,3.5],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            </script>
+
+            </div>
         </section>
 
         <section id="investidores" class="bordaStatus">
@@ -103,33 +133,36 @@
             <div class="pessoas">
 
                 <div>
-                    <img class="imagemForm" src="../midias/pinguim.png">
+                    <img class="imagemForm"
+                        src="https://lh3.googleusercontent.com/a-/ALV-UjV09fEpLmlI_F5tvmU5azVFX0jmP7DwhD0bd5NNx7ffPkzzX_UD=s100-p-k-rw-no">
                 </div>
                 <div class="textoInvestidores">
-                    <p class="grifar">Club Penguin</p>
-                    <p>@ClubPeguin2015 </p>
+                    <p class="grifar">Julia Carolina</p>
+                    <p class="normal">@Divas2025 </p>
                 </div>
 
             </div>
             <div class="pessoas">
 
                 <div>
-                    <img class="imagemForm" src="../midias/pinguim.png">
+                    <img class="imagemForm"
+                        src="https://lh3.googleusercontent.com/a-/ALV-UjWzRmkRnyU7NX4SXCueWKl70i1Rpq9oJyHClfPzqZdfPk2hOe0=s100-p-k-rw-no">
                 </div>
                 <div class="textoInvestidores">
-                    <p class="grifar">Club Penguin</p>
-                    <p>@ClubPeguin2015 </p>
+                    <p class="grifar">Éwerton de Oliveira</p>
+                    <p class="normal">@sorEwerton </p>
                 </div>
 
             </div>
             <div class="pessoas">
 
                 <div>
-                    <img class="imagemForm" src="../midias/pinguim.png">
+                    <img class="imagemForm"
+                        src="https://lh3.googleusercontent.com/a-/ALV-UjX6znK3pSNZFeXRhKh8A1JiyKF_6drkZ-6VfOyQmDVV8VvqfgQ=s100-p-k-rw-no">
                 </div>
                 <div class="textoInvestidores">
-                    <p class="grifar">Club Penguin</p>
-                    <p>@ClubPeguin2015 </p>
+                    <p class="grifar">Djeniffer Caroline</p>
+                    <p class="normal">@jeniffer</p>
                 </div>
 
             </div>

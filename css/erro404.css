@@ -13,14 +13,6 @@ body {
 
 }
 
-#tudo {
-
-    align-content: center;
-    justify-content: center;
-    align-self: center;
-
-}
-
 #preto {
     border-radius: 5%;
     padding: 10px;
@@ -39,25 +31,35 @@ body {
     font-family: 'Times New Roman', Times, serif;
 }
 
-@media (max-width: 1370px) {}
+@media (max-width: 1023px) {
+
 
     #preto {
-    border-radius: 5%;
+    border-radius: 20%;
     padding: 10px;
     background-color: black;
     text-align: center;
     color: white;
     text-decoration: none;
     font-family: 'Times New Roman', Times, serif;
-}
+    height: 11%;
+    width: 100%;
+    align-items: center;
+    }
 
 #preto a {
-    padding: 10px;
+    padding: 5px;
     text-decoration: none;
     color: white;
-    font-size: 20px;
     font-family: 'Times New Roman', Times, serif;
-    font-size: 10px;
+    font-size: 150%;
+    margin-top: 50%;
+    margin-bottom: 50%;
+    align-self: center;
+    vertical-align: middle;
+    align-items: center;
+    text-align: center;
+    
 }
 }
 
