@@ -392,3 +392,20 @@ body {
     }
 
 }
+
+@keyframes barra_cima_aparece {
+
+    from {
+        opacity: 0;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(9%);
+    }
+}
+
+#barra_de_cima {
+    animation: barra_cima_aparece 2s ease-in-out;
+}
