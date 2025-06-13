@@ -12,43 +12,26 @@
 </head>
 
 <body>
-    <header>
-        <p>Perfil do Condutor</p>
+    <div class="tudo">
+    <header>  
+        <p id="perfil">Perfil do Condutor</p>
         <div id="hr">
             <hr>
         </div>
-        <!--
-        
-        <div class="container_burger">
-
-            <input type="checkbox" id="checkbox-menu_burger" onclick="ADM_burger()">
-
-            <label for="checkbox-menu_burger" id="ADM_burger" onclick="ADM_burger()">☰</label>
-
-        </div>
-
-        
-        
-        <div id="menu_burger_aparece">
-            
-            <div id="ADM">
-
-                <p class="botoes_ADM" onclick="todos_os_usuarios()">ㅤTodos os Usuárioㅤ</p>
-
-                <p class="botoes_ADM" onclick="criar_usuario()">ㅤCriar Usuárioㅤ</p>
-
-                <p class="botoes_ADM" onclick="informacoes_do_usuario()">ㅤInformações do Usuárioㅤ</p>
-
-            </div>
-
-        </div>
-
-        -->
-
     </header>
 
+    <nav class="menu-hamburguer"> 
+        <input type="checkbox" id="menu-toggle"/>
+        <label for="menu-toggle" class="menu-icon">☰</label>
+        
+        <ul class="menu-opcoes">
+            <li><a href="pagina_inicial.html">Início</a></li>
+            <li><a href="pagina_cadastro.html">Criar usuário</a></li>
+            <li><a href="todos_usuarios.html">Todos os usuários</a></li>
+            <li><a href="pagina_login.html">Sair</a></li>
+        </ul>
+    </nav>
 
-    
     <br>
     <div class="bolinha_selecao"> 
     </div>
@@ -79,6 +62,10 @@
                 <h5>Email (recuperação e redefinição de senha):</h5>
         </fieldset>
     </div>
+
+    <br>
+    <br>
+    </div>
 </body>
 
 <footer>
@@ -87,9 +74,8 @@
     <br>
     <br>
     <br>
-    </div>
 </footer>
 
-<script src="../javascript/perfil_condutor.js"></script>
+<script src="../javascript/teste.js"></script>
 
 </html>

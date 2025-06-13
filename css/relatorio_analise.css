@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     font-family: 'Times New Roman', Times, serif;
+    
 }
 
 .botoes_topo {
@@ -52,7 +53,9 @@
 #relatorio_de_ganho {
     display: flex;
     justify-content: center;
-    
+    width: 100%;
+
+    align-self: center;
 }
 
 .teste1 {
@@ -62,7 +65,7 @@
 }
 
 .posicaoTitulo {
-font-size: 1.2rem;
+font-size: 1.5rem;
 font-weight: bold;
 }
 
@@ -75,7 +78,90 @@ font-weight: bold;
 }
 .imagemForm {
     border-radius: 100%;
-    
+    width: 5rem;
+    height: 5rem;
+    border-image: 0.1 solid black;
 }
 
 
+.textoInvestidores {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    line-height: 2.2rem;
+    color: #828282;
+}
+
+.grifar {
+    font-weight: bold;
+    color: black
+}
+
+.valor_dinheiro {
+
+    font-size: xx-large;
+
+}
+
+@media (max-width: 1070px) {
+
+    #relatorio_de_ganho {
+
+        width: 100%;
+        justify-content: center;
+        align-self: center;
+
+    }
+
+    #anual {
+
+        width: 10%;
+
+    }
+
+    #mensal {
+
+        width: 10%;
+
+    }
+
+    #semanal {
+
+        width: 10%;
+
+    }
+
+}
+
+
+@media (max-width: 800px) {
+
+    #relatorio_de_ganho {
+
+        width: 100%;
+        justify-content: center;
+        align-self: center;
+        align-content: center;
+        display: block;
+
+    }
+
+    #anual {
+
+        width: 50%;
+        align-self: center;
+
+    }
+
+    #mensal {
+
+        width: 50%;
+
+    }
+
+    #semanal {
+
+        width: 50%;
+
+    }
+
+}

@@ -287,3 +287,21 @@ footer {
     }
 
 }
+
+@media screen and (min-width: 600px) and (max-width: 2000px) {
+
+#perfil{
+
+    font-size: 25px;
+
+}
+
+label.menu-icon{
+    margin: 11px;
+    position: absolute;
+    top: 97px;
+    left: 1.2px;
+    right: 5px;
+}
+
+}
