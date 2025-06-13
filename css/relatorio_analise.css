@@ -102,6 +102,11 @@ font-weight: bold;
 
 }
 
+.menu-icon {
+width: 4rem;
+
+}
+
 @media (max-width: 1070px) {
 
     #relatorio_de_ganho {

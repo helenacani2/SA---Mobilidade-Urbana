@@ -220,9 +220,9 @@ function mapa() {
 
 };
 
-function manutencao() {
+function alarme() {
 
-    window.location.href = "central_de_manutencao.html";
+    window.location.href = "alarme.html";
 
 };
 
