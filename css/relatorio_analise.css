@@ -1,8 +1,7 @@
 * {
-    margin: 0;
-    padding: 0;
+    margin: auto;
+    padding: 0%;
     font-family: 'Times New Roman', Times, serif;
-
 }
 
 .botoes_topo {
@@ -31,8 +30,7 @@
     background-color: #285775;
     border-radius: 10px;
     color: white;
-    padding-top: 2.7%;
-    margin: 0%;
+    padding-top: 3%;
 }
 
 .bordaStatus {
@@ -53,7 +51,6 @@
     display: flex;
     justify-content: center;
     width: 100%;
-
     align-self: center;
 }
 
@@ -61,6 +58,7 @@
     width: 100%;
     justify-content: center;
     display: flex;
+    margin: 1%;
 }
 
 .posicaoTitulo {
@@ -77,6 +75,7 @@
     display: flex;
     max-width: 900px;
     width: 100%;
+    margin: 0;
 }
 
 .imagemForm {
@@ -98,11 +97,11 @@
 .grifar {
     font-weight: bold;
     color: black;
-    margin-left: 1.2%;
+    margin-left: 3%;
 }
 
 .normal {
-    margin-left: 1.2%;
+    margin-left: 3%;
 }
 
 

@@ -12,6 +12,7 @@ header {
     text-align: center;
     background-color: white;
     font-family: 'Times New Roman', Times, serif;
+    animation: header_aparece 2s ease-in-out;
 }
 
 #table1 {
@@ -292,6 +293,47 @@ footer {
         height: 20px;
 
         width: 20px;
+
+    }
+
+}
+
+
+#trens {
+
+    animation: tabela_principal_aparece 2s ease-in-out;
+
+}
+
+@keyframes header_aparece {
+
+    from {
+
+        transform: translateY(-200px);
+
+    }
+
+    to {
+
+        transform: translateY(0);
+
+    }
+
+}
+
+@keyframes tabela_principal_aparece {
+
+    from {
+
+        opacity: 0;
+        transform: translateX(800px);
+
+    }
+
+    to {
+
+        opacity: 1;
+        transform: translateX(0);
 
     }
 
