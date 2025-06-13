@@ -31,7 +31,8 @@
     background-color: #285775;
     border-radius: 10px;
     color: white;
-    margin: 5px,
+    padding-top: 2.7%;
+    margin: 0%;
 }
 
 .bordaStatus {
@@ -74,6 +75,8 @@
 
 .pessoas {
     display: flex;
+    max-width: 900px;
+    width: 100%;
 }
 
 .imagemForm {
@@ -89,16 +92,17 @@
     font-size: 1.5rem;
     line-height: 2.2rem;
     color: #828282;
+    width: 100%;
 }
 
 .grifar {
     font-weight: bold;
     color: black;
-    margin-left: 8%;
+    margin-left: 1.2%;
 }
 
 .normal {
-    margin-left: 8%;
+    margin-left: 1.2%;
 }
 
 
@@ -166,7 +170,8 @@ label.menu-icon {
     position: absolute;
     top: 80px;
     left: 1.2px;
-    right: 5px;
+    right: 3px;
+    width: 1%;
 }
 
 @media (max-width: 1070px) {

@@ -11,6 +11,7 @@ header {
     background-color: #285775;
     font-size: 15px;
     font-family: 'Times New Roman', Times, serif;
+    animation: cabecalho_aparece 2s ease-in-out;
 }
 
 .topo {
@@ -93,6 +94,7 @@ img:active {
 .zooming {
     animation: pulse 1.5s infinite alternate;
     font-family: 'Times New Roman', Times, serif;
+    animation: sino_aparece 2s ease-in-out;
 }
 
 @keyframes pulse {
@@ -139,4 +141,32 @@ img:active {
         align-items: center;
         justify-content: center;
     }
+}
+
+@keyframes cabecalho_aparece {
+
+    from {
+        opacity: 0;
+        transform: translateY(-200px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes sino_aparece {
+
+    from {
+        opacity: 0;
+        transform: translateY(200px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
 }
