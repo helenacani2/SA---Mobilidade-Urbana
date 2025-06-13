@@ -10,16 +10,10 @@
 </head>
 
 <script src="path/to/chartjs/dist/chart.umd.js"></script>
-<script>
-    const myChart = new Chart(ctx, { ...});
-</script>
 
 <body>
     <header>
         <nav class="menu-hamburguer">
-<div class="configura_topo">
-            <p id="titulo">Relatório e Análise</p>
-        </div>
             <input type="checkbox" id="menu-toggle" />
             <label for="menu-toggle" class="menu-icon">☰</label>
 
@@ -32,6 +26,9 @@
                 <li><a href="central_apoio_condutor.html">Central de Apoio</a></li>
                 <li><a href="pagina_login.html">Sair</a></li>
             </ul>
+            <div class="configura_topo">
+            <p id="titulo">Relatório e Análise</p>
+        </div>
         </nav>
         <div class="teste1">
             <div>
@@ -85,19 +82,37 @@
             </div>
         </section>
 
-        <section id="saldoGeral" class="bordaStatus">
+        <section id="saldoGeral" class="graficoEstilo">
             <div class="posicaoTitulo">Saldo Anual - Tempo real</div>
-            <div> 
-                
+            
+        
                 <div>
-                    <canvas id="myChart"></canvas>
-                </div>
+  <canvas id="myChart"></canvas>
+</div>
+<script>
+  const ctx = document.getElementById('myChart');
 
-            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-            <canvas id="graficoAnual"></canvas>
-            </div>
-        </section>
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      datasets: [{
+        label: '# of Votes',
+        data: [12, 19, 3, 5, 2, 3],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>
+            
+        </section><!--Grafico-->
 
         <section id="investidores" class="bordaStatus">
             <p class="posicaoTitulo">Investidores</p>
@@ -143,12 +158,12 @@
 
         <section id="desempenho" class="bordaStatus">
             <div class="posicaoTitulo">Desempenho/eficiência dos trens</div>
-            <div> >>GRAFICO AQUI<< </div>
+            <div> GRAFICO AQUI </div>
         </section>
 
         <section id="ConsumoEnergia" class="bordaStatus">
             <div class="posicaoTitulo">Consumo de energia dos trens</div>
-            <div> >>GRAFICO AQUI<< </div>
+            <div> GRAFICO AQUI </div>
         </section>
 
     </main>
@@ -159,5 +174,6 @@
 
 <script src="../javascript/relatorio_analise.js"></script>
 <script src="../javascript/teste.js"></script>
+
 
 </html>

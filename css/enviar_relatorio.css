@@ -11,9 +11,18 @@ a {
     padding: 0px;
 }
 
+.tudo {
+    display: block;
+    background-color: #ffffff;
+}
+
+body {
+    background-color: #1c4057;
+    justify-content: center;
+    align-items: center;
+}
 
 header {
-
     width: 100%;
     background-color: #285775;
     font-size: 1.6rem;
@@ -38,9 +47,27 @@ header {
     align-items: center;
 }
 
-.flex_botao {
-    align-items: center;
+
+button {
+    margin-left: 15px;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    max-width: 50%;
+    padding: 10px;
+    margin: 5px 0 20px 0;
+    border: 2px solid white;
+    border-radius: 5px;
+    color: rgb(255, 255, 255);
+    background: linear-gradient(to right, #244e68, #43718d);
+    font-size: 14px;
+    font-family: 'Times New Roman', Times, serif;
 }
+
+.botao_envio {
+    padding: 5px;
+}
+
 
 #topo {
     display: flex;
