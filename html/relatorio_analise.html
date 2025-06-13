@@ -9,33 +9,50 @@
     <link rel="stylesheet" href="../css/relatorio_analise.css">
 </head>
 
+<script src="path/to/chartjs/dist/chart.umd.js"></script>
+<script>
+    const myChart = new Chart(ctx, { ...});
+</script>
+
 <body>
     <header>
-        <nav>
-            <div class="btn-expandir">
-                <i class="bi-list"></i>
-            </div>
 
-            <div class="menu-icon">☰</div>
-            <br><br>
+        <nav class="menu-hamburguer">
+            <input type="checkbox" id="menu-toggle" />
+            <label for="menu-toggle" class="menu-icon">☰</label>
 
-            <div class="configura_topo">
-                <p id="titulo">Relatório e Analise</p>
-            </div>
-            <div class="teste1">
-                <div>
-                    <a href="" class="botoes_topo">Anual</a>
-                </div>
-                <div>
-                    <a href="" class="botoes_topo">Mensal</a>
-                </div>
-                <div>
-                    <a href="" class="botoes_topo">Semanal</a>
-                </div>
-            </div>
-
+            <ul class="menu-opcoes">
+                <li><a href="pagina_inicial.html">Início</a></li>
+                <li><a href="teste.html">Perfil</a></li>
+                <li><a href="gestao_rotas.html">Rotas</a></li>
+                <li><a href="dash_board_geral.html">Dashboard</a></li>
+                <li><a href="relatorioAnalise.html">Relatórios</a></li>
+                <li><a href="central_apoio_condutor.html">Central de Apoio</a></li>
+                <li><a href="pagina_login.html">Sair</a></li>
+            </ul>
         </nav>
+
+        <div class="configura_topo">
+            <p id="titulo">Relatório e Análise</p>
+        </div>
+        <div class="teste1">
+            <div>
+                <a href="" class="botoes_topo">Anual</a>
+            </div>
+            <div>
+                <a href="" class="botoes_topo">Mensal</a>
+            </div>
+            <div>
+                <a href="" class="botoes_topo">Semanal</a>
+            </div>
+        </div>
+
+
     </header>
+
+<div>
+  <canvas id="myChart"></canvas>
+</div>
 
     <main>
         <section id="relatorio_de_ganho" id="ganhoTotal">
@@ -77,56 +94,56 @@
 
         <section id="saldoGeral" class="bordaStatus">
             <div class="posicaoTitulo">Saldo Anual - Tempo real</div>
-            <div>>>GRAFICO AQUI<<</div>
+            <div> >>GRAFICO AQUI<< </div>
         </section>
 
         <section id="investidores" class="bordaStatus">
             <p class="posicaoTitulo">Investidores</p>
-            
-                    <div class="pessoas">
 
-                        <div>
-                            <img class="imagemForm" src="../midias/pinguim.png" >
-                        </div>
-                        <div class="textoInvestidores">
-                            <p class="grifar">Club Penguin</p>
-                            <p>@ClubPeguin2015 </p>
-                        </div>
-                        
-                    </div>
-                  <div class="pessoas">
+            <div class="pessoas">
 
-                        <div>
-                            <img class="imagemForm" src="../midias/pinguim.png" >
-                        </div>
-                        <div class="textoInvestidores">
-                            <p class="grifar">Club Penguin</p>
-                            <p>@ClubPeguin2015 </p>
-                        </div>
-                        
-                    </div>
-                  <div class="pessoas">
+                <div>
+                    <img class="imagemForm" src="../midias/pinguim.png">
+                </div>
+                <div class="textoInvestidores">
+                    <p class="grifar">Club Penguin</p>
+                    <p>@ClubPeguin2015 </p>
+                </div>
 
-                        <div>
-                            <img class="imagemForm" src="../midias/pinguim.png" >
-                        </div>
-                        <div class="textoInvestidores">
-                            <p class="grifar">Club Penguin</p>
-                            <p>@ClubPeguin2015 </p>
-                        </div>
-                        
-                    </div>
-                
+            </div>
+            <div class="pessoas">
+
+                <div>
+                    <img class="imagemForm" src="../midias/pinguim.png">
+                </div>
+                <div class="textoInvestidores">
+                    <p class="grifar">Club Penguin</p>
+                    <p>@ClubPeguin2015 </p>
+                </div>
+
+            </div>
+            <div class="pessoas">
+
+                <div>
+                    <img class="imagemForm" src="../midias/pinguim.png">
+                </div>
+                <div class="textoInvestidores">
+                    <p class="grifar">Club Penguin</p>
+                    <p>@ClubPeguin2015 </p>
+                </div>
+
+            </div>
+
         </section>
 
         <section id="desempenho" class="bordaStatus">
             <div class="posicaoTitulo">Desempenho/eficiência dos trens</div>
-            <div>>>GRAFICO AQUI<<</div>
+            <div> >>GRAFICO AQUI<< </div>
         </section>
 
         <section id="ConsumoEnergia" class="bordaStatus">
             <div class="posicaoTitulo">Consumo de energia dos trens</div>
-            <div>>>GRAFICO AQUI<<</div>
+            <div> >>GRAFICO AQUI<< </div>
         </section>
 
     </main>
@@ -136,5 +153,6 @@
 </body>
 
 <script src="../javascript/relatorio_analise.js"></script>
+<script src="../javascript/teste.js"></script>
 
 </html>
