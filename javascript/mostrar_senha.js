@@ -6,3 +6,5 @@ function mostrar() {
         senha.type = "password";
     }
 }
+
+//mostra a senha

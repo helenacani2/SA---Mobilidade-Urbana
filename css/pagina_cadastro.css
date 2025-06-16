@@ -30,12 +30,12 @@
     width: 100%;
     max-height: 120px;
     height: 100%;
-    padding: 60px 30px 30px 30px;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0 auto;
     font-family: 'Times New Roman', Times, serif;
+    padding-bottom: 30px;
 }
 
 .entrar {

@@ -15,3 +15,5 @@ function sair() {
     window.location.href = "pagina_login.html";
 
 };
+
+//carregar as páginas

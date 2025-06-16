@@ -27,3 +27,5 @@ function Continuar(event) {
         };
 
 };
+
+//verificar email

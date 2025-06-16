@@ -11,3 +11,5 @@ document.addEventListener('DOMContentLoaded', function teste_hamburguer() {
         }
     });
 });
+
+//quando clicar fora, o menu hambúrguer some
