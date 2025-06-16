@@ -5,12 +5,11 @@ body {
     align-content: center;
     justify-content: center;
     display: flex;
+    align-items: center;
 }
 
 #erro {
-
-    width: 100%
-
+    width: 100%;
 }
 
 #preto {
@@ -33,45 +32,63 @@ body {
     height: 100%;
 }
 
-@media (max-width: 1023px) {
-
-
-    #preto {
-    border-radius: 20%;
-    padding: 10px;
-    background-color: black;
-    text-align: center;
-    color: white;
-    text-decoration: none;
-    font-family: 'Times New Roman', Times, serif;
-    height: 11%;
-    width: 95%;
-    align-items: center;
+   #botoes {
+        align-items: center;
+        text-align: center;
+        margin: auto;
+        align-content: center;
     }
 
-#preto a {
-    padding: 5px;
-    text-decoration: none;
-    color: white;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 150%;
-    margin-top: 50%;
-    margin-bottom: 50%;
-    align-self: center;
-    vertical-align: middle;
-    align-items: center;
-    text-align: center;
-    width: 100%;
-    height: 100%;
-    
-}
+@media (max-width: 500px) {
+
+    #tudo {
+        align-items: center;
+        text-align: center;
+    }
+
+    #preto {
+        border-radius: 20%;
+        padding: 10px;
+        background-color: black;
+        text-align: center;
+        color: white;
+        text-decoration: none;
+        font-family: 'Times New Roman', Times, serif;
+        height: 11%;
+        width: 95%;
+        align-items: center;
+        max-height: 36;
+        align-items: center;
+    }
+
+    #preto a {
+        padding: 5px;
+        text-decoration: none;
+        color: white;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 90%;
+        margin-top: 50%;
+        margin-bottom: 50%;
+        align-self: center;
+        vertical-align: middle;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+    }
+
+    #botoes {
+        align-items: center;
+        text-align: center;
+        margin: auto;
+        align-content: center;
+    }
 }
 
 
 #botoes {
 
     animation: botoes_aparece 2s ease-in-out;
-
 }
 
 @keyframes botoes_aparece {

@@ -94,11 +94,10 @@ footer {
     font-family: 'Times New Roman', Times, serif;
 }
 
-
 .menu-opcoes {
     display: none;
     position: absolute;
-    top: 120px;
+    top: 40px;
     left: 0;
     background: #fff;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
@@ -143,11 +142,10 @@ input {
 label.menu-icon {
     margin: 11px;
     position: absolute;
-    top: 66px;
+    top: 118px;
     left: 1.2px;
     right: 5px;
 }
-
 
 @keyframes aparece {
 

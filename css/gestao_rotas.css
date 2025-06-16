@@ -7,7 +7,15 @@
 }
 
 nav {
-    
+
+    position: absolute;
+
+    left: 1px;
+
+    top: -60px;
+
+    font-size: large;
+
 }
 
 .flexivel {
@@ -300,7 +308,23 @@ label.menu-icon {
     left: 1.2px;
     right: 3px;
     width: 1%;
-    color: white;
+    color: black
+}
+
+@media screen and (min-width: 1670px) {
+
+nav {
+
+    position: absolute;
+
+    left: 200px;
+
+    top: 0;
+
+    font-size: medium;
+
+    }
+
 }
 
 @media screen and (min-width: 1024px) {
