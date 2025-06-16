@@ -6,6 +6,10 @@
 
 }
 
+nav {
+    
+}
+
 .flexivel {
 
     padding-top: 1rem; 
@@ -234,6 +238,69 @@
 
     display: flex;
     font-family: 'Times New Roman', Times, serif;
+}
+
+
+.menu-icon {
+    width: 4rem;
+
+}
+
+.menu-opcoes {
+    display: none;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    min-width: 120px;
+    z-index: 100;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.menu-opcoes li {
+    padding: 8px 20px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.menu-opcoes li a {
+    text-decoration: none;
+    color: black;
+    display: block;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#menu-toggle:checked+.menu-icon+.menu-opcoes {
+    display: block;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+nav.menu-hamburguer {
+    margin: 0px;
+    /*☰*/
+    background-color: #285775;
+}
+
+input {
+    all: unset;
+    border: none;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    opacity: 0%;
+}
+
+label.menu-icon {
+    margin: 11px;
+    position: absolute;
+    top: 60px;
+    left: 1.2px;
+    right: 3px;
+    width: 1%;
+    color: white;
 }
 
 @media screen and (min-width: 1024px) {

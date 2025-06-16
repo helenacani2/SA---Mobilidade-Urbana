@@ -9,8 +9,6 @@
     <link rel="stylesheet" href="../css/relatorio_analise.css">
 </head>
 
-<script src="path/to/chartjs/dist/chart.umd.js"></script>
-
 <body>
     <header>
         <nav class="menu-hamburguer">
@@ -27,8 +25,8 @@
                 <li><a href="pagina_login.html">Sair</a></li>
             </ul>
             <div class="configura_topo">
-            <p id="titulo">Relatório e Análise</p>
-        </div>
+                <p id="titulo">Relatório e Análise</p>
+            </div>
         </nav>
         <div class="teste1">
             <div>
@@ -84,34 +82,33 @@
 
         <section id="saldoGeral" class="graficoEstilo">
             <div class="posicaoTitulo">Saldo Anual - Tempo real</div>
-            
-        
-                <div>
-  <canvas id="myChart"></canvas>
-</div>
-<script>
-  const ctx = document.getElementById('myChart');
 
-  new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-      datasets: [{
-        label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
-        borderWidth: 1
-      }]
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true
-        }
-      }
-    }
-  });
-</script>
-            
+            <div>
+                <canvas id="graficoAnual" ></canvas>
+            </div>
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <script>
+                const ctx = document.getElementById('graficoAnual');
+
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                        datasets: [{
+                            label: '# of Votes',
+                            data: [12, 19, 3, 5, 2, 3],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            </script>
         </section><!--Grafico-->
 
         <section id="investidores" class="bordaStatus">
@@ -120,8 +117,7 @@
             <div class="pessoas">
 
                 <div>
-                    <img class="imagemForm"
-                        src="../midias/juju.webp">
+                    <img class="imagemForm" src="../midias/juju.webp">
                 </div>
                 <div class="textoInvestidores">
                     <p class="grifar">Julia Caroline Pereira</p>
@@ -132,8 +128,7 @@
             <div class="pessoas">
 
                 <div>
-                    <img class="imagemForm"
-                        src="../midias/ewerton.webp">
+                    <img class="imagemForm" src="../midias/ewerton.webp">
                 </div>
                 <div class="textoInvestidores">
                     <p class="grifar">Éwerton de Oliveira Cercal</p>
@@ -144,8 +139,7 @@
             <div class="pessoas">
 
                 <div>
-                    <img class="imagemForm"
-                        src="../midias/jnifer.webp">
+                    <img class="imagemForm" src="../midias/jnifer.webp">
                 </div>
                 <div class="textoInvestidores">
                     <p class="grifar">Djeniffer Caroline Machado</p>
