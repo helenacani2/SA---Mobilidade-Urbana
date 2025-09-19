@@ -1,5 +1,5 @@
 <?php
-require "train_info_bd.php";
+require_once "train_info_bd.php";
 
 session_start();
 
@@ -7,11 +7,7 @@ session_start();
 if (isset($_SESSION["nome_funcionario"])) {
     header("Location: pagina_inicial.php");
     exit;
-}
-
-
-
-
+};
 
 $erro = "";
 

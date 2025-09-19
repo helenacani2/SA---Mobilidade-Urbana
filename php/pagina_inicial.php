@@ -1,3 +1,25 @@
+<?php
+
+require_once "train_info_bd.php";
+
+session_start();
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    
+    echo "Chegou!";
+
+    session_unset();
+
+    session_destroy();
+
+    header("Location: pagina_login.php");
+
+    exit;
+
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt_BR">
 
@@ -33,7 +55,9 @@
 
         <br>
 
-        <button onclick="<?php foo(); ?>">yo</button>
+        <form method="POST">
+            <input type="button" name="BotaoSair" id="BotaoSair" value="Sair">
+        </form>
 
     </section>
 

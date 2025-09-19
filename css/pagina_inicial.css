@@ -18,6 +18,16 @@ body {
 
 }
 
+#BotaoSair {
+
+    background-color: red;
+
+    height: 20%;
+    margin-right: 5px;
+    margin-top: 5px;
+
+}
+
 .barra_alinhar {
 
     margin-top: 10px;
