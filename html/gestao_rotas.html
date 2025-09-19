@@ -9,15 +9,29 @@
     <link rel="stylesheet" href="../css/gestao_rotas.css">
 </head>
 
+<nav class="menu-hamburguer">
+    <input type="checkbox" id="menu-toggle" />
+    <label for="menu-toggle" class="menu-icon">☰</label>
+
+    <ul class="menu-opcoes">
+        <li><a href="pagina_inicial.html">Início</a></li>
+        <li><a href="perfil_condutor.html">Perfil</a></li>
+        <li><a href="dash_board_geral.html">Dashboard</a></li>
+        <li><a href="relatorio_analise.html">Relatórios</a></li>
+        <li><a href="central_apoio_condutor.html">Central de Apoio</a></li>
+        <li><a href="pagina_login.html">Sair</a></li>
+    </ul>
+</nav>
+
 <body id="body" onload="ao_entrar(), tempo_estimado(), em_viagem()">
 
     <br>
-    
+
     <div id="tudo">
 
         <div id="topo">
 
-            <section id="rotas">
+            <section id="rotas"> <!--Essa section define os botões que mudam a rota mostrada-->
 
                 <li>
 
@@ -60,7 +74,7 @@
 
                     <div class="flexivel">
 
-                        <h3 id="rota_atual">Rota atual </h3>
+                        <h3 id="rota_atual">Rota atual </h3> <!--Placa que mostra as informações da rota atual-->
 
                         <div class="flexivel">
 
@@ -83,49 +97,50 @@
         <div id="local_das_imagens">
 
             <img id="imagem_trem" src="../midias/trem1.png">
-            
+
         </div>
 
-        <section id="textos_info">
+        <section id="textos_info"> <!--Essa section mostra as informações adicionais da rota atual-->
 
-        <div id="texto_cinza">
+            <div id="texto_cinza">
 
-            <div class="flexivel">
+                <div class="flexivel">
 
-                <p id="em_viagem"></p>
+                    <p id="em_viagem"></p>
+
+                </div>
+
+                <div class="flexivel">
+
+                    <p id="linha_nome"></p>
+
+                </div>
 
             </div>
 
             <div class="flexivel">
 
-                <p id="linha_nome"></p>
+                <div id="cobranca">
+
+                    <h3>R$</h3>
+
+                    <h3 id="preco_passagem"></h3>
+
+                    <p>│</p>
+
+                    <p>Cobrança atual da passagem</p>
+
+                </div>
 
             </div>
 
-        </div>
-
-         <div class="flexivel">
-          
-            <div id="cobranca">
-
-                <h3>R$</h3>
-
-                <h3 id="preco_passagem"></h3>
-            
-                <p>│</p>
-
-                <p>Cobrança atual da passagem</p>
-          
-            </div>
-
-        </div>
-
-    </section>
+        </section>
 
     </div>
- 
+
 </body>
 
 <script src="../javascript/gestao_rotas.js"></script>
+<script src="../javascript/teste.js"></script>
 
 </html>

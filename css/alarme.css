@@ -66,6 +66,7 @@ button.botao {
     padding: 0;
     cursor: pointer;
     font-family: 'Times New Roman', Times, serif;
+    animation: sino_aparece 2s ease-in-out;
 }
 
 img {
@@ -94,7 +95,7 @@ img:active {
 .zooming {
     animation: pulse 1.5s infinite alternate;
     font-family: 'Times New Roman', Times, serif;
-    animation: sino_aparece 2s ease-in-out;
+    
 }
 
 @keyframes pulse {

@@ -8,6 +8,12 @@
     font-family: 'Times New Roman', Times, serif;
 }
 
+.form-group {
+        align-items: center;
+    align-content: center;
+    text-align: center;
+}
+
 #login {
     background-color: #285775;
     color: white;
@@ -24,12 +30,12 @@
     width: 100%;
     max-height: 120px;
     height: 100%;
-    padding: 60px 30px 30px 30px;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0 auto;
     font-family: 'Times New Roman', Times, serif;
+    padding-bottom: 30px;
 }
 
 .entrar {
@@ -39,7 +45,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 30px;
+    padding: 0px;
     font-family: 'Times New Roman', Times, serif;
 }
 
@@ -101,6 +107,9 @@ input[type="password"] {
     font-size: 18px;
     color: white;
     font-family: 'Times New Roman', Times, serif;
+    align-items: center;
+    align-content: center;
+    text-align: center;
 }
 
 .mostrarsenha:hover {
@@ -123,4 +132,11 @@ input[type="password"] {
 
 #login {
     animation: vem-de-cima 2s ease-in-out;
+}
+
+@media (max-width: 600px) {
+    
+    #logo {
+        max-width: 200px;
+    }
 }

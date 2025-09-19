@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 
+<!--Alarme do sistema-->
+
 <head>
     <meta charset="UTF-8">
     <link rel="shortcut icon" href="../midias/logomenor.png" type="icon"> <!-- Ícone da aba do navegador -->
@@ -22,7 +24,7 @@
                 <br>
                 <br>
 
-<div class="instruções">
+<div class="instruções"> <!--Essa div mostra os textos do alarme-->
 1. MANTENHA A CALMA. Não corra nem provoque pânico.
 <br>
 2. NÃO TOQUE NA PORTA enquanto o trem estiver em movimento. Aguarde parada total.
@@ -47,7 +49,7 @@ INFORME-SE pelos canais oficiais antes de compartilhar informações.
 </div>
             </p>
 
-            <div class="entrar_pagina2">
+            <div class="entrar_pagina2"> <!--Essa div gera o botão que volta pra tela inicial-->
                 <a href="pagina_inicial.html"> Voltar</a>
             </div>
     </section>
@@ -57,20 +59,20 @@ INFORME-SE pelos canais oficiais antes de compartilhar informações.
 
     <br>
     <br>
-    <div class="audio">
+    <div class="audio"> <!--Essa div declara o som e define a aparência do alarme-->
         <button onclick="som()" class="botao">
             <img src="https://img.freepik.com/vetores-gratis/sino-de-notificacao-vermelho_78370-6897.jpg?semt=ais_hybrid&w=740"
                 alt="Tocar som" id="zoomable-image" class="zooming">
         </button>
         <audio id="alarmeAudio" src="../midias/alarme.mp3"></audio>
     </div>
-    <script>
+    <script> 
         function som() {
             var audio = document.getElementById('alarmeAudio');
             audio.currentTime = 0;
             audio.play();
         }
-    </script>
+    </script> <!--Esse script controla o som do site-->
 
 
 

@@ -8,7 +8,7 @@ function barra_paginas() {
     
     imagem_paginas.src = "https://www.turismo.pr.gov.br/sites/default/arquivos_restritos/files/imagem/2024-05/aaa_3615-2.jpg";
     
-    document.getElementById("bola_um").style.opacity = "100%";
+    document.getElementById("bola_um").style.opacity = "100%"; //bolinhas do carrossel
     
     document.getElementById("bola_dois").style.opacity = "50%";
     
@@ -18,7 +18,7 @@ function barra_paginas() {
     
     document.getElementById("bola_cinco").style.opacity = "50%";
     
-    document.getElementById("bola_um").style.color = "white";
+    document.getElementById("bola_um").style.color = "white"; //muda a cor para se adequar com o a foto de fundo
     
     document.getElementById("bola_dois").style.color = "white";
     
@@ -28,7 +28,7 @@ function barra_paginas() {
     
     document.getElementById("bola_cinco").style.color = "white";
     
-    setTimeout(barra_paginas_move_dois, 6000);
+    setTimeout(barra_paginas_move_dois, 6000); //tempo que mudança carrossel
 
 };
 
@@ -66,7 +66,7 @@ function barra_paginas_move_dois() {
 
 };
 
-function barra_paginas_move_tres() {
+function barra_paginas_move_tres() { 
 
     document.getElementById("paginas_texto").innerHTML = "Perfil do Condutor";
 

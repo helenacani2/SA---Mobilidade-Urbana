@@ -19,7 +19,7 @@
                 <a href="monitoramento_manutencao_naoiniciado.html">Não Iniciado</a>
             </div>
             <div id="buton">
-                <a href="monitoramento_manutencao_processo.html">Em processo</a>
+                <a href="monitoramento_manutencao_processo.html">Em processo</a>    <!--Botões que mudam a situação da manutenção-->
             </div>
             <div id="buton">
                 <a href="monitoramento_manutencao_concluido.html">Finalizado</a>
@@ -28,6 +28,21 @@
         <br>
 
     </header>
+
+    <nav class="menu-hamburguer">
+        <input type="checkbox" id="menu-toggle" />
+        <label for="menu-toggle" class="menu-icon">☰</label>
+
+        <ul class="menu-opcoes">
+            <li><a href="pagina_inicial.html">Início</a></li>
+            <li><a href="perfil_condutor.html">Perfil</a></li>
+            <li><a href="gestao_rotas.html">Rotas</a></li>
+            <li><a href="dash_board_geral.html">Dashboard</a></li>
+            <li><a href="relatorio_analise.html">Relatórios</a></li>
+            <li><a href="central_apoio_condutor.html">Central de Apoio</a></li>
+            <li><a href="pagina_login.html">Sair</a></li>
+        </ul>
+    </nav>
 
     <section id="trens">
 
@@ -47,7 +62,7 @@
                 <h2>Status</h2>
             </div>
         </div>
-        <div id="divbody">
+        <div id="divbody">      <!--Essa div mostra os status do trem-->
             <div id="table4">
                 <h3>Sul- Centro</h3>
                 <hr>
@@ -91,7 +106,7 @@
 
             <h4>O trem “Centro Histórico” precisará de manutenção preventiva antes de ser inaugurado</h4>
 
-            <h4>O trem “Norte-Sul” precisa de uma porta de caldeira nova (resolvido)</h4>
+            <h4>O trem “Norte-Sul” precisa de uma porta de caldeira nova (resolvido)</h4>                                   <!--div que mostra os alertas-->
 
             <h4>O trem “Escola SESI Moinho” tem defeito na caldeira, com risco de reação exlosiva (resolvido)</h4>
 
@@ -128,5 +143,7 @@
     </section>
 
 </body>
+
+<script src="../javascript/teste.js"></script>
 
 </html>
