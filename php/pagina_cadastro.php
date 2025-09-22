@@ -1,3 +1,30 @@
+<?php
+
+session_start();
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    
+    if (isset($_POST['BotaoSair'])) {
+
+        $NomeC = $_POST['Nome'];
+        $EmailC = $_POST['Email'];
+        $SenhaC = $_POST['Senha'];
+        $CpfC = $_POST['CPF'];
+        $RgC = $_POST['RG'];
+        $TelefoneC = $_POST['Telefone'];
+        $NasceC = $_POST['Nascimento'];
+        $EnderC = $_POST['Enderco'];
+        $PlanC = $_POST['Plano'];
+        $CartC = $_POST['Carteira'];
+        $GestorC = $_POST['Gestor'];
+        $CargoC = $_POST['Cargo'];
+
+    }
+
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt_BR">
 
@@ -22,7 +49,7 @@
                 <div class="form-group">
                     <label for="nome">Nome completo:*</label>
                     <br>
-                    <input type="text" id="nome" required>
+                    <input type="text" id="nome" name="Nome" required>
                 </div>
 
 
@@ -106,7 +133,7 @@
                 </div>
             </div>
 
-            <button type="submit" class="BotaoContinuar" onclick="Continuar(event)">
+            <button type="submit" class="BotaoContinuar" onclick="Continuar(event)" name="BotaoCadastrar">
                 Continuar
             </div>
         </form>
