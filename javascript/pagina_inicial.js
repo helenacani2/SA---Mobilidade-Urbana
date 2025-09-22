@@ -178,7 +178,7 @@ function clicar() {
 
     if (imagem_paginas_checar.src === "https://www.turismo.pr.gov.br/sites/default/arquivos_restritos/files/imagem/2024-05/aaa_3615-2.jpg") {
         
-        window.location.href = "/SA---MOBILIDADE-URBANA/html/dash_board_geral.html";
+        window.location.href = "dash_board_geral.html";
 
     };
 
