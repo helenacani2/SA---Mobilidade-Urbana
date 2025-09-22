@@ -1,20 +1,22 @@
 <?php
 
+$Teste = 1;
+
 require_once "train_info_bd.php";
 
 session_start();
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
-    echo "Chegou!";
+    if (isset($_POST['BotaoSair'])) {
 
-    session_unset();
+        session_unset();
 
-    session_destroy();
+        session_destroy();
 
-    header("Location: pagina_login.php");
+        header("Location: pagina_login.php");
 
-    exit;
+    }
 
 }
 
@@ -56,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <br>
 
         <form method="POST">
-            <input type="button" name="BotaoSair" id="BotaoSair" value="Sair">
+            <input type="submit" name="BotaoSair" id="BotaoSair" value="Sair">
         </form>
 
     </section>
