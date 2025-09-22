@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['BotaoSair'])) {
 
         $NomeC = $_POST['Nome'];
-        $EmailC = $_POST['Email'];
+        $EmailC = $_POST['usuario'];
         $SenhaC = $_POST['Senha'];
         $CpfC = $_POST['CPF'];
         $RgC = $_POST['RG'];
