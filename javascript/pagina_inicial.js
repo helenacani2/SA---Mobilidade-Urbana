@@ -177,7 +177,7 @@ function clicar() {
     var imagem_paginas_checar = document.getElementById("paginas_imagem");
 
     if (imagem_paginas_checar.src === "https://www.turismo.pr.gov.br/sites/default/arquivos_restritos/files/imagem/2024-05/aaa_3615-2.jpg") {
-
+        
         window.location.href = "dash_board_geral.html";
 
     };
