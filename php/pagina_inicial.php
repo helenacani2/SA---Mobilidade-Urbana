@@ -1,7 +1,5 @@
 <?php
 
-$Teste = 1;
-
 require_once "train_info_bd.php";
 
 session_start();

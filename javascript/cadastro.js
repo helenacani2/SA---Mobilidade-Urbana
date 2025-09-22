@@ -1,9 +1,9 @@
 function ValidarCpf(cpf) {
     cpf = cpf.replace(/[^\d]+/g, ''); // Remove caracteres não numéricos
-    cpf = cpf.replace(/(\d{3})(\d{3})(\d{3})(\d)/, "$1.$2.$3-$4"); // Formata CPF
+    //cpf = cpf.replace(/(\d{3})(\d{3})(\d{3})(\d)/, "$1.$2.$3-$4"); // Formata CPF
 
     if (cpf.length !== 11 || /^(\d)\1+$/.test(cpf)) {
-        return false; 
+        return false;
     }
 
     let soma = 0;
@@ -38,7 +38,7 @@ function ValidarTelefone(telefone) {
     telefone = telefone.replace(/\D/g, ''); // Remove caracteres não numéricos
 
     if (telefone.length !== 11) {
-        return false; 
+        return false;
     }
 
     const regex = /^[1-9]{2}9[0-9]{8}$/; // Formato de telefone brasileiro (11 dígitos, começando com 9)
@@ -52,57 +52,57 @@ function ValidarEmail(email) {
 }
 
 function Continuar(event) {
-    
+
     event.preventDefault();
-    
-        const cpf = document.getElementById('cpf').value;
-    
-        let isValid = true;
-    
-        if (!ValidarCpf(cpf)) {
 
-            alert('Cpf inválido.');
+    const cpf = document.getElementById('cpf').value;
 
-            isValid = false;
+    let isValid = true;
 
-        } else {
+    if (!ValidarCpf(cpf)) {
 
-            window.open("pagina_login.html");
+        alert('Cpf inválido.');
 
-            window.close("pagina_cadastro.html")
+        isValid = false;
 
-        };
-    
-        const telefone = document.getElementById('telefone').value;
-    
-        if (!ValidarTelefone(telefone)) {
+    } else {
 
-            alert('Telefone inválido.');
+        window.open("pagina_login.html");
 
-            isValid = false;
+        window.close("pagina_cadastro.html")
 
-        } else {
+    };
 
-            window.open("pagina_login.html");
+    const telefone = document.getElementById('telefone').value;
 
-            window.close("pagina_cadastro.html")
+    if (!ValidarTelefone(telefone)) {
 
-        };
+        alert('Telefone inválido.');
 
-        const email = document.getElementById('e-mail').value;
-    
-        if (!ValidarEmail(email)) {
+        isValid = false;
 
-            alert('Email inválido.');
+    } else {
 
-            isValid = false;
+        window.open("pagina_login.html");
 
-        } else {
+        window.close("pagina_cadastro.html")
 
-            window.open("pagina_login.html");
+    };
 
-            window.close("pagina_cadastro.html")
+    const email = document.getElementById('e-mail').value;
 
-        };
+    if (!ValidarEmail(email)) {
+
+        alert('Email inválido.');
+
+        isValid = false;
+
+    } else {
+
+        window.open("pagina_login.html");
+
+        window.close("pagina_cadastro.html")
+
+    };
 
 };

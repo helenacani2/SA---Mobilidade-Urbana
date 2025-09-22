@@ -1,25 +1,25 @@
 <?php
 
+require_once "train_info_bd.php";
+
 session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
-    if (isset($_POST['BotaoSair'])) {
+    header("Location: pagina_inicial.php");
 
-        $NomeC = $_POST['Nome'];
-        $EmailC = $_POST['usuario'];
-        $SenhaC = $_POST['Senha'];
-        $CpfC = $_POST['CPF'];
-        $RgC = $_POST['RG'];
-        $TelefoneC = $_POST['Telefone'];
-        $NasceC = $_POST['Nascimento'];
-        $EnderC = $_POST['Enderco'];
-        $PlanC = $_POST['Plano'];
-        $CartC = $_POST['Carteira'];
-        $GestorC = $_POST['Gestor'];
-        $CargoC = $_POST['Cargo'];
-
-    }
+    /* $NomeC = $_POST['Nome'];
+    $EmailC = $_POST['usuario'];
+    $SenhaC = $_POST['Senha'];
+    $CpfC = $_POST['CPF'];
+    $RgC = $_POST['RG'];
+    $TelefoneC = $_POST['Telefone'];
+    $NasceC = $_POST['Nascimento'];
+    $EnderC = $_POST['Enderco'];
+    $PlanC = $_POST['Plano'];
+    $CartC = $_POST['Carteira'];
+    $GestorC = $_POST['Gestor'];
+    $CargoC = $_POST['Cargo']; */
 
 }
 
@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <section id="login">
 
-        <form id="checar">
+        <form id="checar" method="POST">
 
             <img src="../midias/logotraininfo.png" id="logo">
 
@@ -133,8 +133,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
             </div>
 
-            <button type="submit" class="BotaoContinuar" onclick="Continuar(event)" name="BotaoCadastrar">
-                Continuar
+            <input type="submit" class="BotaoContinuar" onclick="Continuar(event)" name="BotaoCadastrar" id="BotaoCadastrar" value="Continuar">
             </div>
         </form>
 
