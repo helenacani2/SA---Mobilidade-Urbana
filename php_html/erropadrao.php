@@ -1,3 +1,22 @@
+<?php
+
+require_once "train_info_bd.php";
+
+session_start();
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    if (isset($_POST['BotaoSair'])) {
+
+        session_unset();
+
+        session_destroy();
+
+        header("Location: pagina_login.php");
+    }
+}
+?>
+
 <meta charset="UTF-8">
 <html lang="pt_BR">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,13 +30,14 @@
     <br>
     <br>
 
+
     <section id="tudo">
 
         <img src="../midias/erro404.png" id="erro">
 
         <h2 id="indisponivel">Página indisponível<h2>
 
-                <section id="botoes">      <!--Essa section define os botões-->
+                <section id="botoes"> <!--Essa section define os botões-->
 
                     <div id="preto" onclick="inicial()">
 
@@ -35,9 +55,9 @@
 
                     <br>
                     <div id="preto" onclick="sair()">
-
-                        <a href="pagina_login.php">Sair</a>
-
+                        <form method="post">
+                           <li><input type="submit" name="BotaoSair" id="BotaoSair" value="Sair">• Sair</li>
+                    </form>
                     </div>
 
                 </section>

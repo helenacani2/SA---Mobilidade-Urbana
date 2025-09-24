@@ -1,3 +1,24 @@
+<?php
+
+require_once "train_info_bd.php";
+
+session_start();
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    
+    if (isset($_POST['BotaoSair'])) {
+
+        session_unset();
+
+        session_destroy();
+
+        header("Location: pagina_login.php");
+
+    }
+
+}
+?> 
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 

@@ -1,3 +1,22 @@
+<?php
+
+require_once "train_info_bd.php";
+
+session_start();
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    if (isset($_POST['BotaoSair'])) {
+
+        session_unset();
+
+        session_destroy();
+
+        header("Location: pagina_login.php");
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt_BR">
 
@@ -14,12 +33,14 @@
     <label for="menu-toggle" class="menu-icon">☰</label>
 
     <ul class="menu-opcoes">
-        <li><a href="pagina_inicial.php">Início</a></li>
-        <li><a href="perfil_condutor.html">Perfil</a></li>
-        <li><a href="dash_board_geral.html">Dashboard</a></li>
-        <li><a href="relatorio_analise.html">Relatórios</a></li>
-        <li><a href="central_apoio_condutor.html">Central de Apoio</a></li>
-        <li><a href="pagina_login.php">Sair</a></li>
+        <form method="post">
+            <li><a href="pagina_inicial.php">Início</a></li>
+            <li><a href="perfil_condutor.php">Perfil</a></li>
+            <li><a href="dash_board_geral.php">Dashboard</a></li>
+            <li><a href="relatorio_analise.php">Relatórios</a></li>
+            <li><a href="central_apoio_condutor.php">Central de Apoio</a></li>
+            <li><input type="submit" name="BotaoSair" id="BotaoSair" value="Sair">• Sair</li>
+        </form>
     </ul>
 </nav>
 
