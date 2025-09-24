@@ -1,4 +1,4 @@
-<!-- <?php
+<?php
 
 require_once "train_info_bd.php";
 
@@ -16,7 +16,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     }
 
-} adicionar isso também -->
+}
+?> 
 
 <!DOCTYPE html>
 <html lang="pt_BR">
@@ -45,10 +46,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         
             <ul class="menu-opcoes">
-            <form method="post"> <!-- Arrumar isso -->
+            <form method="post">
             <li><a href="pagina_cadastro.php">Criar usuário</a></li>
             <li><a href="todos_usuarios.html">Todos os usuários</a></li>
-            <li><a href="pagina_login.php">Sair</a></li>
+            <li><input type="submit" name="BotaoSair" id="BotaoSair" value="Sair">• Sair</li>
             </form>
         </ul>
         
