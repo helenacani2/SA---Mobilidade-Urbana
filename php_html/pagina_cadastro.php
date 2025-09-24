@@ -68,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POSTAR') {
 
 
                 <div class="form-group">
-                    <label for="e-mail">Email*:</label>
+                    <label for="e-mail">EmailAAA*:</label>
                     <br>
                     <input type="email" id="e-mail" name="usuario" required>
                 </div>
