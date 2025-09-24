@@ -67,9 +67,9 @@ function Continuar(event) {
 
     } else {
 
-        window.open("pagina_login.html");
+        /* window.open("pagina_login.html");
 
-        window.close("pagina_cadastro.html")
+        window.close("pagina_cadastro.html") */
 
     };
 
@@ -83,9 +83,9 @@ function Continuar(event) {
 
     } else {
 
-        window.open("pagina_login.html");
+        /* window.open("pagina_login.html");
 
-        window.close("pagina_cadastro.html")
+        window.close("pagina_cadastro.html") */
 
     };
 
@@ -99,9 +99,9 @@ function Continuar(event) {
 
     } else {
 
-        window.open("pagina_login.html");
+        /* window.open("pagina_login.html");
 
-        window.close("pagina_cadastro.html")
+        window.close("pagina_cadastro.html") */
 
     };
 

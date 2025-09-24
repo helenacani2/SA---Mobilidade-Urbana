@@ -1,5 +1,7 @@
 <?php
 
+$VarTeste = false;
+
 require_once "train_info_bd.php";
 
 session_start();
@@ -21,7 +23,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $GestorC = $_POST['Gestor'];
     $CargoC = $_POST['Cargo']; */
 
-}
+};
+
+if ($_SERVER['REQUEST_METHOD'] === 'POSTAR') {
+
+    if($VarTeste === true) {
+
+        header("Location: pagina_inicial.php");
+
+    };
+
+};
 
 ?>
 
@@ -37,7 +49,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Cadastro</title>
 </head>
 
-<body>
+<body> 
+<!-- <body> -->
 
     <section id="login">
 
@@ -51,6 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <br>
                     <input type="text" id="nome" name="Nome" required>
                 </div>
+
 
 
                 <div class="form-group">
@@ -122,6 +136,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <div class="form-group">
                     <label for="cargo">Cargo:*</label>
+
                     <br>
                     <select id="cargo" required>
                         <option value="">Selecione...</option>
@@ -134,12 +149,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
 
             <input type="submit" class="BotaoContinuar" onclick="Continuar(event)" name="BotaoCadastrar" id="BotaoCadastrar" value="Continuar">
+
             </div>
+        </form>
+
+        <form method="POSTAR">
+
+            <input type="submit" value="Teste">
+
         </form>
 
         <script src="../javascript/cadastro.js"></script>
         <script src="../javascript/mostrar_senha.js"></script>
     </section>
+
+    <script>
+
+    function mostrar() {
+
+        <?php
+
+            $VarTeste = true;
+
+        ?>
+
+    }
+
+    </script>
 
 </body>
 
