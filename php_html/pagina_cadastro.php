@@ -1,14 +1,12 @@
 <?php
 
-$VarTeste = false;
-
 require_once "train_info_bd.php";
 
 session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
-    header("Location: pagina_inicial.php");
+    //O CÓDIGO DAQUI VAI CHECAR SE OS PARÂMETROS DO CADASTRO SÃO VÁLIDOS. SE FOREM, ESTE CÓDIGO REALIZARÁ A FUNÇÃO "ParametrosCorretos()"
 
     /* $NomeC = $_POST['Nome'];
     $EmailC = $_POST['usuario'];
@@ -24,6 +22,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $CargoC = $_POST['Cargo']; */
 
 };
+
+function ParametrosCorretos() {
+
+    //O CÓDIGO DAQUI VAI CHECAR SE O USUÁRIO SENDO CADASTRADO JÁ EXISTE NO BANCO DE DADOS. SE EXISTIR, MENSAGEM DE ERRO. SENÃO, O USUÁRIO É ADICIONADO AO BANCO.
+
+}
 
 ?>
 
