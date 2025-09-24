@@ -1,3 +1,24 @@
+<?php
+
+require_once "train_info_bd.php";
+
+session_start();
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    
+    if (isset($_POST['BotaoSair'])) {
+
+        session_unset();
+
+        session_destroy();
+
+        header("Location: pagina_login.php");
+
+    }
+
+}
+?> 
+
 <!DOCTYPE html>
 <html lang="pt_BR">
 
@@ -25,10 +46,12 @@
             <label for="menu-toggle" class="menu-icon">☰</label>
 
             <ul class="menu-opcoes">
-                <li><a href="pagina_inicial.php">Início</a></li>
-                <li><a href="pagina_cadastro.php">Criar usuário</a></li>
-                <li><a href="todos_usuarios.html">Todos os usuários</a></li>
-                <li><a href="pagina_login.php">Sair</a></li>
+                <form method="post">
+                    <li><a href="pagina_inicial.php">Início</a></li>
+                    <li><a href="pagina_cadastro.php">Criar usuário</a></li>
+                    <li><a href="todos_usuarios.html">Todos os usuários</a></li>
+                    <li><input type="submit" name="BotaoSair" id="BotaoSair" value="Sair">• Sair</li>
+                </form>
             </ul>
         </nav>
 

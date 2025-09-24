@@ -1,3 +1,22 @@
+<?php
+
+require_once "train_info_bd.php";
+
+session_start();
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    if (isset($_POST['BotaoSair'])) {
+
+        session_unset();
+
+        session_destroy();
+
+        header("Location: pagina_login.php");
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt_BR">
 
@@ -19,7 +38,8 @@
                 <a href="monitoramento_manutencao_naoiniciado.html">Não Iniciado</a>
             </div>
             <div id="buton">
-                <a href="monitoramento_manutencao_processo.html">Em processo</a> <!--Botões que mudam a situação da manutenção-->
+                <a href="monitoramento_manutencao_processo.html">Em processo</a>
+                <!--Botões que mudam a situação da manutenção-->
             </div>
             <div id="buton">
                 <a href="monitoramento_manutencao_concluido.html">Finalizado</a>
@@ -33,13 +53,15 @@
         <label for="menu-toggle" class="menu-icon">☰</label>
 
         <ul class="menu-opcoes">
-            <li><a href="pagina_inicial.php">Início</a></li>
-            <li><a href="perfil_condutor.html">Perfil</a></li>
-            <li><a href="gestao_rotas.html">Rotas</a></li>
-            <li><a href="dash_board_geral.html">Dashboard</a></li>
-            <li><a href="relatorio_analise.html">Relatórios</a></li>
-            <li><a href="central_apoio_condutor.html">Central de Apoio</a></li>
-            <li><a href="pagina_login.php">Sair</a></li>
+            <form method="post">
+                <li><a href="pagina_inicial.php">Início</a></li>
+                <li><a href="perfil_condutor.html">Perfil</a></li>
+                <li><a href="gestao_rotas.html">Rotas</a></li>
+                <li><a href="dash_board_geral.html">Dashboard</a></li>
+                <li><a href="relatorio_analise.html">Relatórios</a></li>
+                <li><a href="central_apoio_condutor.html">Central de Apoio</a></li>
+                <li><input type="submit" name="BotaoSair" id="BotaoSair" value="Sair">• Sair</li>
+            </form>
         </ul>
     </nav>
 
@@ -61,7 +83,7 @@
                 <h2>Status</h2>
             </div>
         </div>
-        <div id="divbody">      <!--Essa div mostra os status do trem-->
+        <div id="divbody"> <!--Essa div mostra os status do trem-->
             <div id="table4">
                 <h3>Sul- Centro</h3>
                 <hr>
@@ -105,7 +127,8 @@
 
             <h4>O trem “Centro Histórico” precisará de manutenção preventiva antes de ser inaugurado</h4>
 
-            <h4>O trem “Norte-Sul” precisa de uma porta de caldeira nova (resolvido)</h4>                                   <!--div que mostra os alertas-->
+            <h4>O trem “Norte-Sul” precisa de uma porta de caldeira nova (resolvido)</h4>
+            <!--div que mostra os alertas-->
 
             <h4>O trem “Escola SESI Moinho” tem defeito na caldeira, com risco de reação exlosiva (resolvido)</h4>
 

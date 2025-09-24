@@ -1,3 +1,22 @@
+<?php
+
+require_once "train_info_bd.php";
+
+session_start();
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    if (isset($_POST['BotaoSair'])) {
+
+        session_unset();
+
+        session_destroy();
+
+        header("Location: pagina_login.php");
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt_BR">
 
@@ -13,19 +32,21 @@
 <body>
     <header>
         <br>
-        <h1> Manutenção - Em processo </h1>
+        <h1> Manutenção - Não Iniciado </h1>
         <div id="butoesjuntos">
             <div id="buton">
                 <a href="monitoramento_manutencao_naoiniciado.html">Não Iniciado</a>
             </div>
             <div id="buton">
-                <a href="monitoramento_manutencao_processo.html">Em processo</a>    <!--Botões que mudam a situação da manutenção-->
+                <a href="monitoramento_manutencao_processo.html">Em processo</a>
+                <!--Botões que mudam a situação da manutenção-->
             </div>
             <div id="buton">
                 <a href="monitoramento_manutencao_concluido.html">Finalizado</a>
             </div>
         </div>
         <br>
+
     </header>
 
     <nav class="menu-hamburguer">
@@ -33,13 +54,15 @@
         <label for="menu-toggle" class="menu-icon">☰</label>
 
         <ul class="menu-opcoes">
-            <li><a href="pagina_inicial.php">Início</a></li>
-            <li><a href="perfil_condutor.html">Perfil</a></li>
-            <li><a href="gestao_rotas.html">Rotas</a></li>
-            <li><a href="dash_board_geral.html">Dashboard</a></li>
-            <li><a href="relatorio_analise.html">Relatórios</a></li>
-            <li><a href="central_apoio_condutor.html">Central de Apoio</a></li>
-            <li><a href="pagina_login.php">Sair</a></li>
+            <form method="post">
+                <li><a href="pagina_inicial.php">Início</a></li>
+                <li><a href="perfil_condutor.html">Perfil</a></li>
+                <li><a href="gestao_rotas.html">Rotas</a></li>
+                <li><a href="dash_board_geral.html">Dashboard</a></li>
+                <li><a href="relatorio_analise.html">Relatórios</a></li>
+                <li><a href="central_apoio_condutor.html">Central de Apoio</a></li>
+                <li><input type="submit" name="BotaoSair" id="BotaoSair" value="Sair">• Sair</li>
+            </form>
         </ul>
     </nav>
 
@@ -61,7 +84,7 @@
                 <h2>Status</h2>
             </div>
         </div>
-        <div id="divbody">      <!--Essa div mostra os status do trem-->
+        <div id="divbody"> <!--Essa div mostra os status do trem-->
             <div id="table4">
                 <h3>Sul- Centro</h3>
                 <hr>
@@ -74,15 +97,15 @@
                 <h3>Escola SESI</h3>
             </div>
             <div id="table5">
-                <h3>Trocando as rodas</h3>
+                <h3>Marcado para 15/05/25 a troca do motor</h3>
                 <hr>
-                <h3>Retirando roedor do motor</h3>
+                <h3>Marcado para 19/06/25 troca das rodas</h3>
                 <hr>
-                <h3>Restaurando a Pintura</h3>
+                <h3>Marcado para 14/06/25 revisão do trem</h3>
                 <hr>
-                <h3>Arrumando a lataria</h3>
+                <h3>Marcado para 20/10/25 troca dos bancos</h3>
                 <hr>
-                <h3>Troca do sistema elétrico em andamento</h3>
+                <h3>Marcado para 20/12/25 aposentadoria do trem</h3>
             </div>
         </div>
 
@@ -105,7 +128,8 @@
 
             <h4>O trem “Centro Histórico” precisará de manutenção preventiva antes de ser inaugurado</h4>
 
-            <h4>O trem “Norte-Sul” precisa de uma porta de caldeira nova (resolvido)</h4>                                   <!--div que mostra os alertas-->
+            <h4>O trem “Norte-Sul” precisa de uma porta de caldeira nova (resolvido)</h4>
+            <!--div que mostra os alertas-->
 
             <h4>O trem “Escola SESI Moinho” tem defeito na caldeira, com risco de reação exlosiva (resolvido)</h4>
 
@@ -122,7 +146,6 @@
                 <h3>Reportar problemas</h3>
             </div>
         </div>
-
         <div id="white_centro">
 
             <div class="white">
