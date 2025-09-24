@@ -25,16 +25,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 };
 
-if ($_SERVER['REQUEST_METHOD'] === 'POSTAR') {
-
-    if($VarTeste === true) {
-
-        header("Location: pagina_inicial.php");
-
-    };
-
-};
-
 ?>
 
 <!DOCTYPE html>
@@ -153,29 +143,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POSTAR') {
             </div>
         </form>
 
-        <form method="POSTAR">
-
-            <input type="submit" value="Teste">
-
-        </form>
-
         <script src="../javascript/cadastro.js"></script>
         <script src="../javascript/mostrar_senha.js"></script>
     </section>
-
-    <script>
-
-    function mostrar() {
-
-        <?php
-
-            $VarTeste = true;
-
-        ?>
-
-    }
-
-    </script>
 
 </body>
 
