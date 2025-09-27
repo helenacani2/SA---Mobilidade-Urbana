@@ -57,6 +57,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <p id="texto_pesquisa">Pesquisar</p>
 
+                <a href='pagina_login.php'>Cadastro</a>
+
             </div>
 
         </div>

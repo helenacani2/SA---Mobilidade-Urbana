@@ -178,31 +178,31 @@ function clicar() {
 
     if (imagem_paginas_checar.src === "https://www.turismo.pr.gov.br/sites/default/arquivos_restritos/files/imagem/2024-05/aaa_3615-2.jpg") {
         
-        window.location.href = "dash_board_geral.html";
+        window.location.href = "dash_board_geral.php";
 
     };
 
     if (imagem_paginas_checar.src == "https://www.metrocptm.com.br/wp-content/uploads/2020/11/mapa-2030-pitu-960x640.jpg") {
 
-        window.location.href = "gestao_rotas.html";
+        window.location.href = "gestao_rotas.php";
 
     };
 
     if (imagem_paginas_checar.src == "https://m.media-amazon.com/images/I/51yaZ1tgGUL._AC_.jpg") {
 
-        window.location.href = "perfil_condutor.html";
+        window.location.href = "perfil_condutor.php";
 
     };
 
     if (imagem_paginas_checar.src == "https://sarar.com.br/wp-content/uploads/2021/01/remedio-para-ansiedade.jpg") {
 
-        window.location.href = "central_apoio_condutor.html";
+        window.location.href = "central_apoio_condutor.php";
 
     };
 
     if (imagem_paginas_checar.src == "https://i0.wp.com/wsantacruz.com.br/wp-content/uploads/2023/02/png_20230225_145817_0000553411594307716045.png?fit=1000%2C600&ssl=1") {
 
-        window.location.href = "alarme.html";
+        window.location.href = "alarme.php";
 
     };
 
@@ -210,48 +210,48 @@ function clicar() {
 
 function dashboard() {
 
-    window.location.href = "dash_board_geral.html";
+    window.location.href = "dash_board_geral.php";
 
 };
 
 function mapa() {
 
-    window.location.href = "gestao_rotas.html";
+    window.location.href = "gestao_rotas.php";
 
 };
 
 function alarme() {
 
-    window.location.href = "alarme.html";
+    window.location.href = "alarme.php";
 
 };
 
 function central() {
 
-    window.location.href = "central_apoio_condutor.html";
+    window.location.href = "central_apoio_condutor.php";
 
 };
 
 function manutencao() {
 
-    window.location.href = "monitoramento_manutencao_naoiniciado.html";
+    window.location.href = "monitoramento_manutencao_naoiniciado.php";
 
 };
 
 function relatorios() {
 
-    window.location.href = "relatorio_analise.html"
+    window.location.href = "relatorio_analise.php"
 
 };
 
 function perfil() {
 
-    window.location.href = "perfil_condutor.html"
+    window.location.href = "perfil_condutor.php"
     
 };
 
 function login() {
 
-    window.location.href = "pagina_login.html"
+    window.location.href = "pagina_login.php"
 
 };
