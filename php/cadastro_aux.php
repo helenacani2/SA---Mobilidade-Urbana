@@ -45,7 +45,7 @@ if ($resultado && $resultado->num_rows >= 1) {
 
 
 
-
+/* 
     if (!empty($dados)) {
 
         foreach ($dados as $linha) {
@@ -59,7 +59,7 @@ if ($resultado && $resultado->num_rows >= 1) {
         }
         
     }
-
+ */
 
 
 
@@ -68,9 +68,10 @@ if ($resultado && $resultado->num_rows >= 1) {
 
     if($Invalido === false) {
 
-        $stmt = $conn->prepare("INSERT INTO funcionario (nome_funcionario, email_funcionario, senha_funcionario, cpf_funcionario, rg_funcionario, telefone_funcionario, dt_nasc_funcionario, endereco_funcionario, plan_saude_funcionario, cart_plan_saude_funcionario, gestor_funcionario, cargo_funcionario) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt = $conn->prepare("INSERT INTO funcionario (nome_funcionario, email_funcionario, senha_funcionario, cpf_funcionario, rg_funcionario, telefone_funcionario, dt_nasc_funcionario, endereco_funcionario, plan_saude_funcionario, cart_plan_saude_funcionario, gestor_funcionario, cargo_funcionario) 
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
-        $stmt->bind_param("ssssssdsssss", $NomeC, $EmailC, $SenhaC); //INCOMPLETO
+        $stmt->bind_param("ssssssssssss", $NomeC, $EmailC, $SenhaC, $CpfC, $RgC, $TelefoneC, $NasceC, $PlanC, $CartC, $GestorC, $CargoC);
 
     }
 
@@ -81,7 +82,7 @@ if ($resultado && $resultado->num_rows >= 1) {
 
 if($stmt->execute()) {
 
-        header(("Location: pagina_cadastro.php"));
+        header(("Location: pagina_cadastrosdyufguysafvcsiufgauysdyuagfiug.php"));
         exit;
 
     } else {

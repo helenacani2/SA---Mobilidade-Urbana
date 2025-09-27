@@ -45,7 +45,7 @@ session_start();
 
 
                 <div class="form-group">
-                    <label for="e-mail">EmailAAA*:</label>
+                    <label for="e-mail">Email*:</label>
                     <br>
                     <input type="email" id="e-mail" name="usuario" required>
                 </div>
