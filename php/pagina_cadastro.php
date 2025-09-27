@@ -4,31 +4,6 @@ require_once "train_info_bd.php";
 
 session_start();
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    
-    //O CÓDIGO DAQUI VAI CHECAR SE OS PARÂMETROS DO CADASTRO SÃO VÁLIDOS. SE FOREM, ESTE CÓDIGO REALIZARÁ A FUNÇÃO "ParametrosCorretos()"
-
-    /* $NomeC = $_POST['Nome'];
-    $EmailC = $_POST['usuario'];
-    $SenhaC = $_POST['Senha'];
-    $CpfC = $_POST['CPF'];
-    $RgC = $_POST['RG'];
-    $TelefoneC = $_POST['Telefone'];
-    $NasceC = $_POST['Nascimento'];
-    $EnderC = $_POST['Enderco'];
-    $PlanC = $_POST['Plano'];
-    $CartC = $_POST['Carteira'];
-    $GestorC = $_POST['Gestor'];
-    $CargoC = $_POST['Cargo']; */
-
-};
-
-function ParametrosCorretos() {
-
-    //O CÓDIGO DAQUI VAI CHECAR SE O USUÁRIO SENDO CADASTRADO JÁ EXISTE NO BANCO DE DADOS. SE EXISTIR, MENSAGEM DE ERRO. SENÃO, O USUÁRIO É ADICIONADO AO BANCO.
-
-}
-
 ?>
 
 <!DOCTYPE html>
@@ -48,7 +23,7 @@ function ParametrosCorretos() {
 
     <section id="login">
 
-        <form id="checar" method="POST">
+        <form action="cadastro_aux.php" id="checar" method="POST">
 
             <img src="../midias/logotraininfo.png" id="logo">
 
@@ -83,56 +58,56 @@ function ParametrosCorretos() {
                 <div class="form-group">
                     <label for="cpf">CPF:*</label>
                     <br>
-                    <input type="text" id="cpf" required>
+                    <input type="text" id="cpf" name="CPF" required>
                 </div>
 
                 <div class="form-group">
                     <label for="rg">RG:*</label>
                     <br>
-                    <input type="text" id="rg" required>
+                    <input type="text" id="rg" name="RG" required>
                 </div>
 
                 <div class="form-group">
                     <label for="telefone">Telefone:*</label>
                     <br>
-                    <input type="tel" id="telefone" required>
+                    <input type="tel" id="telefone" name="Telefone" required>
                 </div>
 
                 <div class="form-group">
                     <label for="data">Data de Nascimento:*</label>
                     <br>
-                    <input type="date" id="data" required>
+                    <input type="date" id="data" name="Nascimento" required>
                 </div>
 
                 <div class="form-group">
                     <label for="endereco">Endereço:*</label>
                     <br>
-                    <input type="text" id="endereco" required>
+                    <input type="text" id="endereco" name="Endereco" required>
                 </div>
 
                 <div class="form-group">
                     <label for="plano_saude">Plano de saúde:*</label>
                     <br>
-                    <input type="text" id="plano_saude" required>
+                    <input type="text" id="plano_saude" name="Plano" required>
                 </div>
 
                 <div class="form-group">
                     <label for="num_plano_saude">Número da Carteira de Plano de Saúde:*</label>
                     <br>
-                    <input type="text" id="num_plano_saude" required>
+                    <input type="text" id="num_plano_saude" name="Carteira" required>
                 </div>
 
                 <div class="form-group">
                     <label for="gestor">Gestor:*</label>
                     <br>
-                    <input type="text" id="gestor" required>
+                    <input type="text" id="gestor" name="Gestor" required>
                 </div>
 
                 <div class="form-group">
                     <label for="cargo">Cargo:*</label>
 
                     <br>
-                    <select id="cargo" required>
+                    <select id="cargo" name="Cargo" required>
                         <option value="">Selecione...</option>
                         <option value="Gerente">Gerente</option>
                         <option value="Equipe_Manutencao">Equipe de Manutenção</option>
