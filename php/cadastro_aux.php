@@ -36,11 +36,6 @@ if ($resultado && $resultado->num_rows >= 1) {
 
     //O CÓDIGO DAQUI VAI CHECAR SE OS PARÂMETROS DO CADASTRO SÃO VÁLIDOS. SE FOREM INVÁLIDOS, a variável "$Invalido" ficará "true"
 
-    verificaTelefone($TelefoneC);
-
-    verificaEmail($EmailC);
-
-
 
     if (!empty($dados)) {
 
@@ -56,7 +51,8 @@ if ($resultado && $resultado->num_rows >= 1) {
         
     }
 
-    function verificaTelefone($TelefoneC) {
+    //verificação de telefone:
+
     $TelefoneC = preg_replace('/[^0-9]/', '', $TelefoneC);
 
     if (preg_match('/^(?:[14689]\d|2[12478]|31|51|3[7-8])(?:9\d{8}|[1-5]\d{4}\d{4})$/', $TelefoneC)) { 
@@ -70,13 +66,19 @@ if ($resultado && $resultado->num_rows >= 1) {
         return false;
 
     }
-}
 
-function validarSenha($SenhaC){
-   
-}
+    //verificação de senha:
 
-function verificaEmail($EmailC) {
+    if (preg_match('/^.{8,}$/', $SenhaC)) {
+        return true; 
+    } else {
+        $Invalido = true;
+        return false;
+    }
+
+//verificação de email:
+
+
     if (filter_var($EmailC, FILTER_VALIDATE_EMAIL)) {
 
         return true;
@@ -88,7 +90,7 @@ function verificaEmail($EmailC) {
         return false;
 
     }
-}
+
  
     //O CÓDIGO DAQUI VAI CHECAR SE O USUÁRIO SENDO CADASTRADO JÁ EXISTE NO BANCO DE DADOS. SE EXISTIR, MENSAGEM DE ERRO. SENÃO, O USUÁRIO É ADICIONADO AO BANCO.
 
