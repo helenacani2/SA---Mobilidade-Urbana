@@ -37,7 +37,7 @@ session_start();
 
             <div class="entrar">
                 <div class="form-group">
-                    <label for="nome">Nome completoAAA:*</label>
+                    <label for="nome">Nome completo:*</label>
                     <br>
                     <input type="text" id="nome" name="Nome" required>
                 </div>

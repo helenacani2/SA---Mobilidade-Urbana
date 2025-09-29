@@ -41,7 +41,7 @@ if ($resultado && $resultado->num_rows >= 1) {
 
         foreach ($dados as $linha) {
 
-            if ($linha['email'] == $EmailC) {
+            if ($linha['email_funcionario'] == $EmailC) {
 
                 $Invalido = true;
 
@@ -55,11 +55,7 @@ if ($resultado && $resultado->num_rows >= 1) {
 
     $TelefoneC = preg_replace('/[^0-9]/', '', $TelefoneC);
 
-    if (preg_match('/^(?:[14689]\d|2[12478]|31|51|3[7-8])(?:9\d{8}|[1-5]\d{4}\d{4})$/', $TelefoneC)) { 
-
-        return true;
-
-    } else {
+    if (!preg_match('/^(?:[14689]\d|2[12478]|31|51|3[7-8])(?:9\d{8}|[1-5]\d{4}\d{4})$/', $TelefoneC)) { 
 
         $Invalido = true;
 
@@ -69,9 +65,7 @@ if ($resultado && $resultado->num_rows >= 1) {
 
     //verificação de senha:
 
-    if (preg_match('/^.{8,}$/', $SenhaC)) {
-        return true; 
-    } else {
+    if (!preg_match('/^.{8,}$/', $SenhaC)) {
         $Invalido = true;
         return false;
     }
@@ -79,11 +73,7 @@ if ($resultado && $resultado->num_rows >= 1) {
 //verificação de email:
 
 
-    if (filter_var($EmailC, FILTER_VALIDATE_EMAIL)) {
-
-        return true;
-
-    } else {
+    if (!filter_var($EmailC, FILTER_VALIDATE_EMAIL)) {
 
         $Invalido = true;
 
@@ -107,23 +97,23 @@ if ($resultado && $resultado->num_rows >= 1) {
 
     }
 
-
-
-
-
+if (!$Invalido) {
 
 if($stmt->execute()) {
 
-        header("Location: pagina_cadastros.php");
+        header("Location: pagina_cadastro.php");
         exit;
 
-    } else {
-
-        echo "Erro ao inserir: " . $stmt->error;
-
-    };
+    } 
 
 $stmt->close();
+
+} else {
+
+        echo "Erro ao inserir: ";
+
+};
+
 $conn->close();
 
 ?>
