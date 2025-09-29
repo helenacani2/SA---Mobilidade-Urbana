@@ -65,15 +65,12 @@ if ($resultado && $resultado->num_rows >= 1) {
 
         $Invalido = true;
 
-        return false;
-
     }
 
-    //verificação de senha:
 
     if (!preg_match('/^.{8,}$/', $SenhaC)) {
         $Invalido = true;
-        return false;
+    
     }
 
 //verificação de email:
@@ -82,8 +79,6 @@ if ($resultado && $resultado->num_rows >= 1) {
     if (!filter_var($EmailC, FILTER_VALIDATE_EMAIL)) {
 
         $Invalido = true;
-
-        return false;
 
     }
 
@@ -95,7 +90,7 @@ if ($resultado && $resultado->num_rows >= 1) {
     // 2. verifica se tem 11 dígitos
     if (strlen($CpfC) != 11) {
         $Invalido = true;
-        return false;
+        echo "CPF inválido.";
     }
 
     // 3. faz o cálculo para validar os dígitos verificadores
@@ -103,7 +98,7 @@ if ($resultado && $resultado->num_rows >= 1) {
         $soma = 0;
         $multiplicador = $t + 1; // Começa em 10 (para o 1º dígito) e em 11 (para o 2º)
         
-        // Loop para somar os produtos dos 9 ou 10 primeiros dígitos
+        // loop para somar os produtos dos 9 ou 10 primeiros dígitos
         for ($i = 0; $i < $t; $i++) {
             $soma += (int)$CpfC[$i] * ($multiplicador - $i);
         }
@@ -116,7 +111,7 @@ if ($resultado && $resultado->num_rows >= 1) {
         // O dígito verificador a ser comparado está na posição $t (9 ou 10)
         if ((int)$CpfC[$t] != $digito_calculado) {
             $Invalido = true;
-            return false;
+
         }
     }
 
@@ -129,7 +124,7 @@ if ($resultado && $resultado->num_rows >= 1) {
         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
         if (empty($stmt)) {
-            echo "<div>Erro ao gerar statement</div>";
+            echo "Erro ao gerar statement";
         }
 
         $stmt->bind_param("ssssssssssss", $NomeC, $EmailC, $SenhaC, $CpfC, $RgC, $TelefoneC, $NasceC, $EnderC, $PlanC, $CartC, $GestorC, $CargoC);
@@ -149,7 +144,7 @@ $stmt->close();
 
 } else {
 
-        echo "Erro ao inserir: ";
+        echo "Erro ao cadastrar ";
 
 };
 
