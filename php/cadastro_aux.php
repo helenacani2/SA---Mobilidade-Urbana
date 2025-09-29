@@ -89,29 +89,39 @@ if ($resultado && $resultado->num_rows >= 1) {
 
     //verificação de cpf:
 
-    // extrai somente os números
-    $CpfC = preg_replace( '/[^0-9]/is', '', $CpfC );
-     
-    // Verifica se foi informado todos os digitos corretamente
+    // 1. extrai somente os números
+    $CpfC = preg_replace('/[^0-9]/is', '', $CpfC);
+    
+    // 2. verifica se tem 11 dígitos
     if (strlen($CpfC) != 11) {
+        $Invalido = true;
         return false;
     }
 
-    // Verifica se foi informada uma sequência de digitos repetidos. Ex: 111.111.111-11
-    if (preg_match('/(\d)\1{10}/', $CpfC)) {
-        return false;
-    }
-
-    // Faz o calculo para validar o CPF
+    // 3. faz o cálculo para validar os dígitos verificadores
     for ($t = 9; $t < 11; $t++) {
-        for ($d = 0, $c = 0; $c < $t; $c++) {
-            $d += $cpf[$c] * (($t + 1) - $c);
+        $soma = 0;
+        $multiplicador = $t + 1; // Começa em 10 (para o 1º dígito) e em 11 (para o 2º)
+        
+        // Loop para somar os produtos dos 9 ou 10 primeiros dígitos
+        for ($i = 0; $i < $t; $i++) {
+            $soma += (int)$CpfC[$i] * ($multiplicador - $i);
         }
-        $d = ((10 * $d) % 11) % 10;
-        if ($CpfC[$c] != $d) {
+        
+        // 4. calcula o dígito verificador ($d)
+        $resto = $soma % 11;
+        $digito_calculado = ($resto < 2) ? 0 : 11 - $resto;
+        
+        // 5. compara o dígito calculado com o dígito do CPF informado
+        // O dígito verificador a ser comparado está na posição $t (9 ou 10)
+        if ((int)$CpfC[$t] != $digito_calculado) {
+            $Invalido = true;
             return false;
         }
     }
+    
+    // 7. Se tudo deu certo, o CPF é válido
+    return true;
  
     //O CÓDIGO DAQUI VAI CHECAR SE O USUÁRIO SENDO CADASTRADO JÁ EXISTE NO BANCO DE DADOS. SE EXISTIR, MENSAGEM DE ERRO. SENÃO, O USUÁRIO É ADICIONADO AO BANCO.
 
