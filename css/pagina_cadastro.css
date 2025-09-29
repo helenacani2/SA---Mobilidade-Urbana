@@ -140,3 +140,13 @@ input[type="password"] {
         max-width: 200px;
     }
 }
+
+.Erro {
+
+    width: 1000px;
+
+    height: 1000px;
+
+    background-color: red;
+
+}

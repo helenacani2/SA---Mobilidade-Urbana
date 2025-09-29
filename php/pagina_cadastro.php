@@ -25,6 +25,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     }
 
+
+
+
+
+    if (!empty($dados)) {
+
+        foreach ($dados as $linha) {
+
+            if ($linha['email_funcionario'] == $EmailC) {
+
+                DadosDuplicado();
+
+            }
+
+            if ($linha['cpf_funcionario'] == $CpfC) {
+
+                DadosDuplicado();
+
+            }
+
+        }
+        
+    }
+
+
+
 }
 
 ?>
@@ -43,6 +69,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <body> 
 <!-- <body> -->
+
+<?php
+
+function DadosDuplicado() {
+
+    echo "<div class='Erro'>Deu ruim fi, já existe esse E-Mail ou CPF</div>";
+
+}
+
+?>
+
+
 
     <section id="login">
 
