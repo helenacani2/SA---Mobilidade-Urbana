@@ -120,7 +120,7 @@ if ($resultado && $resultado->num_rows >= 1) {
         }
     }
     
-    // 7. Se tudo deu certo, o CPF é válido
+    // 6. se tudo deu certo, o CPF é válido
     return true;
  
     //O CÓDIGO DAQUI VAI CHECAR SE O USUÁRIO SENDO CADASTRADO JÁ EXISTE NO BANCO DE DADOS. SE EXISTIR, MENSAGEM DE ERRO. SENÃO, O USUÁRIO É ADICIONADO AO BANCO.
