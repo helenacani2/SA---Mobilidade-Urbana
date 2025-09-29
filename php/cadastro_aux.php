@@ -87,6 +87,31 @@ if ($resultado && $resultado->num_rows >= 1) {
 
     }
 
+    //verificação de cpf:
+
+    // extrai somente os números
+    $CpfC = preg_replace( '/[^0-9]/is', '', $CpfC );
+     
+    // Verifica se foi informado todos os digitos corretamente
+    if (strlen($CpfC) != 11) {
+        return false;
+    }
+
+    // Verifica se foi informada uma sequência de digitos repetidos. Ex: 111.111.111-11
+    if (preg_match('/(\d)\1{10}/', $CpfC)) {
+        return false;
+    }
+
+    // Faz o calculo para validar o CPF
+    for ($t = 9; $t < 11; $t++) {
+        for ($d = 0, $c = 0; $c < $t; $c++) {
+            $d += $cpf[$c] * (($t + 1) - $c);
+        }
+        $d = ((10 * $d) % 11) % 10;
+        if ($CpfC[$c] != $d) {
+            return false;
+        }
+    }
  
     //O CÓDIGO DAQUI VAI CHECAR SE O USUÁRIO SENDO CADASTRADO JÁ EXISTE NO BANCO DE DADOS. SE EXISTIR, MENSAGEM DE ERRO. SENÃO, O USUÁRIO É ADICIONADO AO BANCO.
 
