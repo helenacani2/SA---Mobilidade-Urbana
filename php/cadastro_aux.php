@@ -17,10 +17,6 @@ if ($resultado && $resultado->num_rows >= 1) {
 
 }
 
-
-    
-
-
     $NomeC = trim($_POST['Nome'] ?? '');
     $EmailC = trim($_POST['usuario'] ?? '');
     $SenhaC = trim($_POST['senha_usuario'] ?? '');
@@ -34,16 +30,7 @@ if ($resultado && $resultado->num_rows >= 1) {
     $GestorC = trim($_POST['Gestor'] ?? '');
     $CargoC = trim($_POST['Cargo'] ?? '');
 
-
-
-
-
-
     //O CÓDIGO DAQUI VAI CHECAR SE OS PARÂMETROS DO CADASTRO SÃO VÁLIDOS. SE FOREM INVÁLIDOS, a variável "$Invalido" ficará "true"
-
-
-
-
 
 /* 
     if (!empty($dados)) {
@@ -60,6 +47,24 @@ if ($resultado && $resultado->num_rows >= 1) {
         
     }
  */
+
+    function verificaTelefone($TelefoneC) {
+    $TelefoneC = preg_replace('/[^0-9]/', '', $TelefoneC);
+
+    if (preg_match('/^(?:[14689]\d|2[12478]|31|51|3[7-8])(?:9\d{8}|[1-5]\d{4}\d{4})$/', $TelefoneC)) {
+        return true; 
+    } else {
+        return false; 
+    }
+}
+
+function verificaEmail($email) {
+    if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        return true; 
+    } else {
+        return false; 
+    }
+}
 
 
 
