@@ -1,55 +1,142 @@
 <?php
 
+
 require_once "train_info_bd.php";
+
 
 session_start();
 
+
 /* if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != true) {
+
 
     header("Location: pagina_login.php");
 
+
     exit;
-    
+   
 } */
 
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+
 
 
     $sql = "SELECT * FROM funcionario";
     $resultado = $conn->query($sql);
 
 
+
+
     if ($resultado && $resultado->num_rows >= 1) {
 
+
         $dados = $resultado->fetch_all(MYSQLI_ASSOC);
+
 
     }
 
 
-
+    $EmailC = trim($_POST['usuario'] ?? '');
+    $SenhaC = trim($_POST['senha_usuario'] ?? '');
+    $CpfC = trim($_POST['CPF'] ?? '');
+    $TelefoneC = trim($_POST['Telefone'] ?? '');
 
 
     if (!empty($dados)) {
 
+
         foreach ($dados as $linha) {
+
 
             if ($linha['email_funcionario'] == $EmailC) {
 
+
                 DadosDuplicado();
 
+
             }
+
 
             if ($linha['cpf_funcionario'] == $CpfC) {
 
+
                 DadosDuplicado();
+
 
             }
 
+
         }
-        
+       
     }
 
 
+    //verificação de telefone:
+
+    $TelefoneC = preg_replace('/[^0-9]/', '', $TelefoneC);
+
+    if (!preg_match('/^(?:[14689]\d|2[12478]|31|51|3[7-8])(?:9\d{8}|[1-5]\d{4}\d{4})$/', $TelefoneC)) {
+
+        DadosInvalidos();
+
+    }
+
+
+    if (!preg_match('/^.{8,}$/', $SenhaC)) {
+
+        DadosInvalidos();
+   
+    }
+
+   
+    //verificação de email:
+
+    if (!filter_var($EmailC, FILTER_VALIDATE_EMAIL)) {
+
+        DadosInvalidos();
+
+    }
+
+
+
+    //verificação de cpf:
+
+
+    // 1. extrai somente os números
+    $CpfC = preg_replace('/[^0-9]/is', '', $CpfC);
+   
+    // 2. verifica se tem 11 dígitos
+    if (strlen($CpfC) != 11) {
+        DadosInvalidos();
+        echo "CPF inválido.";
+    }
+
+
+    // 3. faz o cálculo para validar os dígitos verificadores
+    for ($t = 9; $t < 11; $t++) {
+        $soma = 0;
+        $multiplicador = $t + 1; // Começa em 10 (para o 1º dígito) e em 11 (para o 2º)
+       
+        // loop para somar os produtos dos 9 ou 10 primeiros dígitos
+        for ($i = 0; $i < $t; $i++) {
+            $soma += (int)$CpfC[$i] * ($multiplicador - $i);
+        }
+       
+        // 4. calcula o dígito verificador ($d)
+        $resto = $soma % 11;
+        $digito_calculado = ($resto < 2) ? 0 : 11 - $resto;
+       
+        // 5. compara o dígito calculado com o dígito do CPF informado
+        // O dígito verificador a ser comparado está na posição $t (9 ou 10)
+        if ((int)$CpfC[$t] != $digito_calculado) {
+
+            DadosInvalidos();
+
+        }
+
+    }
 
 }
 
@@ -67,20 +154,49 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Cadastro</title>
 </head>
 
-<body> 
+<body>
 <!-- <body> -->
 
 <?php
 
 function DadosDuplicado() {
 
-    echo "<div class='Erro'>Deu ruim fi, já existe esse E-Mail ou CPF</div>";
+    echo "
+   
+    <section>
+
+        <div class='erro'>
+   
+            <p class='erroTexto'>E-Mail ou CPF já foram registrados</p>
+
+            <a href='pagina_cadastro.php' class='BotaoOk'>OK</a>
+
+        </div>
+
+    </section>
+
+    ";
 
 }
 
+
 function DadosInvalidos() {
 
-    echo "<div class='Erro'>Deu ruim fi, esses dados são inválidos</div>";
+    echo "
+
+    <section>
+
+        <div class='erro'>
+   
+            <p class='erroTexto'>E-Mail, CPF, Senha ou Telefone inválidos</p>
+
+            <a href='pagina_cadastro.php' class='BotaoOk'>OK</a>
+
+        </div>
+
+    </section>
+
+    ";
 
 }
 
