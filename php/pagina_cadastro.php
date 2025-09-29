@@ -12,6 +12,21 @@ session_start();
     
 } */
 
+
+
+
+    $sql = "SELECT * FROM funcionario";
+    $resultado = $conn->query($sql);
+
+
+    if ($resultado && $resultado->num_rows >= 1) {
+
+        $dados = $resultado->fetch_all(MYSQLI_ASSOC);
+
+    }
+
+
+
 ?>
 
 <!DOCTYPE html>

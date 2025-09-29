@@ -47,6 +47,12 @@ if ($resultado && $resultado->num_rows >= 1) {
 
             }
 
+            if ($linha['cpf_funcionario'] == $CpfC) {
+
+                $Invalido = true;
+
+            }
+
         }
         
     }
