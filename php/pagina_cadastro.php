@@ -78,9 +78,23 @@ function DadosDuplicado() {
 
 }
 
+function DadosInvalidos() {
+
+    echo "<div class='Erro'>Deu ruim fi, esses dados são inválidos</div>";
+
+}
+
 ?>
 
+<section>
 
+    <div class="erro">
+    
+        <p>Deu ruim fi, já existe esse E-Mail ou CPF</p>
+
+    </div>
+
+</section>
 
     <section id="login">
 

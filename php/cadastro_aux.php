@@ -149,7 +149,9 @@ $stmt->close();
 
 } else {
 
-        echo "Erro ao inserir: ";
+    header("Location: pagina_cadastro.php");
+
+    echo "Erro ao inserir: ";
 
 };
 

@@ -141,14 +141,20 @@ input[type="password"] {
     }
 }
 
-.Erro {
+.erro {
 
-    position: absolute;
+    /* position: absolute;
 
-    width: 1000px;
+    top: 1px;
 
-    height: 1000px;
+    left: 1px; */
+
+    width: 100px;
+
+    height: 100px;
 
     background-color: red;
+
+    color: red;
 
 }
