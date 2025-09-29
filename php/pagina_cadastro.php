@@ -12,7 +12,7 @@ session_start();
     
 } */
 
-
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
     $sql = "SELECT * FROM funcionario";
@@ -25,7 +25,7 @@ session_start();
 
     }
 
-
+}
 
 ?>
 
