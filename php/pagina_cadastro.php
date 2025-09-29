@@ -130,7 +130,6 @@ session_start();
             </div>
         </form>
 
-        <!-- <script src="../javascript/cadastro.js"></script> -->
         <script src="../javascript/mostrar_senha.js"></script>
     </section>
 
