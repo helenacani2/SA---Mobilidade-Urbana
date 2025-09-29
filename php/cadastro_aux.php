@@ -7,7 +7,7 @@ session_start();
 $Invalido = false;
 
 
-/* $sql = "SELECT * FROM funcionario";
+$sql = "SELECT * FROM funcionario";
 $resultado = $conn->query($sql);
 
 
@@ -36,11 +36,12 @@ if ($resultado && $resultado->num_rows >= 1) {
 
     //O CÓDIGO DAQUI VAI CHECAR SE OS PARÂMETROS DO CADASTRO SÃO VÁLIDOS. SE FOREM INVÁLIDOS, a variável "$Invalido" ficará "true"
 
+    verificaTelefone($TelefoneC);
+
+    verificaEmail($EmailC);
 
 
 
-
-/* 
     if (!empty($dados)) {
 
         foreach ($dados as $linha) {
@@ -53,33 +54,45 @@ if ($resultado && $resultado->num_rows >= 1) {
 
         }
         
-    } */
+    }
 
     function verificaTelefone($TelefoneC) {
     $TelefoneC = preg_replace('/[^0-9]/', '', $TelefoneC);
 
-    if (preg_match('/^(?:[14689]\d|2[12478]|31|51|3[7-8])(?:9\d{8}|[1-5]\d{4}\d{4})$/', $TelefoneC)) {
-        return true; 
+    if (preg_match('/^(?:[14689]\d|2[12478]|31|51|3[7-8])(?:9\d{8}|[1-5]\d{4}\d{4})$/', $TelefoneC)) { 
+
+        return true;
+
     } else {
-        return false; 
+
+        $Invalido = true;
+
+        return false;
+
     }
 }
 
-function verificaEmail($email) {
-    if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        return true; 
+function validarSenha($SenhaC){
+   
+}
+
+function verificaEmail($EmailC) {
+    if (filter_var($EmailC, FILTER_VALIDATE_EMAIL)) {
+
+        return true;
+
     } else {
-        return false; 
+
+        $Invalido = true;
+
+        return false;
+
     }
 }
  
-
-
-
-
     //O CÓDIGO DAQUI VAI CHECAR SE O USUÁRIO SENDO CADASTRADO JÁ EXISTE NO BANCO DE DADOS. SE EXISTIR, MENSAGEM DE ERRO. SENÃO, O USUÁRIO É ADICIONADO AO BANCO.
 
-    // if($Invalido === false) {
+    if($Invalido === false) {
 
         $stmt = $conn->prepare("INSERT INTO funcionario (nome_funcionario, email_funcionario, senha_funcionario, cpf_funcionario, rg_funcionario, telefone_funcionario, dt_nasc_funcionario, endereco_funcionario, plan_saude_funcionario, cart_plan_saude_funcionario, gestor_funcionario, cargo_funcionario) 
         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
@@ -90,7 +103,7 @@ function verificaEmail($email) {
 
         $stmt->bind_param("ssssssssssss", $NomeC, $EmailC, $SenhaC, $CpfC, $RgC, $TelefoneC, $NasceC, $EnderC, $PlanC, $CartC, $GestorC, $CargoC);
 
-    // }
+    }
 
 
 
