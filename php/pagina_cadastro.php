@@ -37,7 +37,7 @@ session_start();
 
             <div class="entrar">
                 <div class="form-group">
-                    <label for="nome">Nome completo:*</label>
+                    <label for="nome">Nome completoAAA:*</label>
                     <br>
                     <input type="text" id="nome" name="Nome" required>
                 </div>
@@ -130,7 +130,7 @@ session_start();
             </div>
         </form>
 
-        <script src="../javascript/cadastro.js"></script>
+        <!-- <script src="../javascript/cadastro.js"></script> -->
         <script src="../javascript/mostrar_senha.js"></script>
     </section>
 

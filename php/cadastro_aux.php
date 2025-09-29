@@ -7,7 +7,7 @@ session_start();
 $Invalido = false;
 
 
-$sql = "SELECT * FROM funcionario";
+/* $sql = "SELECT * FROM funcionario";
 $resultado = $conn->query($sql);
 
 
@@ -15,7 +15,7 @@ if ($resultado && $resultado->num_rows >= 1) {
 
     $dados = $resultado->fetch_all(MYSQLI_ASSOC);
 
-}
+} */
 
 
     
@@ -27,7 +27,7 @@ if ($resultado && $resultado->num_rows >= 1) {
     $CpfC = trim($_POST['CPF'] ?? '');
     $RgC = trim($_POST['RG'] ?? '');
     $TelefoneC = trim($_POST['Telefone'] ?? '');
-    $NasceC = trim($_POST['Nascimento'] ?? '');
+    $NasceC = str_replace("/", "", trim($_POST['Nascimento'] ?? ''));
     $EnderC = trim($_POST['Endereco'] ?? '');
     $PlanC = trim($_POST['Plano'] ?? '');
     $CartC = trim($_POST['Carteira'] ?? '');
@@ -45,7 +45,7 @@ if ($resultado && $resultado->num_rows >= 1) {
 
 
 
-/* 
+/*  
     if (!empty($dados)) {
 
         foreach ($dados as $linha) {
@@ -58,22 +58,26 @@ if ($resultado && $resultado->num_rows >= 1) {
 
         }
         
-    }
- */
+    } */
+ 
 
 
 
 
     //O CÓDIGO DAQUI VAI CHECAR SE O USUÁRIO SENDO CADASTRADO JÁ EXISTE NO BANCO DE DADOS. SE EXISTIR, MENSAGEM DE ERRO. SENÃO, O USUÁRIO É ADICIONADO AO BANCO.
 
-    if($Invalido === false) {
+    // if($Invalido === false) {
 
         $stmt = $conn->prepare("INSERT INTO funcionario (nome_funcionario, email_funcionario, senha_funcionario, cpf_funcionario, rg_funcionario, telefone_funcionario, dt_nasc_funcionario, endereco_funcionario, plan_saude_funcionario, cart_plan_saude_funcionario, gestor_funcionario, cargo_funcionario) 
         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
-        $stmt->bind_param("ssssssssssss", $NomeC, $EmailC, $SenhaC, $CpfC, $RgC, $TelefoneC, $NasceC, $PlanC, $CartC, $GestorC, $CargoC);
+        if (empty($stmt)) {
+            echo "<div>Erro ao gerar statement</div>";
+        }
 
-    }
+        $stmt->bind_param("ssssssssssss", $NomeC, $EmailC, $SenhaC, $CpfC, $RgC, $TelefoneC, $NasceC, $EnderC, $PlanC, $CartC, $GestorC, $CargoC);
+
+    // }
 
 
 
@@ -82,7 +86,7 @@ if ($resultado && $resultado->num_rows >= 1) {
 
 if($stmt->execute()) {
 
-        header(("Location: pagina_cadastrosdyufguysafvcsiufgauysdyuagfiug.php"));
+        header("Location: pagina_cadastros.php");
         exit;
 
     } else {
