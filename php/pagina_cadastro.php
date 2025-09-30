@@ -166,6 +166,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if($Invalido === false) {
 
         $_SESSION['NomeTran'] = $NomeC; //Permite transmitir valor de variáveis pra outra página.
+        $_SESSION['EmailTran'] = $EmailC;
+        $_SESSION['SenhaTran'] = $SenhaCC;
+        $_SESSION['CpfTran'] = $CpfC;
+        $_SESSION['RgTran'] = $RgC;
+        $_SESSION['TelefoneTran'] = $TelefoneC;
+        $_SESSION['NascTran'] = $NasceC;
+        $_SESSION['EnderTran'] = $EnderC;
+        $_SESSION['PlanTran'] = $PlanC;
+        $_SESSION['CartTran'] = $CartC;
+        $_SESSION['GestorTran'] = $GestorC;
+        $_SESSION['CargoTran'] = $CargoC;
 
         header("Location: cadastro_aux.php");
 

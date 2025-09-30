@@ -18,21 +18,26 @@ if ($resultado && $resultado->num_rows >= 1) {
 }
 
 
+
+
+
+
+
     
 
 
-    $NomeC = trim($_POST['Nome'] ?? '');
-    $EmailC = trim($_POST['usuario'] ?? '');
-    $SenhaC = trim($_POST['senha_usuario'] ?? '');
-    $CpfC = trim($_POST['CPF'] ?? '');
-    $RgC = trim($_POST['RG'] ?? '');
-    $TelefoneC = trim($_POST['Telefone'] ?? '');
-    $NasceC = str_replace("/", "", trim($_POST['Nascimento'] ?? ''));
-    $EnderC = trim($_POST['Endereco'] ?? '');
-    $PlanC = trim($_POST['Plano'] ?? '');
-    $CartC = trim($_POST['Carteira'] ?? '');
-    $GestorC = trim($_POST['Gestor'] ?? '');
-    $CargoC = trim($_POST['Cargo'] ?? '');
+    $NomeC = $_SESSION['NomeTran'];
+    $EmailC = $_SESSION['EmailTran'];
+    $SenhaC = $_SESSION['SenhaTran'];
+    $CpfC = $_SESSION['CpfTran'];
+    $RgC = $_SESSION['RgTran'];
+    $TelefoneC = $_SESSION['TelefoneTran'];
+    $NasceC = $_SESSION['NascTran'];
+    $EnderC = $_SESSION['EnderTran'];
+    $PlanC = $_SESSION['PlanTran'];
+    $CartC = $_SESSION['CartTran'];
+    $GestorC = $_SESSION['GestorTran'];
+    $CargoC = $_SESSION['CargoTran'];
 
     //O CÓDIGO DAQUI VAI CHECAR SE OS PARÂMETROS DO CADASTRO SÃO VÁLIDOS. SE FOREM INVÁLIDOS, a variável "$Invalido" ficará "true"
 
@@ -135,21 +140,38 @@ if (!$Invalido) {
 
 if($stmt->execute()) {
 
-        header("Location: pagina_cadastro.php");
-        exit;
+    header("Location: pagina_cadastro.php");
+    exit;
 
-    } 
+} 
 
 $stmt->close();
 
 } else {
 
     header("Location: pagina_cadastro.php");
-
-        echo "Erro ao cadastrar ";
+    exit;
 
 };
 
 $conn->close();
 
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <?php
+    
+    echo "<h1>$NomeC</h1>";
+
+    ?>
+
+</body>
+</html>
