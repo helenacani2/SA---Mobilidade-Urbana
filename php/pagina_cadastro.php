@@ -20,7 +20,7 @@ session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-
+    $Invalido = false;
 
 
     $sql = "SELECT * FROM funcionario";
@@ -38,10 +38,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
 
+    $NomeC = trim($_POST['Nome'] ?? '');
     $EmailC = trim($_POST['usuario'] ?? '');
     $SenhaC = trim($_POST['senha_usuario'] ?? '');
     $CpfC = trim($_POST['CPF'] ?? '');
+    $RgC = trim($_POST['RG'] ?? '');
     $TelefoneC = trim($_POST['Telefone'] ?? '');
+    $NasceC = str_replace("/", "", trim($_POST['Nascimento'] ?? ''));
+    $EnderC = trim($_POST['Endereco'] ?? '');
+    $PlanC = trim($_POST['Plano'] ?? '');
+    $CartC = trim($_POST['Carteira'] ?? '');
+    $GestorC = trim($_POST['Gestor'] ?? '');
+    $CargoC = trim($_POST['Cargo'] ?? '');
 
 
     if (!empty($dados)) {
@@ -53,6 +61,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($linha['email_funcionario'] == $EmailC) {
 
 
+                $Invalido = true;
+
                 DadosDuplicado();
 
 
@@ -60,6 +70,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
             if ($linha['cpf_funcionario'] == $CpfC) {
+
+                $Invalido = true;
 
 
                 DadosDuplicado();
@@ -79,12 +91,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (!preg_match('/^(?:[14689]\d|2[12478]|31|51|3[7-8])(?:9\d{8}|[1-5]\d{4}\d{4})$/', $TelefoneC)) {
 
+        $Invalido = true;
+
         DadosInvalidos();
 
     }
 
 
     if (!preg_match('/^.{8,}$/', $SenhaC)) {
+
+        $Invalido = true;
 
         DadosInvalidos();
    
@@ -94,6 +110,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     //verificação de email:
 
     if (!filter_var($EmailC, FILTER_VALIDATE_EMAIL)) {
+
+        $Invalido = true;
 
         DadosInvalidos();
 
@@ -109,8 +127,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    
     // 2. verifica se tem 11 dígitos
     if (strlen($CpfC) != 11) {
+
+        $Invalido = true;
+
         DadosInvalidos();
+
         echo "CPF inválido.";
+
     }
 
 
@@ -132,9 +155,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // O dígito verificador a ser comparado está na posição $t (9 ou 10)
         if ((int)$CpfC[$t] != $digito_calculado) {
 
+            $Invalido = true;
+
             DadosInvalidos();
 
         }
+
+    }
+
+    if($Invalido === false) {
+
+        $_SESSION['NomeTran'] = $NomeC; //Permite transmitir valor de variáveis pra outra página.
+
+        header("Location: cadastro_aux.php");
 
     }
 
@@ -202,19 +235,9 @@ function DadosInvalidos() {
 
 ?>
 
-<section>
-
-    <div class="erro">
-    
-        <p>Deu ruim fi, já existe esse E-Mail ou CPF</p>
-
-    </div>
-
-</section>
-
     <section id="login">
 
-        <form action="cadastro_aux.php" id="checar" method="POST">
+        <form id="checar" method="POST">
 
             <img src="../midias/logotraininfo.png" id="logo">
 
