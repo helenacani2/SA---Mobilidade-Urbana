@@ -89,28 +89,36 @@ if ($resultado && $resultado->num_rows >= 1) {
         echo "CPF inválido.";
     }
 
-    // 3. faz o cálculo para validar os dígitos verificadores
-    for ($t = 9; $t < 11; $t++) {
+        if (strlen($CpfS) < 11) {
+
+        $Invalido = true;
+
+    } else {
+
+      for ($t = 9; $t < 11; $t++) {
         $soma = 0;
         $multiplicador = $t + 1; // Começa em 10 (para o 1º dígito) e em 11 (para o 2º)
-        
+       
         // loop para somar os produtos dos 9 ou 10 primeiros dígitos
         for ($i = 0; $i < $t; $i++) {
             $soma += (int)$CpfS[$i] * ($multiplicador - $i);
         }
-        
+       
         // 4. calcula o dígito verificador ($d)
         $resto = $soma % 11;
         $digito_calculado = ($resto < 2) ? 0 : 11 - $resto;
-        
+       
         // 5. compara o dígito calculado com o dígito do CPF informado
         // O dígito verificador a ser comparado está na posição $t (9 ou 10)
         if ((int)$CpfS[$t] != $digito_calculado) {
+
             $Invalido = true;
 
         }
-    }
 
+    }  
+
+    }
  
     //O CÓDIGO DAQUI VAI CHECAR SE O USUÁRIO SENDO CADASTRADO JÁ EXISTE NO BANCO DE DADOS. SE EXISTIR, MENSAGEM DE ERRO. SENÃO, O USUÁRIO É ADICIONADO AO BANCO.
 

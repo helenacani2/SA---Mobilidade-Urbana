@@ -7,7 +7,7 @@ require_once "train_info_bd.php";
 session_start();
 
 
-/* if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != true) {
+if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != true) {
 
 
     header("Location: pagina_login.php");
@@ -15,7 +15,7 @@ session_start();
 
     exit;
    
-} */
+}
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -137,8 +137,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
 
-    // 3. faz o cálculo para validar os dígitos verificadores
-    for ($t = 9; $t < 11; $t++) {
+    // 3. faz o cálculo para validar os dígitos verificadores e tamanho do cpf
+    if (strlen($CpfC) < 11) {
+
+        $Invalido = true;
+
+        DadosInvalidos();
+
+    } else {
+
+      for ($t = 9; $t < 11; $t++) {
         $soma = 0;
         $multiplicador = $t + 1; // Começa em 10 (para o 1º dígito) e em 11 (para o 2º)
        
@@ -161,7 +169,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         }
 
+    }  
+
     }
+
 
     if($Invalido === false) {
 
