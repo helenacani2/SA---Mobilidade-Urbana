@@ -134,8 +134,6 @@ if($stmt->execute()) {
     header("Location: pagina_cadastro.php");
     exit;
 
-    Stmt();
-
 } 
 
 $stmt->close();
@@ -145,40 +143,8 @@ $stmt->close();
     header("Location: pagina_cadastro.php");
     exit;
 
-    StmtNO();
-
 };
 
 $conn->close();
 
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-
-    <?php
-    
-    echo "<h1>$NomeS</h1>";
-    
-    function Stmt() {
-
-        echo "<h1>Funcionou</h1>";
-
-    };
-
-    function StmtNO() {
-
-        echo "<h1>Não Funcionou</h1>";
-
-    };
-
-    ?>
-
-</body>
-</html>

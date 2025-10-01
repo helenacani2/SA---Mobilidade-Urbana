@@ -132,7 +132,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         DadosInvalidos();
 
-        echo "CPF inválido.";
+        //echo "CPF inválido.";
 
     }
 
@@ -198,7 +198,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Cadastro</title>
 </head>
 
-<body>
+<body onload="comeco()">
 <!-- <body> -->
 
 <?php
@@ -227,8 +227,6 @@ function DadosDuplicado() {
 function DadosInvalidos() {
 
     echo "
-
-    <section>
 
         <div class='erro'>
    
@@ -342,12 +340,14 @@ function DadosInvalidos() {
                 </div>
             </div>
 
-            <input type="submit" class="BotaoContinuar" onclick="Continuar(event)" name="BotaoCadastrar" id="BotaoCadastrar" value="Continuar">
+            <input type="submit" class="BotaoContinuar" onclick="Continuar(event); erro()" name="BotaoCadastrar" id="BotaoCadastrar" value="Continuar">
 
             </div>
         </form>
 
         <script src="../javascript/mostrar_senha.js"></script>
+        <script src="../javascript/cadastro.js"></script>
+
     </section>
 
 </body>
