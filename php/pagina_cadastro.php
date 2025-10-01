@@ -167,7 +167,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $_SESSION['NomeTran'] = $NomeC; //Permite transmitir valor de variáveis pra outra página.
         $_SESSION['EmailTran'] = $EmailC;
-        $_SESSION['SenhaTran'] = $SenhaCC;
+        $_SESSION['SenhaTran'] = $SenhaC;
         $_SESSION['CpfTran'] = $CpfC;
         $_SESSION['RgTran'] = $RgC;
         $_SESSION['TelefoneTran'] = $TelefoneC;

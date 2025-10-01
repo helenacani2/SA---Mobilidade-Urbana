@@ -17,27 +17,18 @@ if ($resultado && $resultado->num_rows >= 1) {
 
 }
 
-
-
-
-
-
-
-    
-
-
-    $NomeC = $_SESSION['NomeTran'];
-    $EmailC = $_SESSION['EmailTran'];
-    $SenhaC = $_SESSION['SenhaTran'];
-    $CpfC = $_SESSION['CpfTran'];
-    $RgC = $_SESSION['RgTran'];
-    $TelefoneC = $_SESSION['TelefoneTran'];
-    $NasceC = $_SESSION['NascTran'];
-    $EnderC = $_SESSION['EnderTran'];
-    $PlanC = $_SESSION['PlanTran'];
-    $CartC = $_SESSION['CartTran'];
-    $GestorC = $_SESSION['GestorTran'];
-    $CargoC = $_SESSION['CargoTran'];
+    $NomeS = $_SESSION['NomeTran'];
+    $EmailS = $_SESSION['EmailTran'];
+    $SenhaS = $_SESSION['SenhaTran'];
+    $CpfS = $_SESSION['CpfTran'];
+    $RgS = $_SESSION['RgTran'];
+    $TelefoneS = $_SESSION['TelefoneTran'];
+    $NasceS = $_SESSION['NascTran'];
+    $EnderS = $_SESSION['EnderTran'];
+    $PlanS = $_SESSION['PlanTran'];
+    $CartS = $_SESSION['CartTran'];
+    $GestorS = $_SESSION['GestorTran'];
+    $CargoS = $_SESSION['CargoTran'];
 
     //O CÓDIGO DAQUI VAI CHECAR SE OS PARÂMETROS DO CADASTRO SÃO VÁLIDOS. SE FOREM INVÁLIDOS, a variável "$Invalido" ficará "true"
 
@@ -46,13 +37,13 @@ if ($resultado && $resultado->num_rows >= 1) {
 
         foreach ($dados as $linha) {
 
-            if ($linha['email_funcionario'] == $EmailC) {
+            if ($linha['email_funcionario'] == $EmailS) {
 
                 $Invalido = true;
 
             }
 
-            if ($linha['cpf_funcionario'] == $CpfC) {
+            if ($linha['cpf_funcionario'] == $CpfS) {
 
                 $Invalido = true;
 
@@ -64,16 +55,16 @@ if ($resultado && $resultado->num_rows >= 1) {
 
     //verificação de telefone:
 
-    $TelefoneC = preg_replace('/[^0-9]/', '', $TelefoneC);
+    $TelefoneS = preg_replace('/[^0-9]/', '', $TelefoneS);
 
-    if (!preg_match('/^(?:[14689]\d|2[12478]|31|51|3[7-8])(?:9\d{8}|[1-5]\d{4}\d{4})$/', $TelefoneC)) { 
+    if (!preg_match('/^(?:[14689]\d|2[12478]|31|51|3[7-8])(?:9\d{8}|[1-5]\d{4}\d{4})$/', $TelefoneS)) { 
 
         $Invalido = true;
 
     }
 
 
-    if (!preg_match('/^.{8,}$/', $SenhaC)) {
+    if (!preg_match('/^.{8,}$/', $SenhaS)) {
         $Invalido = true;
     
     }
@@ -81,7 +72,7 @@ if ($resultado && $resultado->num_rows >= 1) {
 //verificação de email:
 
 
-    if (!filter_var($EmailC, FILTER_VALIDATE_EMAIL)) {
+    if (!filter_var($EmailS, FILTER_VALIDATE_EMAIL)) {
 
         $Invalido = true;
 
@@ -90,10 +81,10 @@ if ($resultado && $resultado->num_rows >= 1) {
     //verificação de cpf:
 
     // 1. extrai somente os números
-    $CpfC = preg_replace('/[^0-9]/is', '', $CpfC);
+    $CpfS = preg_replace('/[^0-9]/is', '', $CpfS);
     
     // 2. verifica se tem 11 dígitos
-    if (strlen($CpfC) != 11) {
+    if (strlen($CpfS) != 11) {
         $Invalido = true;
         echo "CPF inválido.";
     }
@@ -105,7 +96,7 @@ if ($resultado && $resultado->num_rows >= 1) {
         
         // loop para somar os produtos dos 9 ou 10 primeiros dígitos
         for ($i = 0; $i < $t; $i++) {
-            $soma += (int)$CpfC[$i] * ($multiplicador - $i);
+            $soma += (int)$CpfS[$i] * ($multiplicador - $i);
         }
         
         // 4. calcula o dígito verificador ($d)
@@ -114,7 +105,7 @@ if ($resultado && $resultado->num_rows >= 1) {
         
         // 5. compara o dígito calculado com o dígito do CPF informado
         // O dígito verificador a ser comparado está na posição $t (9 ou 10)
-        if ((int)$CpfC[$t] != $digito_calculado) {
+        if ((int)$CpfS[$t] != $digito_calculado) {
             $Invalido = true;
 
         }
@@ -132,7 +123,7 @@ if ($resultado && $resultado->num_rows >= 1) {
             echo "Erro ao gerar statement";
         }
 
-        $stmt->bind_param("ssssssssssss", $NomeC, $EmailC, $SenhaC, $CpfC, $RgC, $TelefoneC, $NasceC, $EnderC, $PlanC, $CartC, $GestorC, $CargoC);
+        $stmt->bind_param("ssssssssssss", $NomeS, $EmailS, $SenhaS, $CpfS, $RgS, $TelefoneS, $NasceS, $EnderS, $PlanS, $CartS, $GestorS, $CargoS);
 
     }
 
@@ -143,6 +134,8 @@ if($stmt->execute()) {
     header("Location: pagina_cadastro.php");
     exit;
 
+    Stmt();
+
 } 
 
 $stmt->close();
@@ -151,6 +144,8 @@ $stmt->close();
 
     header("Location: pagina_cadastro.php");
     exit;
+
+    StmtNO();
 
 };
 
@@ -169,7 +164,19 @@ $conn->close();
 
     <?php
     
-    echo "<h1>$NomeC</h1>";
+    echo "<h1>$NomeS</h1>";
+    
+    function Stmt() {
+
+        echo "<h1>Funcionou</h1>";
+
+    };
+
+    function StmtNO() {
+
+        echo "<h1>Não Funcionou</h1>";
+
+    };
 
     ?>
 
