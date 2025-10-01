@@ -25,6 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $dados = $resultado->fetch_assoc();
         $_SESSION["nome_funcionario"] = $dados["nome_funcionario"];
         $_SESSION["id_funcionario"] = $dados["id_funcionario"];
+        $_SESSION["cargo_funcionario"] = $dados["cargo_funcionario"];
         $_SESSION["conectado"] = true;
 
         header("Location: pagina_inicial.php");
