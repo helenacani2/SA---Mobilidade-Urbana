@@ -42,12 +42,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <header>
             <section id="topo">
                 <div class="texto_topo">
-                    <a href="central_apoio_condutor.html">Central de Apoio </a>
+                    <a href="central_apoio_condutor.php">Central de Apoio </a>
                     <hr>
                 </div>
 
                 <div class="entrar_pagina2 ; texto_topo">
-                    <a href="central_de_manutencao.html">Relatórios</a>
+                    <a href="central_de_manutencao.php">Relatórios</a>
                 </div>
             </section>
         </header>
@@ -118,7 +118,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 </body>
 
-<script src="central_apoio_condutor.html"></script>
+<script src="central_apoio_condutor.js"></script>
 <script src="../javascript/teste.js"></script>
 
 </html>

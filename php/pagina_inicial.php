@@ -26,6 +26,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 }
 
+/* $NomeFuncionario = $_SESSION["nome_funcionario"];
+
+$CargoFuncionario = $_SESSION["cargo_funcionario"]; */
+
 ?>
 
 <!DOCTYPE html>
@@ -56,6 +60,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <p id="lupa_pesquisa">🔍︎</p>
 
                 <p id="texto_pesquisa">Pesquisar</p>
+            
+                <a href="pagina_cadastro.php">Cadastro Atalho</a>
+
+                <!-- <p>Cargo: <?php /* echo $CargoFuncionario */ ?> ㅤㅤㅤㅤㅤㅤ</p>
+                <p>Nome: <?php /* echo $NomeFuncionario */ ?></p> -->
 
             </div>
 
