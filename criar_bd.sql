@@ -56,3 +56,16 @@ CREATE TABLE trens (
     FOREIGN KEY (maquinista_trem) REFERENCES funcionario(id_funcionario)
 
 );
+
+CREATE TABLE manutencao (
+
+    id_manutencao INT PRIMARY KEY AUTO_INCREMENT,
+    data_inicio_manutencao DATETIME NOT NULL,
+    data_termino_manutencao DATETIME NOT NULL,
+    problema_manutencao VARCHAR(8000) NOT NULL,
+    trem_manutencao INT,
+    FOREIGN KEY (trem_manutencao) REFERENCES trens(id_trem),
+    funcionario_manutencao INT,
+    FOREIGN KEY (funcionario_manutencao) REFERENCES funcionario(id_funcionario)
+
+);
