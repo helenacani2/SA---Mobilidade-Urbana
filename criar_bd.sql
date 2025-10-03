@@ -38,6 +38,14 @@ CREATE TABLE notificacao (
 
 );
 
+CREATE TABLE alertas (
+
+    id_alerta INT PRIMARY KEY AUTO_INCREMENT,
+    tipo_alerta VARCHAR(45) NOT NULL,
+    data_alerta DATETIME NOT NULL
+
+);
+
 CREATE TABLE trens (
 
     id_trem INT PRIMARY KEY AUTO_INCREMENT,
