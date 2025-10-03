@@ -26,10 +26,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 }
 
-/* $NomeFuncionario = $_SESSION["nome_funcionario"];
-
-$CargoFuncionario = $_SESSION["cargo_funcionario"]; */
-
 ?>
 
 <!DOCTYPE html>
@@ -63,8 +59,7 @@ $CargoFuncionario = $_SESSION["cargo_funcionario"]; */
             
                 <a href="pagina_cadastro.php">Cadastro Atalho</a>
 
-                <!-- <p>Cargo: <?php /* echo $CargoFuncionario */ ?> ㅤㅤㅤㅤㅤㅤ</p>
-                <p>Nome: <?php /* echo $NomeFuncionario */ ?></p> -->
+                
 
             </div>
 
@@ -127,6 +122,14 @@ $CargoFuncionario = $_SESSION["cargo_funcionario"]; */
             
             </div>
 
+            <div class="redondo">
+
+                <img onclick="central()" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0ihsPCgIqz3F36VJxfbMq3_w-K979rfhuzQ&s">
+
+                <h2 onclick="central()">Central</h2>
+            
+            </div>
+
             <?php
 
             if ($_SESSION["cargo_funcionario"] == "Gerente") {
@@ -147,16 +150,6 @@ $CargoFuncionario = $_SESSION["cargo_funcionario"]; */
 
                 ?>
 
-            <div class="redondo">
-
-                <img onclick="central()" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0ihsPCgIqz3F36VJxfbMq3_w-K979rfhuzQ&s">
-
-                <h2 onclick="central()">Central</h2>
-            
-            </div>
-
-            
-        
         </div>
 
         <div class="flexivel">

@@ -19,3 +19,12 @@ gestor_funcionario VARCHAR(40) NOT NULL,
 cargo_funcionario VARCHAR(40) NOT NULL
 
 );
+
+CREATE TABLE sensores (
+
+    id_sensor INT PRIMARY KEY AUTO_INCREMENT,
+    nome_sensor VARCHAR(45) NOT NULL,
+    tipo_sensor VARCHAR(45) NOT NULL,
+    estado_sensor BOOLEAN NOT NULL
+
+);

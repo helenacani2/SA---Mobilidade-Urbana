@@ -43,14 +43,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <h1> Manutenção - Não Iniciado </h1>
         <div id="butoesjuntos">
             <div id="buton">
-                <a href="monitoramento_manutencao_naoiniciado.html">Não Iniciado</a>
+                <a href="monitoramento_manutencao_naoiniciado.php">Não Iniciado</a>
             </div>
             <div id="buton">
-                <a href="monitoramento_manutencao_processo.html">Em processo</a>
+                <a href="monitoramento_manutencao_processo.php">Em processo</a>
                 <!--Botões que mudam a situação da manutenção-->
             </div>
             <div id="buton">
-                <a href="monitoramento_manutencao_concluido.html">Finalizado</a>
+                <a href="monitoramento_manutencao_concluido.php">Finalizado</a>
             </div>
         </div>
         <br>
@@ -64,11 +64,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <ul class="menu-opcoes">
             <form method="post">
                 <li><a href="pagina_inicial.php">Início</a></li>
-                <li><a href="perfil_condutor.html">Perfil</a></li>
-                <li><a href="gestao_rotas.html">Rotas</a></li>
-                <li><a href="dash_board_geral.html">Dashboard</a></li>
-                <li><a href="relatorio_analise.html">Relatórios</a></li>
-                <li><a href="central_apoio_condutor.html">Central de Apoio</a></li>
+                <li><a href="perfil_condutor.php">Perfil</a></li>
+                <li><a href="gestao_rotas.php">Rotas</a></li>
+                <li><a href="dash_board_geral.php">Dashboard</a></li>
+                <li><a href="relatorio_analise.php">Relatórios</a></li>
+                <li><a href="central_apoio_condutor.php">Central de Apoio</a></li>
                 <li><input type="submit" name="BotaoSair" id="BotaoSair" value="Sair">• Sair</li>
             </form>
         </ul>
@@ -160,13 +160,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <img
                     src="https://portais.univasf.edu.br/reitoria/imagens/03756058d18f4250bfeac9f5074209f1.png/@@images/a02cbd53-ddcd-4503-9013-4b3e08be317f.png">
-                <a href="central_apoio_condutor.html">Central de Apoio ao Condutor</a>
+                <a href="central_apoio_condutor.php">Central de Apoio ao Condutor</a>
             </div>
 
             <div class="white">
                 <img
                     src="https://images.icon-icons.com/1744/PNG/512/3643728-balloon-chat-conversation-speak-word_113413.png">
-                <a href="enviar_relatorio.html">Enviar Relatório</a>
+                <a href="enviar_relatorio.php">Enviar Relatório</a>
             </div>
 
         </div>
