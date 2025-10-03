@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $email = trim($_POST["usuario"] ?? "");
     $senha = trim($_POST["senha_usuario"] ?? "");
 
-    $stmt = $conn->prepare("SELECT id_funcionario, nome_funcionario, senha_funcionario FROM funcionario WHERE email_funcionario = ? AND senha_funcionario = ?");
+    $stmt = $conn->prepare("SELECT id_funcionario, nome_funcionario, senha_funcionario, cargo_funcionario FROM funcionario WHERE email_funcionario = ? AND senha_funcionario = ?");
     $stmt->bind_param("ss", $email, $senha);
     $stmt->execute();
     $resultado = $stmt->get_result();
@@ -66,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $email = trim($_POST["usuario"] ?? "");
     $senha = trim($_POST["senha_usuario"] ?? "");
 
-    $stmt = $conn->prepare("SELECT id_funcionario, nome_funcionario, senha_funcionario FROM funcionario WHERE email_funcionario = ? AND senha_funcionario = ?");
+    $stmt = $conn->prepare("SELECT id_funcionario, nome_funcionario, senha_funcionario, cargo_funcionario FROM funcionario WHERE email_funcionario = ? AND senha_funcionario = ?");
     $stmt->bind_param("ss", $email, $senha);
     $stmt->execute();
     $resultado = $stmt->get_result();

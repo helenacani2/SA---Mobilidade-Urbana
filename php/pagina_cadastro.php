@@ -15,6 +15,14 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != true) {
    
 }
 
+if ($_SESSION["cargo_funcionario"] != "Gerente") {
+
+    header("Location: pagina_login.php");
+
+    exit;
+   
+}
+
 
 /* if ($_SESSION["cargo_funcionario"] != "Gerente") {
 
@@ -227,7 +235,7 @@ function DadosDuplicado() {
    
     <section>
 
-        <div class='erro'>
+        <div class='erro' onload='erro()'>
    
             <p class='erroTexto'>E-Mail ou CPF já foram registrados</p>
 
@@ -246,7 +254,7 @@ function DadosInvalidos() {
 
     echo "
 
-        <div class='erro'>
+        <div class='erro' onload='erro()'>
    
             <p class='erroTexto'>E-Mail, CPF, Senha ou Telefone inválidos</p>
 
@@ -358,7 +366,7 @@ function DadosInvalidos() {
                 </div>
             </div>
 
-            <input type="submit" class="BotaoContinuar" onclick="Continuar(event); erro()" name="BotaoCadastrar" id="BotaoCadastrar" value="Continuar">
+            <input type="submit" class="BotaoContinuar" onclick="Continuar(event)" name="BotaoCadastrar" id="BotaoCadastrar" value="Continuar">
 
             </div>
         </form>

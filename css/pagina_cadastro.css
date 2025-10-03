@@ -201,3 +201,18 @@ input[type="password"] {
     text-decoration: none;
 
 }
+
+@media (max-width: 1000px) {
+    
+    .erroTexto {
+
+        font-size: 400%;
+
+    }
+
+    .BotaoOk {
+
+        font-size: 300%;
+
+    }
+}
