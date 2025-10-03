@@ -9,11 +9,10 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != true) {
     header("Location: pagina_login.php");
 
     exit;
-    
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    
+
     if (isset($_POST['BotaoSair'])) {
 
         session_unset();
@@ -21,11 +20,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         session_destroy();
 
         header("Location: pagina_login.php");
-
     }
-
 }
-?> 
+
+
+$stmt = $conn->prepare("SELECT * FROM funcionario");
+$stmt->execute();
+
+$resultado = $stmt->get_result();
+
+
+if($resultado && $resultado->num_rows >= 1) {
+
+    $funcionarios = $resultado->fetch_all(MYSQLI_ASSOC);
+    
+}
+
+
+?>
 
 <!DOCTYPE html>
 <html lang="pt_BR">
@@ -35,18 +47,93 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../midias/logomenor.png" type="icon">
     <title>Todos os usuários</title>
-    <link rel="stylesheet" href="../css/---------------.css">
-    <script src="../javascript/-------------------------.js"></script>
+    <link rel="stylesheet" href="../css/todos_usuarios.css">
 </head>
 
 <body>
 
-    <h1>Aqui vai ficar a tabela com todos os usuário, que é impossível neste momento</h1>
+    <table>
 
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <thead>
 
-    <h2>Nós não temos banco de dados ainda :D</h2>
+            <tr>
 
-    <a href="pagina_inicial.php">Voltar pra tela inicial</a>
+                <th class="cellHead">ID</th>
+
+                <th class="cellHead">Nome</th>
+
+                <th class="cellHead">E-Mail</th>
+
+                <th class="cellHead">CPF</th>
+
+                <th class="cellHead">RG</th>
+
+                <th class="cellHead">Telefone</th>
+
+                <th class="cellHead">DT Nascimento</th>
+
+                <th class="cellHead">Endereço</th>
+
+                <th class="cellHead">Plano de Saúde</th>
+
+                <th class="cellHead">n° Plano de Saúde</th>
+
+                <th class="cellHead">Gestor</th>
+
+                <th class="cellHead">Cargo</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <?php
+
+
+            if (!empty($funcionarios)) {
+
+                foreach ($funcionarios as $linha) {
+
+                    echo '<tr>
+
+                            <td class="cell"> ' . $linha['id_funcionario'] . ' </td>
+
+                            <td class="cell"> ' . $linha['nome_funcionario'] . ' </td>
+
+                            <td class="cell"> ' . $linha['email_funcionario'] . ' </td>
+
+                            <td class="cell"> ' . $linha['cpf_funcionario'] . ' </td>
+
+                            <td class="cell"> ' . $linha['rg_funcionario'] . ' </td>
+
+                            <td class="cell"> ' . $linha['telefone_funcionario'] . ' </td>
+
+                            <td class="cell"> ' . $linha['dt_nasc_funcionario'] . ' </td>
+
+                            <td class="cell"> ' . $linha['endereco_funcionario'] . ' </td>
+
+                            <td class="cell"> ' . $linha['plan_saude_funcionario'] . ' </td>
+
+                            <td class="cell"> ' . $linha['cart_plan_saude_funcionario'] . ' </td>
+
+                            <td class="cell"> ' . $linha['gestor_funcionario'] . ' </td>
+
+                            <td class="cell"> ' . $linha['cargo_funcionario'] . ' </td>
+
+                        </tr>
+                    ';
+
+                }
+
+            }
+
+            ?>
+        </tbody>
+    </table>
+
+    <br>
+
+    <a href="pagina_inicial.php" id="PaginaInicial">Voltar pra tela inicial</a>
 
 </body>

@@ -59,6 +59,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             </div>
 
+            <p>Nome: <?php echo "$_SESSION[nome_funcionario]" ?></p>
+            <p>Cargo: <?php echo "$_SESSION[cargo_funcionario]" ?></p>
+
         </div>
 
         <br>
