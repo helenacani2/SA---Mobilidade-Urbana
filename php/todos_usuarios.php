@@ -61,6 +61,8 @@ if($resultado && $resultado->num_rows >= 1) {
 
 <body>
 
+<form>
+
     <table>
 
         <thead>
@@ -104,6 +106,10 @@ if($resultado && $resultado->num_rows >= 1) {
 
                 foreach ($funcionarios as $linha) {
 
+                    /* $ValorFuncionario = $linha['id_funcionario']; */
+
+                    $ValorFuncionario = 1;
+
                     echo '<tr>
 
                             <td class="cell"> ' . $linha['id_funcionario'] . ' </td>
@@ -130,8 +136,11 @@ if($resultado && $resultado->num_rows >= 1) {
 
                             <td class="cell"> ' . $linha['cargo_funcionario'] . ' </td>
 
-                        </tr>
                     ';
+
+                    echo "<td><input class='cellHead' type='submit' value='Acessar Perfil' name='Funcionario$ValorFuncionario'></td>
+
+                    </tr>";
 
                 }
 
@@ -141,8 +150,29 @@ if($resultado && $resultado->num_rows >= 1) {
         </tbody>
     </table>
 
+    </form>
+
     <br>
 
     <a href="pagina_inicial.php" id="PaginaInicial">Voltar pra tela inicial</a>
 
+    <?php
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+        foreach ($funcionarios as $linha) {
+
+            if (isset($_POST["$linha"])) {
+
+                echo "$linha";
+
+            }
+
+        }
+
+    }
+
+?>
+
 </body>
+

@@ -56,14 +56,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <p id="lupa_pesquisa">🔍︎</p>
 
                 <p id="texto_pesquisa">Pesquisar</p>
-            
-                <a href="pagina_cadastro.php">Cadastro Atalho</a>
-
                 
-
             </div>
-
-            <a href="pagina_cadastro.php">Cadastro</a>
 
         </div>
 
@@ -138,7 +132,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <div class="redondo">
 
-                    <img onclick="cadastrar()" src="https://importway.com.br/wp-content/uploads/2021/11/1-171.jpg">
+                    <img onclick="cadastrar()" src="https://s2.glbimg.com/sZhZrPSvCkCcczMBRuDrf8Qk_oU=/smart/e.glbimg.com/og/ed/f/original/2019/07/10/13-estacoes-de-trem-mais-bonitas-do-mundo62.jpg">
 
                     <h2 onclick="cadastrar()">Cadastrar Usuário</h2>
             
