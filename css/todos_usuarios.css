@@ -1,0 +1,51 @@
+body {
+
+    background-color: azure;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+
+.cell {
+
+    border-style:solid;
+
+    border-width: 1px;
+
+    border-color: black;
+
+    color: white;
+
+    background-color: #35739b;
+
+}
+
+
+.cellHead {
+
+    border-style:solid;
+
+    border-width: 1px;
+
+    border-color: black;
+
+    color: white;
+
+    background-color: #285775;
+
+}
+
+#PaginaInicial {
+
+    text-decoration: none;
+
+    border-style:solid;
+
+    border-width: 1px;
+
+    border-color: black;
+
+    color: white;
+
+    background-color: #285775;
+
+}

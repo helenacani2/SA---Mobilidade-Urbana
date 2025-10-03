@@ -79,24 +79,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
     <div id="divbody">
         <div id="table4">
-            <h3>Sul- Centro</h3>
+            <h3>HIRA</h3>
+        <!--<h3>Sul- Centro</h3>
             <hr>
             <h3>Norte-Sul</h3>
             <hr>
-            <h3>Cascata</h3>
+            <h3>Cascata</h3>        Alteração devido ao fato que só teremos um trem
             <hr>
-            <h3>Bombarde</h3>
+            <h3>Bombarde</h3> -->
             <hr>
             <h3>Escola SESI</h3>
         </div>
         <div id="table5">
-            <h3>Na Estação</h3>
+            <h3>Na Linha Férrea da Coxinha</h3>
+            <!-- <h3>Na Estação</h3>
             <hr>
             <h3>Em viagem</h3>
             <hr>
             <h3>Descarrilhado</h3>
             <hr>
-            <h3>Em viagem</h3>
+            <h3>Em viagem</h3> -->
             <hr>
             <h3>Destruido por acidente explosivo</h3>
         </div>

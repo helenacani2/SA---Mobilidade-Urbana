@@ -56,10 +56,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <p id="lupa_pesquisa">🔍︎</p>
 
                 <p id="texto_pesquisa">Pesquisar</p>
+            
+                <a href="pagina_cadastro.php">Cadastro Atalho</a>
 
-                <a href='pagina_login.php'>Cadastro</a>
+                
 
             </div>
+
+            <a href="pagina_cadastro.php">Cadastro</a>
 
         </div>
 
@@ -120,22 +124,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <div class="redondo">
 
-                <img onclick="alarme()" src="https://img.freepik.com/vetores-premium/colagem-de-fundo-de-jornal-vintage-com-estilo-de-papel-rasgado_553860-390.jpg?semt=ais_hybrid&w=740">
-
-                <h2 onclick="alarme()">Alarme</h2>
-            
-            </div>
-
-            <div class="redondo">
-
                 <img onclick="central()" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0ihsPCgIqz3F36VJxfbMq3_w-K979rfhuzQ&s">
 
                 <h2 onclick="central()">Central</h2>
             
             </div>
 
+            <?php
+
+            if ($_SESSION["cargo_funcionario"] == "Gerente") {
+
+                echo '
+
+                <div class="redondo">
+
+                    <img onclick="cadastrar()" src="https://importway.com.br/wp-content/uploads/2021/11/1-171.jpg">
+
+                    <h2 onclick="cadastrar()">Cadastrar Usuário</h2>
             
-        
+                </div>
+
+                ';
+
+            }
+
+                ?>
+
         </div>
 
         <div class="flexivel">
@@ -164,13 +178,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             </div>
 
-            <div class="redondo">
+            <?php
 
-                <img onclick="login()" src="https://cdn-icons-png.flaticon.com/512/6681/6681204.png">
+            if ($_SESSION["cargo_funcionario"] == "Gerente") {
 
-                <h2 onclick="login()">Página de Login</h2>
+                echo '
 
-            </div>
+                <div class="redondo">
+
+                    <img onclick="usuarios()" src="https://cdn-icons-png.flaticon.com/512/6681/6681204.png">
+
+                    <h2 onclick="usuarios()">Todos os Usuários</h2>
+
+                </div>
+
+                ';
+
+            }
+
+            ?>
 
         </div>
 

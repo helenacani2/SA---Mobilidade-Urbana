@@ -220,9 +220,9 @@ function mapa() {
 
 };
 
-function alarme() {
+function cadastrar() {
 
-    window.location.href = "alarme.php";
+    window.location.href = "pagina_cadastro.php";
 
 };
 
@@ -250,8 +250,8 @@ function perfil() {
     
 };
 
-function login() {
+function usuarios() {
 
-    window.location.href = "pagina_login.php"
+    window.location.href = "todos_usuarios.php"
 
 };
