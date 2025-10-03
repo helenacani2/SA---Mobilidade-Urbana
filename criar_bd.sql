@@ -28,3 +28,12 @@ CREATE TABLE sensores (
     estado_sensor BOOLEAN NOT NULL
 
 );
+
+CREATE TABLE notificacao (
+
+    id_notificacao INT PRIMARY KEY AUTO_INCREMENT,
+    titulo_notificacao VARCHAR(45) NOT NULL,
+    mensagem_notificacao VARCHAR(200) NOT NULL,
+    data_notificacao DATETIME NOT NULL
+
+);
