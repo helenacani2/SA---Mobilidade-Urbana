@@ -9,9 +9,15 @@ session_start();
 
 if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != true) {
 
-
     header("Location: pagina_login.php");
 
+    exit;
+   
+}
+
+if ($_SESSION["cargo_funcionario"] != "Gerente") {
+
+    header("Location: pagina_login.php");
 
     exit;
    

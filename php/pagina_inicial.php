@@ -59,8 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             </div>
 
-            <p>Nome: <?php echo "$_SESSION[nome_funcionario]" ?></p>
-            <p>Cargo: <?php echo "$_SESSION[cargo_funcionario]" ?></p>
+            <a href="pagina_cadastro.php">Cadastro</a>
 
         </div>
 
@@ -119,13 +118,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             
             </div>
 
-            <div class="redondo">
+            <?php
 
-                <img onclick="alarme()" src="https://img.freepik.com/vetores-premium/colagem-de-fundo-de-jornal-vintage-com-estilo-de-papel-rasgado_553860-390.jpg?semt=ais_hybrid&w=740">
+            if ($_SESSION["cargo_funcionario"] == "Gerente") {
 
-                <h2 onclick="alarme()">Alarme</h2>
+                echo '
+
+                <div class="redondo">
+
+                    <img onclick="cadastrar()" src="https://importway.com.br/wp-content/uploads/2021/11/1-171.jpg">
+
+                    <h2 onclick="cadastrar()">Cadastrar Usuário</h2>
             
-            </div>
+                </div>
+
+                ';
+
+            }
+
+                ?>
 
             <div class="redondo">
 
@@ -165,13 +176,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             </div>
 
-            <div class="redondo">
+            <?php
 
-                <img onclick="login()" src="https://cdn-icons-png.flaticon.com/512/6681/6681204.png">
+            if ($_SESSION["cargo_funcionario"] == "Gerente") {
 
-                <h2 onclick="login()">Página de Login</h2>
+                echo '
 
-            </div>
+                <div class="redondo">
+
+                    <img onclick="usuarios()" src="https://cdn-icons-png.flaticon.com/512/6681/6681204.png">
+
+                    <h2 onclick="usuarios()">Todos os Usuários</h2>
+
+                </div>
+
+                ';
+
+            }
+
+            ?>
 
         </div>
 
