@@ -69,3 +69,13 @@ CREATE TABLE manutencao (
     FOREIGN KEY (funcionario_manutencao) REFERENCES funcionario(id_funcionario)
 
 );
+
+CREATE TABLE registro_medico (
+
+    id_medic INT PRIMARY KEY AUTO_INCREMENT,
+    data_medic DATETIME NOT NULL,
+    problema_medic VARCHAR(8000) NOT NULL,
+    funcionario_medic INT,
+    FOREIGN KEY (funcionario_medic) REFERENCES funcionario(id_funcionario)
+
+);
