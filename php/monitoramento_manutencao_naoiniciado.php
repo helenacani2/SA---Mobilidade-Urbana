@@ -42,14 +42,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <br>
         <h1> Manutenção - Não Iniciado </h1>
         <div id="butoesjuntos">
-            <div id="buton">
+            <div id="buton1">
                 <a href="monitoramento_manutencao_naoiniciado.php">Não Iniciado</a>
             </div>
-            <div id="buton">
+            <div id="buton2">
                 <a href="monitoramento_manutencao_processo.php">Em processo</a>
                 <!--Botões que mudam a situação da manutenção-->
             </div>
-            <div id="buton">
+            <div id="buton3">
                 <a href="monitoramento_manutencao_concluido.php">Finalizado</a>
             </div>
         </div>
