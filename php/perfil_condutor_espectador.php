@@ -12,7 +12,7 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != true) {
     
 }
 
-if ($_SESSION["cargo_funcionario"] != ("Gerente") || ("Equipe_Atendimento")) {
+if ($_SESSION["cargo_funcionario"] != (("Gerente") || ("Equipe_Atendimento"))) {
 
     header("Location: pagina_login.php");
 
@@ -32,7 +32,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     }
 
-}
+};
+
+$stmt = $conn->prepare("SELECT * FROM funcionario WHERE id_funcionario = $_SESSION[IDFuncionarioEscolhido]");
+$stmt->execute();
+
+$resultado = $stmt->get_result();
+
+$FuncionarioEscolhido = $resultado->fetch_assoc();
+
+//$_SESSION["IDFuncionarioEscolhido"]
 ?> 
 
 <!DOCTYPE html>
@@ -49,6 +58,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 
 <body>
+
+<?php
+
+//echo '<p>' . $FuncionarioEscolhido["nome_funcionario"] . '</p>';
+
+?>
+
     <div class="tudo">
         <header>
             <p id="perfil">Perfil do Condutor</p>
@@ -75,30 +91,41 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="bolinha_selecao">
         </div>
         <div id="foto_nome">
-            <p>Nome Completo</p>
+            <?php echo '<p>' . $FuncionarioEscolhido["nome_funcionario"] . '</p>' ?>
         </div>
         <br>
         <hr>
 
         <div id="vvi">
             <fieldset>
+
                 <div id="bodydiv">
-                    <h5>Cargo:</h5>
-                    <h5>Gestor:</h5>
-                    <h5>Plano de saúde:</h5>
-                    <h5>Número da Carteira de Plano de Saúde:</h5>      <!--Dados do condutor-->
-                    <h5>Telefone:</h5>
-                    <h5>RG:</h5>
-                    <h5>CPF:</h5>
-                    <h5>Data de Nascimento:</h5>
-                    <h5>Endereço:</h5>
+
+                <?php
+
+                    echo '<h5>' . 'Cargo: ' . $FuncionarioEscolhido["cargo_funcionario"] . '</h5>';
+                    echo '<h5>' . 'Gestor: ' . $FuncionarioEscolhido["gestor_funcionario"] . '</h5>';
+                    echo '<h5>' . 'Plano de Saúde: ' . $FuncionarioEscolhido["plan_saude_funcionario"] . '</h5>';
+                    echo '<h5>' . 'Número da Carteira de Plano de Saúde: ' . $FuncionarioEscolhido["cart_plan_saude_funcionario"] . '</h5>';      //Dados do condutor
+                    echo '<h5>' . 'Telefone: ' . $FuncionarioEscolhido["telefone_funcionario"] . '</h5>';
+                    echo '<h5>' . 'RG: ' . $FuncionarioEscolhido["rg_funcionario"] . '</h5>';
+                    echo '<h5>' . 'CPF: ' . $FuncionarioEscolhido["cpf_funcionario"] . '</h5>';
+                    echo '<h5>' . 'Data de Nascimento: ' . $FuncionarioEscolhido["dt_nasc_funcionario"] . '</h5>';
+                    echo '<h5>' . 'Endereço: ' . $FuncionarioEscolhido["endereco_funcionario"] . '</h5>';
+
+                    ?>
                 </div>
             </fieldset>
             <br>
             <fieldset>
                 <div id="bodydiv">
-                    <h5>Senha:</h5>
-                    <h5>Email (recuperação e redefinição de senha):</h5>    <!--Dados mais importantes do condutor-->
+
+                <?php
+
+                    echo '<h5>' . 'Email (recuperação e redefinição de senha): ' . $FuncionarioEscolhido["email_funcionario"] . '</h5>';    //Dados mais importantes do condutor
+
+                ?>
+
             </fieldset>
         </div>
 

@@ -9,7 +9,6 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != true) {
     header("Location: pagina_login.php");
 
     exit;
-   
 }
 
 if ($_SESSION["cargo_funcionario"] != "Gerente") {
@@ -17,19 +16,6 @@ if ($_SESSION["cargo_funcionario"] != "Gerente") {
     header("Location: pagina_login.php");
 
     exit;
-   
-}
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-    if (isset($_POST['BotaoSair'])) {
-
-        session_unset();
-
-        session_destroy();
-
-        header("Location: pagina_login.php");
-    }
 }
 
 
@@ -39,12 +25,28 @@ $stmt->execute();
 $resultado = $stmt->get_result();
 
 
-if($resultado && $resultado->num_rows >= 1) {
+if ($resultado && $resultado->num_rows >= 1) {
 
     $funcionarios = $resultado->fetch_all(MYSQLI_ASSOC);
-    
+
 }
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    $Contador = 1;
+
+    foreach ($funcionarios as $linhaRedirect) {
+
+        if (isset($_POST["Funcionario$Contador"])) {
+
+            $_SESSION["IDFuncionarioEscolhido"] = $linhaRedirect['id_funcionario'];
+
+            header("Location: perfil_condutor_espectador.php");
+        }
+
+        $Contador++;
+    }
+}
 
 ?>
 
@@ -61,56 +63,54 @@ if($resultado && $resultado->num_rows >= 1) {
 
 <body>
 
-<form>
+    <form method="POST">
 
-    <table>
+        <table>
 
-        <thead>
+            <thead>
 
-            <tr>
+                <tr>
 
-                <th class="cellHead">ID</th>
+                    <th class="cellHead">ID</th>
 
-                <th class="cellHead">Nome</th>
+                    <th class="cellHead">Nome</th>
 
-                <th class="cellHead">E-Mail</th>
+                    <th class="cellHead">E-Mail</th>
 
-                <th class="cellHead">CPF</th>
+                    <th class="cellHead">CPF</th>
 
-                <th class="cellHead">RG</th>
+                    <th class="cellHead">RG</th>
 
-                <th class="cellHead">Telefone</th>
+                    <th class="cellHead">Telefone</th>
 
-                <th class="cellHead">DT Nascimento</th>
+                    <th class="cellHead">DT Nascimento</th>
 
-                <th class="cellHead">Endereço</th>
+                    <th class="cellHead">Endereço</th>
 
-                <th class="cellHead">Plano de Saúde</th>
+                    <th class="cellHead">Plano de Saúde</th>
 
-                <th class="cellHead">n° Plano de Saúde</th>
+                    <th class="cellHead">n° Plano de Saúde</th>
 
-                <th class="cellHead">Gestor</th>
+                    <th class="cellHead">Gestor</th>
 
-                <th class="cellHead">Cargo</th>
+                    <th class="cellHead">Cargo</th>
 
-            </tr>
+                </tr>
 
-        </thead>
+            </thead>
 
-        <tbody>
+            <tbody>
 
-            <?php
+                <?php
 
 
-            if (!empty($funcionarios)) {
+                if (!empty($funcionarios)) {
 
-                foreach ($funcionarios as $linha) {
+                    foreach ($funcionarios as $linha) {
 
-                    /* $ValorFuncionario = $linha['id_funcionario']; */
+                        $ValorFuncionario = $linha['id_funcionario'];
 
-                    $ValorFuncionario = 1;
-
-                    echo '<tr>
+                        echo '<tr>
 
                             <td class="cell"> ' . $linha['id_funcionario'] . ' </td>
 
@@ -138,17 +138,15 @@ if($resultado && $resultado->num_rows >= 1) {
 
                     ';
 
-                    echo "<td><input class='cellHead' type='submit' value='Acessar Perfil' name='Funcionario$ValorFuncionario'></td>
+                        echo "<td><input class='cellHead' type='submit' value='Acessar Perfil' name='Funcionario$ValorFuncionario'></td>
 
                     </tr>";
-
+                    }
                 }
 
-            }
-
-            ?>
-        </tbody>
-    </table>
+                ?>
+            </tbody>
+        </table>
 
     </form>
 
@@ -156,23 +154,4 @@ if($resultado && $resultado->num_rows >= 1) {
 
     <a href="pagina_inicial.php" id="PaginaInicial">Voltar pra tela inicial</a>
 
-    <?php
-
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-        foreach ($funcionarios as $linha) {
-
-            if (isset($_POST["$linha"])) {
-
-                echo "$linha";
-
-            }
-
-        }
-
-    }
-
-?>
-
 </body>
-
