@@ -88,8 +88,7 @@ $FuncionarioEscolhido = $resultado->fetch_assoc();
         </nav>
 
         <br>
-        <div class="bolinha_selecao">
-        </div>
+        <div class="bolinha_selecao"></div>
         <div id="foto_nome">
             <?php echo '<p>' . $FuncionarioEscolhido["nome_funcionario"] . '</p>' ?>
         </div>
@@ -103,7 +102,8 @@ $FuncionarioEscolhido = $resultado->fetch_assoc();
 
                 <?php
 
-                    echo '<h5>' . 'Cargo: ' . $FuncionarioEscolhido["cargo_funcionario"] . '</h5>';
+                    echo '<h5>' . 'Cargo: ' . str_replace("_", " de ", $FuncionarioEscolhido["cargo_funcionario"]) . '</h5>';
+                    echo '<h5>' . 'Email: ' . $FuncionarioEscolhido["email_funcionario"] . '</h5>';
                     echo '<h5>' . 'Gestor: ' . $FuncionarioEscolhido["gestor_funcionario"] . '</h5>';
                     echo '<h5>' . 'Plano de Saúde: ' . $FuncionarioEscolhido["plan_saude_funcionario"] . '</h5>';
                     echo '<h5>' . 'Número da Carteira de Plano de Saúde: ' . $FuncionarioEscolhido["cart_plan_saude_funcionario"] . '</h5>';      //Dados do condutor
@@ -120,9 +120,16 @@ $FuncionarioEscolhido = $resultado->fetch_assoc();
             <fieldset>
                 <div id="bodydiv">
 
+                <h4>Registros médicos:</h4>
+
                 <?php
 
-                    echo '<h5>' . 'Email (recuperação e redefinição de senha): ' . $FuncionarioEscolhido["email_funcionario"] . '</h5>';    //Dados mais importantes do condutor
+                    echo '<h5>Registro 1</h5>';
+                    echo '<br>';
+                    echo '<h5>Registro 2</h5>';        //Não é possível fazer isso agora
+                    echo '<br>';
+                    echo '<h5>Registro 3</h5>';
+                    echo '<br>';
 
                 ?>
 

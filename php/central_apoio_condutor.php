@@ -9,7 +9,6 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != true) {
     header("Location: pagina_login.php");
 
     exit;
-    
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -100,16 +99,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <!--Aqui a baixo fica o lugar para o cliente expicar seu problema-->
                 <section>
-                    <!-- Contêiner do campo de texto -->
-                    <div class="input-container">
-                        <label for="problem-description" id="mensagem">Descreva seu problema relacionado à: <span
-                                id="selected-option"></span></label>
-                        <textarea id="problem-description" placeholder="Digite sua descrição aqui..."></textarea>
-                    </div>
 
-                    <div class="botao_envio">
-                        <button type="submit">Enviar Relatório</button>
-                    </div>
+                    <form method="POST" action="registro_medico_aux.php">
+                        <!-- Contêiner do campo de texto -->
+                        <div class="input-container">
+                            <label for="problem-description" id="mensagem">Descreva seu problema relacionado à: <span
+                                    id="selected-option"></span></label>
+                            <textarea id="problem-description" placeholder="Digite sua descrição aqui..."></textarea>
+                        </div>
+
+                        <div class="botao_envio">
+                            <input type="submit" name="ProblemaSaude" value="Enviar Relatório">
+                        </div>
+
+                    </form>
 
                 </section>
             </main>
