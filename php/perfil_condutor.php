@@ -57,7 +57,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <form method="post">
                     <li><a href="pagina_inicial.php">Início</a></li>
                     <li><a href="pagina_cadastro.php">Criar usuário</a></li>
-                    <li><a href="todos_usuarios.html">Todos os usuários</a></li>
+
+<?php
+
+            if ($_SESSION["cargo_funcionario"] == "Gerente" || "") {
+
+                echo '
+
+                <li><a href="todos_usuarios.html">Todos os usuários</a></li>
+
+                ';
+
+            }
+    
+?>
+                    
                     <li><input type="submit" name="BotaoSair" id="BotaoSair" value="Sair">• Sair</li>
                 </form>
             </ul>
