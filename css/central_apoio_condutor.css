@@ -212,7 +212,7 @@ input {
     width: 20px;
     height: 20px;
     display: inline-block;
-    opacity: 0%;
+    opacity: 100%;
 }
 
 label.menu-icon {
