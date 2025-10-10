@@ -54,13 +54,13 @@ header {
     margin-left: 15px;
     cursor: pointer;
     text-decoration: none;
-    /* color: inherit; */
-    max-width: 50%;
+    width: 100%;
+    max-width: 100px;
     padding: 10px;
     margin: 5px 0 20px 0;
     border: 2px solid white;
     border-radius: 5px;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     background: linear-gradient(to right, #244e68, #43718d);
     font-size: 14px;
     font-family: 'Times New Roman', Times, serif;

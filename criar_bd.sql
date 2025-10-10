@@ -63,6 +63,7 @@ CREATE TABLE manutencao (
     data_inicio_manutencao DATETIME NOT NULL,
     data_termino_manutencao DATETIME NOT NULL,
     problema_manutencao VARCHAR(8000) NOT NULL,
+    reolvido_manutencao VARCHAR(10) NOT NULL DEFAULT 'Não',
     trem_manutencao INT,
     FOREIGN KEY (trem_manutencao) REFERENCES trens(id_trem),
     funcionario_manutencao INT,
@@ -75,6 +76,8 @@ CREATE TABLE registro_medico (
     id_medic INT PRIMARY KEY AUTO_INCREMENT,
     data_medic DATETIME NOT NULL,
     problema_medic VARCHAR(8000) NOT NULL,
+    resolvido_medic VARCHAR(10) NOT NULL DEFAULT 'Não',
+    tipo_medic VARCHAR(20) NOT NULL DEFAULT 'Não especificado',
     funcionario_medic INT,
     FOREIGN KEY (funcionario_medic) REFERENCES funcionario(id_funcionario)
 
