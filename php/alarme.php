@@ -53,6 +53,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <br>
                 <br>
 
+<form method="POST" action="">
+    <label for="estado_usuario">Escolha o Estado:</label>
+    <select name="estado_usuario" id="estado_usuario">
+        <option value="padrao">--- Escolha ---</option>
+        <option value="caso1">Ativar o Aviso de Incêncdio</option>
+        <option value="caso2">Ativar o Aviso de Evacuação</option>
+        <option value="falso">Desativar</option>
+    </select>
+    <button type="submit">Atualizar</button>
+</form> 
+
+<?php
+
+
+
+?>
+
 <div class="instruções"> <!--Essa div mostra os textos do alarme-->
 1. MANTENHA A CALMA. Não corra nem provoque pânico.
 <br>
