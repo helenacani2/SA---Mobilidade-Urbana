@@ -105,11 +105,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <div class="input-container">
                             <label for="problem-description" id="mensagem">Descreva seu problema relacionado à: <span
                                     id="selected-option"></span></label>
-                            <textarea id="problem-description" placeholder="Digite sua descrição aqui..."></textarea>
+                            <textarea type="text" id="problem-description" name="ProblemaSaude" placeholder="Digite sua descrição aqui..."></textarea>
                         </div>
 
                         <div class="botao_envio">
-                            <input type="submit" name="ProblemaSaude" value="Enviar Relatório">
+                            <input id="botao_envio_apoio" type="submit" value="Enviar Relatório">
                         </div>
 
                     </form>

@@ -50,20 +50,21 @@ header {
 }
 
 
-input {
+#botao_envio_apoio {
     margin-left: 15px;
     cursor: pointer;
     text-decoration: none;
-    color: inherit;
+    /* color: inherit; */
     max-width: 50%;
     padding: 10px;
     margin: 5px 0 20px 0;
     border: 2px solid white;
     border-radius: 5px;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     background: linear-gradient(to right, #244e68, #43718d);
     font-size: 14px;
     font-family: 'Times New Roman', Times, serif;
+    z-index: 200;
 }
 
 .botao_envio {
@@ -211,7 +212,7 @@ input {
     width: 20px;
     height: 20px;
     display: inline-block;
-    opacity: 0%;
+    opacity: 100%;
 }
 
 label.menu-icon {
