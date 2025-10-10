@@ -39,6 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <body>
     <header>
+        <!--buton tem 3 pra poder controlar pelo CSS-->
         <br>
         <h1>Manutenção</h1>
         <div id="butoesjuntos">
@@ -113,6 +114,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
         </div>
 
+
         <div id="divfinal">
             <br>
             <h4>O trem “Cascata” precisará de manutenção emergencial quando chegar na estação</h4>
@@ -120,7 +122,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <h4>O trem “Centro Histórico” precisará de manutenção preventiva antes de ser inaugurado</h4>
 
             <h4>O trem “Norte-Sul” precisa de uma porta de caldeira nova (resolvido)</h4>
-            <!--div que mostra os alertas-->
 
             <h4>O trem “Escola SESI Moinho” tem defeito na caldeira, com risco de reação exlosiva (resolvido)</h4>
 

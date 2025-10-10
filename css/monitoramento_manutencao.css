@@ -108,6 +108,8 @@ footer {
     font-family: 'Times New Roman', Times, serif;
 }
 
+/*buton tem 3 pra poder controlar pelo CSS*/
+
 #buton1 button {
     display: flex;
     text-align: center;
