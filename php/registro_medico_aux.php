@@ -6,16 +6,12 @@ require_once "train_info_bd.php";
 
 $ProblemaSaude = $_POST['ProblemaSaude'];
 
+$DataAtualString = date("Y-m-d H:i:s");
 
 
+$stmt = $conn->prepare("INSERT INTO registro_medico (problema_medic, data_medic, funcionario_medic) VALUES (?, ?, ?)");
 
-
-
-
-
-$stmt = $conn->prepare("INSERT INTO registro_medico (problema_medic, funcionario_medic) VALUES (?, ?)");
-
-$stmt->bind_param("si", $ProblemaSaude, $_SESSION["id_funcionario"]);
+$stmt->bind_param("ssi", $ProblemaSaude, $DataAtualString, $_SESSION["id_funcionario"]);
 
 if($stmt->execute()) {
 
