@@ -21,3 +21,39 @@ radios.forEach(radio => {
       }
     });
   });
+
+  function vomito() {
+
+    document.getElementById("mensagem").innerHTML = "Descreva seu problema relacionado à: " + "vômito";
+
+  }
+
+  function enxaqueca() {
+
+    document.getElementById("mensagem").innerHTML = "Descreva seu problema relacionado à: " + "enxaqueca";
+
+  }
+
+  function nausea() {
+
+    document.getElementById("mensagem").innerHTML = "Descreva seu problema relacionado à: " + "náusea";
+
+  }
+
+  function cansaco() {
+
+    document.getElementById("mensagem").innerHTML = "Descreva seu problema relacionado à: " + "cansaço";
+
+  }
+
+  function febre() {
+
+    document.getElementById("mensagem").innerHTML = "Descreva seu problema relacionado à: " + "febre";
+
+  }
+
+  function outros() {
+
+    document.getElementById("mensagem").innerHTML = "Descreva seu problema relacionado à: " + "outros";
+
+  }

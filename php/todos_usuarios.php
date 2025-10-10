@@ -11,7 +11,7 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != true) {
     exit;
 }
 
-if ($_SESSION["cargo_funcionario"] != "Gerente") {
+if ($_SESSION["cargo_funcionario"] != (("Gerente") || ("Equipe_Atendimento"))) {
 
     header("Location: pagina_login.php");
 
