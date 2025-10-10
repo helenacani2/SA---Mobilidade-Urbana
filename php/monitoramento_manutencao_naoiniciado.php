@@ -40,16 +40,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <header>
         <br>
-        <h1> Manutenção - Não Iniciado </h1>
+        <h1>Manutenção</h1>
         <div id="butoesjuntos">
             <div id="buton1">
-                 <a>Não Iniciado</a>
+                 <button>Não Iniciado</button>
             </div>
             <div id="buton2">
-                <a>Fazendo</a>
+                <button>Fazendo</button>
             </div>
             <div id="buton3">
-                <a>Finalizado</a>
+                <button>Finalizado</button>
             </div>
         </div>
         <br>
@@ -93,26 +93,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
         <div id="divbody"> <!--Essa div mostra os status do trem-->
             <div id="table4">
-                <h3>Sul- Centro</h3>
-                <hr>
-                <h3>Norte-Sul</h3>
-                <hr>
-                <h3>Cascata</h3>
-                <hr>
-                <h3>Bombarde</h3>
-                <hr>
-                <h3>Escola SESI</h3>
+                
             </div>
             <div id="table5">
-                <h3>Marcado para 15/05/25 a troca do motor</h3>
-                <hr>
-                <h3>Marcado para 19/06/25 troca das rodas</h3>
-                <hr>
-                <h3>Marcado para 14/06/25 revisão do trem</h3>
-                <hr>
-                <h3>Marcado para 20/10/25 troca dos bancos</h3>
-                <hr>
-                <h3>Marcado para 20/12/25 aposentadoria do trem</h3>
+                
             </div>
         </div>
 
@@ -173,7 +157,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </section>
 
 </body>
-
+<script src="../javascript/monitoramento.js"></script>
 <script src="../javascript/teste.js"></script>
 
 </html>

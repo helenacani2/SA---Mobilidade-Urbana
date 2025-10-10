@@ -108,7 +108,31 @@ footer {
     font-family: 'Times New Roman', Times, serif;
 }
 
-#buton a {
+#buton1 button {
+    display: flex;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    background-color: black;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 10px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#buton2 button {
+    display: flex;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    background-color: black;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 10px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#buton3 button {
     display: flex;
     text-align: center;
     text-decoration: none;
