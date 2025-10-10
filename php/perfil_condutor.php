@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <?php
 
-            if ($_SESSION["cargo_funcionario"] == "Gerente" || "") {
+            if ($_SESSION["cargo_funcionario"] == "Gerente" || "Equipe_Atendimento") {
 
                 echo '
 
