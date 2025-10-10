@@ -57,10 +57,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $Alterar = $resultado->fetch_all(MYSQLI_ASSOC); */
 
-            $sql = "SELECT resolvido_medic FROM registro_medico WHERE id_medic = $Contador";
+            $sql = "SELECT * FROM registro_medico WHERE id_medic = $Contador";
             $resultado = $conn->query($sql);
 
-            $stmt = $conn->prepare("UPDATE registro_medico SET resolvido_medic='Sim'");
+            $stmt = $conn->prepare("UPDATE registro_medico SET resolvido_medic='Sim' WHERE id_medic = $Contador");
 
             //$stmt->bind_param("s", "Sim");
 
