@@ -269,11 +269,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                                 <td class="cell"> ' . $linhaMedico["resolvido_medic"] . ' </td>
 
-                            ';
-
-                                echo "<td><input class='cellHead' type='submit' value='Marcar como resolvido' name='Botao$ValorBotao'></td>
-
-                            </tr>";
+                            </tr>';
+                            
                             }
 
                             echo "</tbody>
