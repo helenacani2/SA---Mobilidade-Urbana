@@ -13,3 +13,24 @@ document.addEventListener('DOMContentLoaded', function teste_hamburguer() {
 });
 
 //quando clicar fora, o menu hambúrguer some
+
+function Comeco() {
+
+    document.getElementById("RegistrosResolvidos").style.display = "hidden";
+    document.getElementById("RegistrosNaoResolvidos").style.display = "block";
+
+}
+
+function BotaoNaoResolvidos() {
+
+    document.getElementById("RegistrosResolvidos").style.display = "hidden";
+    document.getElementById("RegistrosNaoResolvidos").style.display = "block";
+
+}
+
+function BotaoResolvidos() {
+
+    document.getElementById("RegistrosResolvidos").style.display = "block";
+    document.getElementById("RegistrosNaoResolvidos").style.display = "hidden";
+
+}
