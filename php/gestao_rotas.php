@@ -170,7 +170,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 </body>
 
-<script src="../javascript/gestao_rotas.js"></script>
-<script src="../javascript/teste.js"></script>
+<script src="../javascript/gestao_rotas.js?v=<?php echo time(); ?>"></script>
+<script src="../javascript/teste.js?v=<?php echo time(); ?>"></script>
 
 </html>

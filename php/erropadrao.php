@@ -76,6 +76,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <footer>
 
-    <script src="../javascript/erro.js"></script>
+    <script src="../javascript/erro.js?v=<?php echo time(); ?>"></script>
 
 </footer>

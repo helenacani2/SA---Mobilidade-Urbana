@@ -136,6 +136,6 @@ $DadosFuncionario = $resultado->fetch_assoc();
     <br>
 </footer>
 
-<script src="../javascript/teste.js"></script>
+<script src="../javascript/teste.js?v=<?php echo time(); ?>"></script>
 
 </html>

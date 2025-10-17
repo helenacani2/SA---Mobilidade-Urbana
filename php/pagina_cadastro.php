@@ -371,8 +371,8 @@ function DadosInvalidos() {
             </div>
         </form>
 
-        <script src="../javascript/mostrar_senha.js"></script>
-        <script src="../javascript/cadastro.js"></script>
+        <script src="../javascript/mostrar_senha.js?v=<?php echo time(); ?>"></script>
+        <script src="../javascript/cadastro.js?v=<?php echo time(); ?>"></script>
 
     </section>
 

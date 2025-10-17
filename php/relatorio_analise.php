@@ -250,8 +250,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </footer>
 </body>
 
-<script src="../javascript/relatorio_analise.js"></script>
-<script src="../javascript/teste.js"></script>
+<script src="../javascript/relatorio_analise.js?v=<?php echo time(); ?>"></script>
+<script src="../javascript/teste.js?v=<?php echo time(); ?>"></script>
 
 
 </html>

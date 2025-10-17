@@ -135,8 +135,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
          </div>
       </form>
 
-      <script src="../javascript/mostrar_senha.js"></script>
-   <script src="../javascript/pagina_login.js"></script>
+      <script src="../javascript/mostrar_senha.js?v=<?php echo time(); ?>"></script>
+   <script src="../javascript/pagina_login.js?v=<?php echo time(); ?>"></script>
 
 </div>
    </section>

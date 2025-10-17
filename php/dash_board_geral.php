@@ -160,6 +160,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 </body>
 
-<script src="../javascript/teste.js"></script>
+<script src="../javascript/teste.js?v=<?php echo time(); ?>"></script>
 
 </html>

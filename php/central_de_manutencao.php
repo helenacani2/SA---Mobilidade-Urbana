@@ -115,7 +115,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 </body>
 
-<script src="central_apoio_condutor.html"></script>
-<script src="../javascript/teste.js"></script>
+<!-- <script src="central_apoio_condutor.html"></script> -->
+<script src="../javascript/teste.js?v=<?php echo time(); ?>"></script>
 
 </html>

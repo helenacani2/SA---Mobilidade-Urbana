@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alarme de Emergência</title>
     <link rel="stylesheet" href="../css/alarme.css?v=<?php echo time(); ?>">
-    <link rel="stylesheet" href="../javascript/teste.js"> 
+    <link rel="stylesheet" href="../javascript/teste.js?v=<?php echo time(); ?>"> 
 </head>
 
 <header>

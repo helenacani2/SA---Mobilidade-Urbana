@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="shortcut icon" href="../midias/logomenor.png" type="icon"> <!-- Ícone da aba do navegador -->
     <title>Monitoramento Manutenção</title>
     <link rel="stylesheet" href="../css/monitoramento_manutencao.css?v=<?php echo time(); ?>">
-    <script src="../javascript/dashboard_geral.js"></script>
+    <script src="../javascript/dashboard_geral.js?v=<?php echo time(); ?>"></script>
 </head>
 
 <body>
@@ -158,7 +158,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </section>
 
 </body>
-<script src="../javascript/monitoramento.js"></script>
-<script src="../javascript/teste.js"></script>
+<script src="../javascript/monitoramento.js?v=<?php echo time(); ?>"></script>
+<script src="../javascript/teste.js?v=<?php echo time(); ?>"></script>
 
 </html>

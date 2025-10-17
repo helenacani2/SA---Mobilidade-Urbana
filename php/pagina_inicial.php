@@ -238,6 +238,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 </body>
 
-<script src="../javascript/pagina_inicial.js"></script>
+<script src="../javascript/pagina_inicial.js?v=<?php echo time(); ?>"></script>
 
 </html>
