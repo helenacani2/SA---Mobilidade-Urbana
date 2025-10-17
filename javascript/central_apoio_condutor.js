@@ -1,3 +1,5 @@
+/*
+
 const bolinha_selecao = {
     Vomito: "vômito" ,
     Enxaqueca: "Enxaqueca" ,
@@ -21,6 +23,8 @@ radios.forEach(radio => {
       }
     });
   });
+  
+  */
 
   function vomito() {
 
