@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="shortcut icon" href="../midias/logomenor.png" type="icon"> <!-- Ícone da aba do navegador -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alarme de Emergência</title>
-    <link rel="stylesheet" href="../css/alarme.css">
+    <link rel="stylesheet" href="../css/alarme.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../javascript/teste.js"> 
 </head>
 

@@ -219,7 +219,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../midias/logomenor.png" type="icon"> <!-- Ícone da aba do navegador -->
-    <link rel="stylesheet" href="../css/pagina_cadastro.css">
+    <link rel="stylesheet" href="../css/pagina_cadastro.css?v=<?php echo time(); ?>">
 
     <title>Cadastro</title>
 </head>

@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../midias/logomenor.png" type="icon"> <!-- Ícone da aba do navegador -->
     <title>Relatório e Análises</title>
-    <link rel="stylesheet" href="../css/relatorio_analise.css">
+    <link rel="stylesheet" href="../css/relatorio_analise.css?v=<?php echo time(); ?>">
 </head>
 
 <body>
