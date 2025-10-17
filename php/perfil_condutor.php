@@ -25,6 +25,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
 }
+
+$stmt = $conn->prepare("SELECT * FROM funcionario WHERE id_funcionario = $_SESSION[id_funcionario]");
+$stmt->execute();
+
+$resultado = $stmt->get_result();
+
+$DadosFuncionario = $resultado->fetch_assoc();
+
 ?> 
 
 <!DOCTYPE html>
@@ -81,23 +89,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="bolinha_selecao">
         </div>
         <div id="foto_nome">
-            <p>Nome Completo</p>
+            <?php echo '<p>' . $_SESSION["nome_funcionario"] . '</p>' ?>
         </div>
         <br>
         <hr>
 
         <div id="vvi">
             <fieldset>
+
                 <div id="bodydiv">
-                    <h5>Cargo:</h5>
-                    <h5>Gestor:</h5>
-                    <h5>Plano de saúde:</h5>
-                    <h5>Número da Carteira de Plano de Saúde:</h5>      <!--Dados do condutor-->
-                    <h5>Telefone:</h5>
-                    <h5>RG:</h5>
-                    <h5>CPF:</h5>
-                    <h5>Data de Nascimento:</h5>
-                    <h5>Endereço:</h5>
+
+                    <?php
+
+                    echo '<h5>' . 'Cargo: ' . str_replace("_", " de ", $DadosFuncionario["cargo_funcionario"]) . '</h5>';
+                    echo '<h5>' . 'Email: ' . $DadosFuncionario["email_funcionario"] . '</h5>';
+                    echo '<h5>' . 'Gestor: ' . $DadosFuncionario["gestor_funcionario"] . '</h5>';
+                    echo '<h5>' . 'Plano de Saúde: ' . $DadosFuncionario["plan_saude_funcionario"] . '</h5>';
+                    echo '<h5>' . 'Número da Carteira de Plano de Saúde: ' . $DadosFuncionario["cart_plan_saude_funcionario"] . '</h5>';      //Dados do condutor
+                    echo '<h5>' . 'Telefone: ' . $DadosFuncionario["telefone_funcionario"] . '</h5>';
+                    echo '<h5>' . 'RG: ' . $DadosFuncionario["rg_funcionario"] . '</h5>';
+                    echo '<h5>' . 'CPF: ' . $DadosFuncionario["cpf_funcionario"] . '</h5>';
+                    echo '<h5>' . 'Data de Nascimento: ' . $DadosFuncionario["dt_nasc_funcionario"] . '</h5>';
+                    echo '<h5>' . 'Endereço: ' . $DadosFuncionario["endereco_funcionario"] . '</h5>';
+
+                    ?>
                 </div>
             </fieldset>
             <br>
