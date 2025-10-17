@@ -26,6 +26,8 @@ radios.forEach(radio => {
   
   */
 
+$_SESSION = [];
+
   function vomito() {
 
     document.getElementById("mensagem").innerHTML = "Descreva seu problema relacionado à: " + "vômito";
@@ -45,7 +47,7 @@ radios.forEach(radio => {
   }
 
   function cansaco() {
-
+  
     document.getElementById("mensagem").innerHTML = "Descreva seu problema relacionado à: " + "cansaço";
 
   }
@@ -56,8 +58,10 @@ radios.forEach(radio => {
 
   }
 
-  function outros() {
+  /* function outros() {
 
     document.getElementById("mensagem").innerHTML = "Descreva seu problema relacionado à: " + "outros";
 
-  }
+    $_SESSION['ProblemaSaudeTipo'] = "Outros";
+
+  }; */

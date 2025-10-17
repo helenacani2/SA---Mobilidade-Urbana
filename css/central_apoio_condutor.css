@@ -288,3 +288,13 @@ label.menu-icon {
 .tudo {
     animation: vem-de-cima 1s ease-in-out forwards;
 }
+
+.BotaoProblema {
+
+    background-color: #ffffff;
+    border-color: #ffffff;
+    border-width: 0px;
+
+
+
+}
