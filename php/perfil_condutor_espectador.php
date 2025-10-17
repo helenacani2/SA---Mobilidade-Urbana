@@ -2,6 +2,7 @@
 
 require_once "train_info_bd.php";
 
+
 session_start();
 
 if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != true) {
@@ -9,7 +10,6 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != true) {
     header("Location: pagina_login.php");
 
     exit;
-    
 }
 
 if ($_SESSION["cargo_funcionario"] != (("Gerente") || ("Equipe_Atendimento"))) {
@@ -17,11 +17,10 @@ if ($_SESSION["cargo_funcionario"] != (("Gerente") || ("Equipe_Atendimento"))) {
     header("Location: pagina_login.php");
 
     exit;
-   
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    
+
     if (isset($_POST['BotaoSair'])) {
 
         session_unset();
@@ -29,9 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         session_destroy();
 
         header("Location: pagina_login.php");
-
     }
-
 };
 
 $stmt = $conn->prepare("SELECT * FROM funcionario WHERE id_funcionario = $_SESSION[IDFuncionarioEscolhido]");
@@ -41,8 +38,29 @@ $resultado = $stmt->get_result();
 
 $FuncionarioEscolhido = $resultado->fetch_assoc();
 
-//$_SESSION["IDFuncionarioEscolhido"]
-?> 
+
+
+
+
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    $Contador = 1;
+
+    foreach ($FuncionarioEscolhido as $linhaRedirect) {
+
+        if (isset($_POST["Botao$Contador"])) {
+
+            $sql = "UPDATE registro_medico SET resolvido_medic='Sim' WHERE id_medic = $Contador AND funcionario_medic = $_SESSION[IDFuncionarioEscolhido]";
+
+            $conn->query($sql);
+        }
+
+        $Contador++;
+    }
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="pt_BR">
@@ -52,18 +70,12 @@ $FuncionarioEscolhido = $resultado->fetch_assoc();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="../midias/logomenor.png" type="image/x-icon">
-    <link rel="stylesheet" href="../css/perfil_condutor.css">
+    <link rel="stylesheet" href="../css/perfil_condutor.css?v=<?php echo time(); ?>">
 
     <title>Perfil do Condutor</title>
 </head>
 
-<body>
-
-<?php
-
-//echo '<p>' . $FuncionarioEscolhido["nome_funcionario"] . '</p>';
-
-?>
+<body onload="Comeco()">
 
     <div class="tudo">
         <header>
@@ -100,7 +112,7 @@ $FuncionarioEscolhido = $resultado->fetch_assoc();
 
                 <div id="bodydiv">
 
-                <?php
+                    <?php
 
                     echo '<h5>' . 'Cargo: ' . str_replace("_", " de ", $FuncionarioEscolhido["cargo_funcionario"]) . '</h5>';
                     echo '<h5>' . 'Email: ' . $FuncionarioEscolhido["email_funcionario"] . '</h5>';
@@ -120,25 +132,174 @@ $FuncionarioEscolhido = $resultado->fetch_assoc();
             <fieldset>
                 <div id="bodydiv">
 
-                <h4>Registros médicos:</h4>
+                    <button id="BotaoNaoResolvidos" onclick="BotaoNaoResolvidos()" class="cellHead">Não Resolvidos</button>
+                    <button id="BotaoResolvidos" onclick="BotaoResolvidos()" class="cellHead">Resolvidos</button>
 
-                <?php
+                    <div id="RegistrosNaoResolvidos">
 
-                    echo '<h5>Registro 1</h5>';
-                    echo '<br>';
-                    echo '<h5>Registro 2</h5>';        //Não é possível fazer isso agora
-                    echo '<br>';
-                    echo '<h5>Registro 3</h5>';
-                    echo '<br>';
+                    <h4>Registros médicos não resolvidos:</h4>
 
-                ?>
+                        <?php
 
+                        $stmt = $conn->prepare("SELECT * FROM registro_medico WHERE funcionario_medic = $_SESSION[IDFuncionarioEscolhido] AND resolvido_medic='Não'");
+                        $stmt->execute();
+
+                        $resultado = $stmt->get_result();
+
+                        $ProblemasMedicos = $resultado->fetch_all(MYSQLI_ASSOC);
+
+                        if (!empty($ProblemasMedicos)) {
+
+                            echo '<form method="POST">
+
+                        <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th class="cellHead">ID</th>
+
+                                <th class="cellHead">Problema descrito</th>
+
+                                <th class="cellHead">Data de envio</th>
+
+                                <th class="cellHead">Tipo de problema</th>
+
+                                <th class="cellHead">Resolvido</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>';
+
+                            foreach ($ProblemasMedicos as $linhaMedico) {
+
+                                $ValorBotao = $linhaMedico['id_medic'];
+
+                                echo '<tr>
+
+                                <td class="cell"> ' . $linhaMedico["id_medic"] . ' </td>
+
+                                <td class="cell"> ' . $linhaMedico["problema_medic"] . ' </td>
+
+                                <td class="cell"> ' . $linhaMedico["data_medic"] . ' </td>
+
+                                <td class="cell"> ' . $linhaMedico["tipo_medic"] . ' </td>
+
+                                <td class="cell"> ' . $linhaMedico["resolvido_medic"] . ' </td>
+
+                            ';
+
+                                echo "<td><input class='cellHead' type='submit' value='Marcar como resolvido' name='Botao$ValorBotao'></td>
+
+                            </tr>";
+                            }
+
+                            echo "</tbody>
+
+                        </table>
+                    
+                        </form>";
+                        } else {
+
+                            echo "<h5>Nenhum registro médico foi feito por este usuário</h5>";
+                            
+                        }
+
+
+
+                        ?>
+
+                    </div>
+
+                    <div id="RegistrosResolvidos">
+
+                        <h4>Registros médicos resolvidos:</h4>
+
+                        <?php
+
+                        $stmt = $conn->prepare("SELECT * FROM registro_medico WHERE funcionario_medic = $_SESSION[IDFuncionarioEscolhido] AND resolvido_medic='Sim'");
+                        $stmt->execute();
+
+                        $resultado = $stmt->get_result();
+
+                        $ProblemasMedicos = $resultado->fetch_all(MYSQLI_ASSOC);
+
+                        if (!empty($ProblemasMedicos)) {
+
+                            echo '<form method="POST">
+
+                        <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th class="cellHead">ID</th>
+
+                                <th class="cellHead">Problema descrito</th>
+
+                                <th class="cellHead">Data de envio</th>
+
+                                <th class="cellHead">Tipo de problema</th>
+
+                                <th class="cellHead">Resolvido</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>';
+
+                            foreach ($ProblemasMedicos as $linhaMedico) {
+
+                                $ValorBotao = $linhaMedico['id_medic'];
+
+                                echo '<tr>
+
+                                <td class="cell"> ' . $linhaMedico["id_medic"] . ' </td>
+
+                                <td class="cell"> ' . $linhaMedico["problema_medic"] . ' </td>
+
+                                <td class="cell"> ' . $linhaMedico["data_medic"] . ' </td>
+
+                                <td class="cell"> ' . $linhaMedico["tipo_medic"] . ' </td>
+
+                                <td class="cell"> ' . $linhaMedico["resolvido_medic"] . ' </td>
+
+                            </tr>';
+                            
+                            }
+
+                            echo "</tbody>
+
+                        </table>
+                    
+                        </form>";
+                        } else {
+
+                            echo "<h5>Nenhum registro médico foi feito por este usuário</h5>";
+
+                        }
+
+
+
+                        ?>
+
+                    </div>
+
+
+
+
+                </div>
             </fieldset>
-        </div>
 
-        <br>
-        <br>
-    </div>
+
+            <br>
+            <br>
+        </div>
 </body>
 
 <footer>
@@ -149,6 +310,6 @@ $FuncionarioEscolhido = $resultado->fetch_assoc();
     <br>
 </footer>
 
-<script src="../javascript/teste.js"></script>
+<script src="../javascript/teste.js?v=<?php echo time(); ?>"></script>
 
 </html>

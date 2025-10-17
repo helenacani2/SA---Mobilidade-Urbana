@@ -37,8 +37,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="shortcut icon" href="../midias/logomenor.png" type="icon"> <!-- Ícone da aba do navegador -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alarme de Emergência</title>
-    <link rel="stylesheet" href="../css/alarme.css">
-    <link rel="stylesheet" href="../javascript/teste.js"> 
+    <link rel="stylesheet" href="../css/alarme.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../javascript/teste.js?v=<?php echo time(); ?>"> 
 </head>
 
 <header>
@@ -52,6 +52,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <br>
                 <br>
+
+<form method="POST" action="">
+    <label for="estado_usuario">Escolha o Estado:</label>
+    <select name="estado_usuario" id="estado_usuario">
+        <option value="padrao">--- Escolha ---</option>
+        <option value="caso1">Ativar o Aviso de Incêncdio</option>
+        <option value="caso2">Ativar o Aviso de Evacuação</option>
+        <option value="falso">Desativar</option>
+    </select>
+    <button type="submit">Atualizar</button>
+</form> 
+
+<?php
+
+
+
+?>
 
 <div class="instruções"> <!--Essa div mostra os textos do alarme-->
 1. MANTENHA A CALMA. Não corra nem provoque pânico.

@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="../midias/logomenor.png" type="image/x-icon">
-    <link rel="stylesheet" href="../css/teste.css">
+    <link rel="stylesheet" href="../css/teste.css?v=<?php echo time(); ?>">
 
     <title>Teste</title>
 </head>
@@ -108,6 +108,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 </footer>
 
-<script src="../javascript/teste.js"></script>
+<script src="../javascript/teste.js?v=<?php echo time(); ?>"></script>
 
 </html>

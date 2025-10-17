@@ -22,6 +22,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         header("Location: pagina_login.php");
     }
 }
+
+$Problema = "";
+
+$_SESSION['ProblemaSaudeTipo'] = "Não especificado";
+
 ?>
 
 <!DOCTYPE html>
@@ -32,10 +37,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../midias/logomenor.png" type="icon"> <!-- Ícone da aba do navegador -->
     <title>Central de Apoio</title>
-    <link rel="stylesheet" href="../css/central_apoio_condutor.css">
+    <link rel="stylesheet" href="../css/central_apoio_condutor.css?v=<?php echo time(); ?>">
 </head>
 
-<body>
+<body onload="loop()">
     <div class="tudo">
 
         <header>
@@ -70,28 +75,55 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </nav>
 
             <main>
-                <section class="grid-bolinhas">
-                    <div type="radio" name="bolinha" data-id="Vomito">
+                <!-- <section class="grid-bolinhas">
+                    <div type="radio" name="bolinha" data-id="Vomito" onclick="vomito(), <?php $_SESSION['ProblemaSaudeTipo'] = 'Vômito'; ?>">
                         <div class="bolinha_selecao"></div>
                         <p class="texto-bolinha">Vômito</p>
                     </div>
-                    <div type="radio" name="bolinha" data-id="Enxaqueca">
+                    <div type="radio" name="bolinha" data-id="Enxaqueca" onclick="enxaqueca(), <?php $_SESSION['ProblemaSaudeTipo'] = 'Enxaqueca'; ?>">
                         <div class="bolinha_selecao"></div>
                         <p class="texto-bolinha">Enxaqueca</p>
                     </div>
-                    <div type="radio" name="bolinha" data-id="nausea">
+                    <div type="radio" name="bolinha" data-id="nausea" onclick="nausea(), <?php $_SESSION['ProblemaSaudeTipo'] = 'Náusea'; ?>">
                         <div class="bolinha_selecao"></div>
                         <p class="texto-bolinha">Náusea</p>
                     </div>
-                    <div type="radio" name="bolinha" data-id="cansaco">
+                    <div type="radio" name="bolinha" data-id="cansaco" onclick="cansaco(), <?php $_SESSION['ProblemaSaudeTipo'] = 'Cansaço'; ?>">
                         <div class="bolinha_selecao"></div>
                         <p class="texto-bolinha">Cansaço</p>
                     </div>
-                    <div type="radio" name="bolinha" data-id="Febre">
+                    <div type="radio" name="bolinha" data-id="Febre" onclick="febre(), <?php $_SESSION['ProblemaSaudeTipo'] = 'Febre'; ?>">
                         <div class="bolinha_selecao"></div>
                         <p class="texto-bolinha">Febre</p>
                     </div>
-                    <div type="radio" name="bolinha" data-id="Outros">
+                    <div type="radio" name="bolinha" data-id="Outros" onclick="outros(), <?php $_SESSION['ProblemaSaudeTipo'] = 'Outros'; ?>">
+                        <div class="bolinha_selecao"></div>
+                        <p class="texto-bolinha">Outros</p>
+                    </div>
+                </section> -->
+
+                <section class="grid-bolinhas">
+                    <div type="radio" name="bolinha" data-id="Vomito" onclick="vomito()">
+                        <div class="bolinha_selecao"></div>
+                        <p class="texto-bolinha">Vômito</p>
+                    </div>
+                    <div type="radio" name="bolinha" data-id="Enxaqueca" onclick="enxaqueca()">
+                        <div class="bolinha_selecao"></div>
+                        <p class="texto-bolinha">Enxaqueca</p>
+                    </div>
+                    <div type="radio" name="bolinha" data-id="nausea" onclick="nausea()">
+                        <div class="bolinha_selecao"></div>
+                        <p class="texto-bolinha">Náusea</p>
+                    </div>
+                    <div type="radio" name="bolinha" data-id="cansaco" onclick="cansaco()">
+                        <div class="bolinha_selecao"></div>
+                        <p class="texto-bolinha">Cansaço</p>
+                    </div>
+                    <div type="radio" name="bolinha" data-id="Febre" onclick="febre()">
+                        <div class="bolinha_selecao"></div>
+                        <p class="texto-bolinha">Febre</p>
+                    </div>
+                    <div type="radio" name="bolinha" data-id="Outros" onclick="outros()">
                         <div class="bolinha_selecao"></div>
                         <p class="texto-bolinha">Outros</p>
                     </div>
@@ -103,8 +135,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <form method="POST" action="registro_medico_aux.php">
                         <!-- Contêiner do campo de texto -->
                         <div class="input-container">
-                            <label for="problem-description" id="mensagem">Descreva seu problema relacionado à: <span
-                                    id="selected-option"></span></label>
+                            <label for="problem-description" id="mensagem">Nenhum problema selecionado</label>
                             <textarea type="text" id="problem-description" name="ProblemaSaude" placeholder="Digite sua descrição aqui..."></textarea>
                         </div>
 
@@ -119,9 +150,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         </div>
     </div>
+
 </body>
 
-<script src="central_apoio_condutor.js"></script>
-<script src="../javascript/teste.js"></script>
+<script src="../javascript/central_apoio_condutor.js?v=<?php echo time(); ?>"></script>
+<script src="../javascript/teste.js"?v=<?php echo time(); ?>></script>
+
+<script>
+
+    function loop() {
+
+        console.log("<?php echo "$_SESSION[ProblemaSaudeTipo]" ?>");
+
+        setTimeout(loop, 1000);
+
+    }
+
+</script>
 
 </html>

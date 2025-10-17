@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../midias/logomenor.png" type="icon"> <!-- Ícone da aba do navegador -->
     <title>Bem Vindo</title>
-    <link rel="stylesheet" href="../css/pagina_inicial.css">
+    <link rel="stylesheet" href="../css/pagina_inicial.css?v=<?php echo time(); ?>">
 </head>
 
 <body onload="barra_paginas()">
@@ -174,7 +174,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <?php
 
-            if ($_SESSION["cargo_funcionario"] == "Gerente") {
+            if ($_SESSION["cargo_funcionario"] == (("Gerente") || ("Equipe_Atendimento"))) {
 
                 echo '
 
@@ -238,6 +238,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 </body>
 
-<script src="../javascript/pagina_inicial.js"></script>
+<script src="../javascript/pagina_inicial.js?v=<?php echo time(); ?>"></script>
 
 </html>

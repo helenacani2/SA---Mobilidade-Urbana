@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <link rel="shortcut icon" href="../midias/logomenor.png" type="icon"> <!-- Ícone da aba do navegador -->
 <title>Relatórios</title>
 
-<link rel="stylesheet" href="../css/central_apoio_condutor.css">
+<link rel="stylesheet" href="../css/central_apoio_condutor.css?v=<?php echo time(); ?>">
 </head>
 
 <body>
@@ -115,7 +115,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 </body>
 
-<script src="central_apoio_condutor.html"></script>
-<script src="../javascript/teste.js"></script>
+<!-- <script src="central_apoio_condutor.html"></script> -->
+<script src="../javascript/teste.js?v=<?php echo time(); ?>"></script>
 
 </html>

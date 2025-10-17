@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="shortcut icon" href="../midias/logomenor.png" type="icon"> <!-- Ícone da aba do navegador -->
-   <link rel="stylesheet" href="../css/pagina_login.css">
+   <link rel="stylesheet" href="../css/pagina_login.css?v=<?php echo time(); ?>">
 <?php
 require_once "train_info_bd.php";
 
@@ -135,8 +135,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
          </div>
       </form>
 
-      <script src="../javascript/mostrar_senha.js"></script>
-   <script src="../javascript/pagina_login.js"></script>
+      <script src="../javascript/mostrar_senha.js?v=<?php echo time(); ?>"></script>
+   <script src="../javascript/pagina_login.js?v=<?php echo time(); ?>"></script>
 
 </div>
    </section>
