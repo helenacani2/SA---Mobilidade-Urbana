@@ -148,25 +148,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
 
-                        <div type="radio" name="bolinha" data-id="nausea" onclick="nausea()">
+                        <button name="nausea" class="BotaoProblema" value="nausea">
+                            <div type="radio" name="bolinha" data-id="nausea" onclick="nausea()">
                             <div class="bolinha_selecao"></div>
                             <p class="texto-bolinha">Náusea</p>
                         </div>
+                        </button>
 
+
+                        <button name="casaco"  class="BotaoProblema" id="casaco">
                         <div type="radio" name="bolinha" data-id="cansaco" onclick="cansaco()">
                             <div class="bolinha_selecao"></div>
                             <p class="texto-bolinha">Cansaço</p>
                         </div>
+                        </button>
 
+                        
+                        <button name="febre" class="BotaoProblema" id="febre">
                         <div type="radio" name="bolinha" data-id="Febre" onclick="febre()">
                             <div class="bolinha_selecao"></div>
                             <p class="texto-bolinha">Febre</p>
                         </div>
+                        </button>
 
+                        <button name="outros" class="BotaoProblema" id="outros">
                         <div type="radio" name="bolinha" data-id="Outros" onclick="outros()">
                             <div class="bolinha_selecao"></div>
                             <p class="texto-bolinha">Outros</p>
                         </div>
+                        </button>
 
 
 
