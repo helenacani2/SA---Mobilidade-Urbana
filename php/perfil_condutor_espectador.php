@@ -192,7 +192,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                             ';
 
-                                echo "<td><input class='cellHead' type='submit' value='Marcar como resolvido' name='Botao$ValorBotao'></td>
+                                echo "<td><input class='cellHeadConcluir' type='submit' value='Marcar como resolvido' name='Botao$ValorBotao'></td>
 
                             </tr>";
 
@@ -238,7 +238,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                         if (!empty($ProblemasMedicos)) {
 
-                            echo '<form method="POST">
+                            echo '
 
                         <table>
 
@@ -284,9 +284,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                             echo "</tbody>
 
-                        </table>
-                    
-                        </form>";
+                        </table>";
                         } else {
 
                             echo "<h5>Nenhum registro médico foi feito por este usuário</h5>";

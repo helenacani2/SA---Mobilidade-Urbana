@@ -50,8 +50,10 @@ CREATE TABLE trens (
 
     id_trem INT PRIMARY KEY AUTO_INCREMENT,
     nome_trem VARCHAR(45) NOT NULL,
-    estacao_atual_trem VARCHAR(45) NOT NULL,
-    linha_atual_trem VARCHAR(45) NOT NULL,
+    estacao_atual_trem VARCHAR(45) NOT NULL DEFAULT 'Nenhuma Estação',
+    linha_atual_trem VARCHAR(45) NOT NULL DEFAULT 'Nenhuma Linha',
+    data_fabricacao_trem DATE NOT NULL,
+    fabricante_trem VARCHAR(45) NOT NULL,
     maquinista_trem INT,
     FOREIGN KEY (maquinista_trem) REFERENCES funcionario(id_funcionario)
 

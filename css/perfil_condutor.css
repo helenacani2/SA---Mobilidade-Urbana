@@ -208,4 +208,24 @@ footer {
 
     border-color: black;
 
+    opacity: 100%;
+
+}
+
+.cellHeadConcluir {
+
+    border-style:solid;
+
+    border-width: 1px;
+
+    background-color: #285775;
+
+    color: #ffffff;
+
+    border-color: black;
+
+    opacity: 100%;
+
+    width: 100%;
+
 }

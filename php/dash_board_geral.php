@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="shortcut icon" href="../midias/logomenor.png" type="icon"> <!-- Ícone da aba do navegador -->
     <title>Dashboard Geral</title>
     <link rel="stylesheet" href="../css/dash_board_geral.css?v=<?php echo time(); ?>">
-    <script src="../javascript/dashboard_geral.js"></script>
+    <script src="../javascript/dashboard_geral.js?v=<?php echo time(); ?>"></script>
 </head>
 
 <body>
@@ -61,7 +61,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </ul>
     </nav>
 
+    <a href="cadastrar_trem.php" id="BotaoCadastrarTrem">ㅤCadastrar novo tremㅤ</a>
+
     <div id="table1">
+
         <div id="table2">
             <h3>Trens</h3>
         </div>
