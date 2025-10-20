@@ -195,6 +195,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 echo "<td><input class='cellHead' type='submit' value='Marcar como resolvido' name='Botao$ValorBotao'></td>
 
                             </tr>";
+
+                            /*
+                            
+                                echo "<td><input class='cellHead' type='submit' value='Acessar Perfil' name='Funcionario$ValorFuncionario'></td>
+
+                            </tr>";
+
+                            */
+
                             }
 
                             echo "</tbody>
