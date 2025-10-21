@@ -61,7 +61,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </ul>
     </nav>
 
-    <a href="cadastrar_trem.php" id="BotaoCadastrarTrem">ㅤCadastrar novo tremㅤ</a>
+    <?php
+
+    if ($_SESSION["cargo_funcionario"] == "Gerente") {
+
+    echo '<a href="cadastrar_trem.php" id="BotaoCadastrarTrem">ㅤCadastrar novo tremㅤ</a>';
+
+    }
+
+    ?>
 
     <div id="table1">
 
