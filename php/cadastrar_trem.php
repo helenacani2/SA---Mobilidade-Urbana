@@ -9,6 +9,22 @@
     <title>Cadastrar novo trem</title>
 </head>
 
+<nav class="menu-hamburguer">
+    <input type="checkbox" id="menu-toggle" />
+    <label for="menu-toggle" class="menu-icon">☰</label>
+
+    <ul class="menu-opcoes">
+        <form method="post">
+            <li><a href="pagina_inicial.php">Início</a></li>
+            <li><a href="perfil_condutor.php">Perfil</a></li>
+            <li><a href="dash_board_geral.php">Dashboard</a></li>
+            <li><a href="relatorio_analise.php">Relatórios</a></li>
+            <li><a href="central_apoio_condutor.php">Central de Apoio</a></li>
+            <li><input type="submit" name="BotaoSair" id="BotaoSair" value="Sair">• Sair</li>
+        </form>
+    </ul>
+</nav>
+
 <body>
 
     <form action="cadastrar_trem_aux.php" method="POST">
@@ -18,16 +34,23 @@
         <input type="text" id="TremNome" class="Texto" name="TremNome" required>
 
         <br>
+        <br>
 
         <label for="TremData" class="Legenda">Data de Fabricação do Trem</label>
         
-        <input type="text" id="TremData"class="Texto" name="TremData" required>
+        <input type="date" id="TremData" class="Texto" name="TremData" required>
 
+        <br>
         <br>
 
         <label for="TremFabricante" class="Legenda">Fabricante do Trem</label>
         
-        <input type="text" id="TremFabricante"class="Texto" name="TremFabricante" required>
+        <input type="text" id="TremFabricante" class="Texto" name="TremFabricante" required>
+
+        <br>
+        <br>
+
+        <input type="submit" id="BotaoEnviar" name="BotaoEnviar">
 
     </form>
 
@@ -35,3 +58,4 @@
 
 </html>
 
+<script src="../javascript/teste.js?v=<?php echo time(); ?>"></script>
