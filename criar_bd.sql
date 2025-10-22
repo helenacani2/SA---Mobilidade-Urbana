@@ -34,7 +34,7 @@ CREATE TABLE notificacao (
     id_notificacao INT PRIMARY KEY AUTO_INCREMENT,
     titulo_notificacao VARCHAR(45) NOT NULL,
     mensagem_notificacao VARCHAR(200) NOT NULL,
-    data_notificacao DATETIME NOT NULL
+    data_notificacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
 
 );
 

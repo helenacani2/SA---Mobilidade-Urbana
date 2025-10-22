@@ -12,6 +12,14 @@ header {
     font-family: 'Times New Roman', Times, serif;
 }
 
+.notificacao {
+    padding-left: 54px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
 #table1 {
     width: 100%;
     display: flex;
@@ -91,6 +99,13 @@ footer {
 }
 
 #white h5 {
+    margin: 0;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#white h6 {
+
+    padding-left: 15px;
     margin: 0;
     font-family: 'Times New Roman', Times, serif;
 }

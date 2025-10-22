@@ -4,12 +4,25 @@ require_once "train_info_bd.php";
 
 session_start();
 
+    $stmt = $conn->prepare("SELECT * FROM trens");
+    $stmt->execute();
+
+    $resultado = $stmt->get_result();
+
+    $trens = $resultado->fetch_all(MYSQLI_ASSOC);
+
+    $stmt = $conn->prepare("SELECT * FROM notificacao");
+    $stmt->execute();
+
+    $resultado = $stmt->get_result();
+
+    $notificacao = $resultado->fetch_all(MYSQLI_ASSOC);
+
 if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != true) {
 
     header("Location: pagina_login.php");
 
     exit;
-    
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -49,15 +62,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <label for="menu-toggle" class="menu-icon">☰</label>
 
         <ul class="menu-opcoes">
-        <form method="post">    
-        <li><a href="pagina_inicial.php">Início</a></li>
-            <li><a href="perfil_condutor.php">Perfil</a></li>
-            <li><a href="gestao_rotas.php">Rotas</a></li>
-            <li><a href="relatorio_analise.php">Relatórios</a></li>
-            <li><a href="central_apoio_condutor.php">Central de Apoio</a></li>
-            
+            <form method="post">
+                <li><a href="pagina_inicial.php">Início</a></li>
+                <li><a href="perfil_condutor.php">Perfil</a></li>
+                <li><a href="gestao_rotas.php">Rotas</a></li>
+                <li><a href="relatorio_analise.php">Relatórios</a></li>
+                <li><a href="central_apoio_condutor.php">Central de Apoio</a></li>
+
                 <li><input type="submit" name="BotaoSair" id="BotaoSair" value="Sair">• Sair</li>
-                    </form>
+            </form>
         </ul>
     </nav>
 
@@ -65,8 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($_SESSION["cargo_funcionario"] == "Gerente") {
 
-    echo '<a href="cadastrar_trem.php" id="BotaoCadastrarTrem">ㅤCadastrar novo tremㅤ</a>';
-
+        echo '<a href="cadastrar_trem.php" id="BotaoCadastrarTrem">ㅤCadastrar novo tremㅤ</a>';
     }
 
     ?>
@@ -90,28 +102,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
     <div id="divbody">
         <div id="table4">
-            <h3>HIRA</h3>
-        <!--<h3>Sul- Centro</h3>
-            <hr>
-            <h3>Norte-Sul</h3>
-            <hr>
-            <h3>Cascata</h3>        Alteração devido ao fato que só teremos um trem
-            <hr>
-            <h3>Bombarde</h3> -->
-            <hr>
-            <h3>Escola SESI</h3>
-        </div>
+
+            <?php
+
+            if (!empty($trens)) {
+
+                foreach ($trens as $trem) {
+
+                    echo '<h3>' . $trem['nome_trem'] . '</h3><hr>';
+                }
+            }
+
+            ?>
+            </div>
+
         <div id="table5">
-            <h3>Na Linha Férrea da Coxinha</h3>
-            <!-- <h3>Na Estação</h3>
-            <hr>
-            <h3>Em viagem</h3>
-            <hr>
-            <h3>Descarrilhado</h3>
-            <hr>
-            <h3>Em viagem</h3> -->
-            <hr>
-            <h3>Destruido por acidente explosivo</h3>
+            <?php
+
+            if (!empty($trens)) {
+
+                foreach ($trens as $trem) {
+
+                    echo '<h3>' . $trem['estacao_atual_trem'] . '</h3>';
+                
+                echo '<hr>';
+                }
+            }
+
+            ?>
         </div>
     </div>
     <div id="table1">
@@ -132,26 +150,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
     <div id="divbody">
         <div id="table4">
-            <h3>Sul- Centro</h3>
-            <hr>
-            <h3>Norte-Sul</h3>
-            <hr>
-            <h3>Cascata</h3>
-            <hr>
-            <h3>Bombarde</h3>
-            <hr>
-            <h3>Escola SESI</h3>
+            <?php
+
+            if (!empty($trens)) {
+
+                foreach ($trens as $trem) {
+
+                    echo '<h3>' . $trem['nome_trem'] . '</h3><hr>';
+                }
+            }
+
+            ?>
         </div>
         <div id="table5">
-            <h3>Saída 10:00 estação Moinho</h3>
+            <h3>Saída 10:00 estação Moinho</h3> <!--placeholder-->
             <hr>
-            <h3>Saída as 10:01 estação Sul</h3>
+            <h3>Saída as 10:01 estação Sul</h3> <!--placeholder-->
             <hr>
-            <h3>Descarrilhado</h3>
-            <hr>
-            <h3>Saída 10:05 estação Dino</h3>
-            <hr>
-            <h3>Destruido por acidente explosivo</h3>
+
         </div>
     </div>
     <div id="table1">
@@ -164,9 +180,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
     <div id="white">
         <br>
-        <h5>A promoção “50% de desconto nas passagens do trem “Escola SESI Moinho” foi cancelada devido ao acidente
-            ocorrido.</h5>
-        <h5>O trem “Centro Histórico” será inaugurado em duas semanas.</h5>
+
+            <?php
+
+            if (!empty($notificacao)) {
+
+                foreach ($notificacao as $notificacoes) {
+                    echo '<hr>'; 
+                    echo '<h4>' . $notificacoes['titulo_notificacao'] . '</h4>';
+                    echo '<div class="notificacao">';
+                    echo '<h5>' . $notificacoes['mensagem_notificacao'] . '</h5>';
+                    echo '<h6>' . $notificacoes['data_notificacao'] . '</h6><hr>';
+                    echo '</div>';
+                    echo '<hr>';
+                }
+            }
+
+            ?>
+
         <br>
     </div>
 </body>
