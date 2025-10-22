@@ -124,37 +124,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                     <section class="grid-bolinhas">
 
-                        <div type="radio" name="bolinha" data-id="Vomito" onclick="vomito()">
+                        <div name="bolinha" data-id="Vomito" onclick="vomito()">
                             <div class="bolinha_selecao"></div>
                             <p class="texto-bolinha">Vômito</p>
                         </div>
 
 
-                        <div type="radio" name="bolinha" data-id="Enxaqueca" onclick="enxaqueca()">
+                        <div name="bolinha" data-id="Enxaqueca" onclick="enxaqueca()">
                             <div class="bolinha_selecao"></div>
                             <p class="texto-bolinha">Enxaqueca</p>
                         </div>
 
 
-                        <div type="radio" name="bolinha" data-id="nausea" onclick="nausea()">
+                        <div name="bolinha" data-id="nausea" onclick="nausea()">
                             <div class="bolinha_selecao"></div>
                             <p class="texto-bolinha">Náusea</p>
                         </div>
 
 
-                        <div type="radio" name="bolinha" data-id="cansaco" onclick="cansaco()">
+                        <div name="bolinha" data-id="cansaco" onclick="cansaco()">
                             <div class="bolinha_selecao"></div>
                             <p class="texto-bolinha">Cansaço</p>
                         </div>
 
 
-                        <div type="radio" name="bolinha" data-id="Febre" onclick="febre()">
+                        <div name="bolinha" data-id="Febre" onclick="febre()">
                             <div class="bolinha_selecao"></div>
                             <p class="texto-bolinha">Febre</p>
                         </div>
 
 
-                        <div type="radio" name="bolinha" data-id="Outros" onclick="outros()">
+                        <div name="bolinha" data-id="Outros" onclick="outros()">
                             <div class="bolinha_selecao"></div>
                             <p class="texto-bolinha">Outros</p>
                         </div>
@@ -198,7 +198,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </section> -->
 
                     <!--Aqui a baixo fica o lugar para o cliente expicar seu problema-->
+
+
                     <section>
+
+                        <div id="RadioTudo">
+
+                            <div class="flexivel">
+
+                                <input class="ProblemaSaudeRadio" type="radio" name="ProblemaSaudeRadio" value="Vômito">
+                                <input class="ProblemaSaudeRadio" type="radio" name="ProblemaSaudeRadio" value="Enxaqueca">
+                                <input class="ProblemaSaudeRadio" type="radio" name="ProblemaSaudeRadio" value="Náusea">
+
+                            </div>
+
+                            <div class="flexivel">
+
+                                <input class="ProblemaSaudeRadio" type="radio" name="ProblemaSaudeRadio" value="Cansaco">
+                                <input class="ProblemaSaudeRadio" type="radio" name="ProblemaSaudeRadio" value="Febre">
+                                <input class="ProblemaSaudeRadio" type="radio" name="ProblemaSaudeRadio" value="Outros">
+
+                            </div>
+
+                        </div>
+
                         <!-- Contêiner do campo de texto -->
                         <div class="input-container">
                             <label for="problem-description" id="mensagem">Nenhum problema selecionado</label>

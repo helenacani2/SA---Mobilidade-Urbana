@@ -5,6 +5,12 @@
     font-family: 'Times New Roman', Times, serif;
 }
 
+.flexivel {
+
+    display: flex;
+
+}
+
 .tudo {
 
     display: block;
@@ -252,6 +258,19 @@ label.menu-icon {
         cursor: pointer;
     }
 
+
+    .ProblemaSaudeRadio {
+
+        border-radius: 100%;
+        padding: 3.5rem 3.5rem;
+        margin: 30px;
+        width: 100%;
+        max-width: 0px;
+        cursor: pointer;
+
+    }
+
+
     #topo {
         margin-top: 50px;
     }
@@ -264,6 +283,15 @@ label.menu-icon {
         justify-content: space-evenly;
         grid-template-columns: auto auto;
     }
+
+    #RadioTudo {
+
+        display: grid;
+        justify-content: space-evenly;
+        grid-template-columns: auto auto;
+
+    }
+
 
     .texto_topo {
         color: #FFFFFF;
@@ -296,5 +324,37 @@ label.menu-icon {
     border-width: 0px;
 
 
+
+}
+
+.ProblemaSaudeRadio {
+
+    opacity: 100%;
+
+    background-color: red;
+
+    border: dotted;
+
+    border-color: #000;
+
+    border-width: 1px;
+
+
+
+
+    padding: 2rem 2rem;
+    margin: 30px;
+    width: 100%;
+    max-width: 0px;
+    cursor: pointer;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+
+#RadioTudo {
+
+    display: grid;
+    justify-content: space-evenly;
+    grid-template-columns: auto auto auto;
 
 }
