@@ -11,6 +11,13 @@ session_start();
 
     $trens = $resultado->fetch_all(MYSQLI_ASSOC);
 
+    $stmt = $conn->prepare("SELECT * FROM notificacao");
+    $stmt->execute();
+
+    $resultado = $stmt->get_result();
+
+    $notificacao = $resultado->fetch_all(MYSQLI_ASSOC);
+
 if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != true) {
 
     header("Location: pagina_login.php");
@@ -173,9 +180,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
     <div id="white">
         <br>
-        <h5>A promoção “50% de desconto nas passagens do trem “Escola SESI Moinho” foi cancelada devido ao acidente
-            ocorrido.</h5>
-        <h5>O trem “Centro Histórico” será inaugurado em duas semanas.</h5>
+
+            <?php
+
+            if (!empty($notificacao)) {
+
+                foreach ($notificacao as $notificacoes) {
+                    echo '<hr>'; 
+                    echo '<h4>' . $notificacoes['titulo_notificacao'] . '</h4>';
+                    echo '<div class="notificacao">';
+                    echo '<h5>' . $notificacoes['mensagem_notificacao'] . '</h5>';
+                    echo '<h6>' . $notificacoes['data_notificacao'] . '</h6><hr>';
+                    echo '</div>';
+                    echo '<hr>';
+                }
+            }
+
+            ?>
+
         <br>
     </div>
 </body>
