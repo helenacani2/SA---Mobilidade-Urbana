@@ -104,7 +104,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <?php
 
 
-                if (!empty($funcionarios)) {
+                if (!empty($funcionarios)) { //usuários
 
                     foreach ($funcionarios as $linha) {
 
