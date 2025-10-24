@@ -9,11 +9,10 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != true) {
     header("Location: pagina_login.php");
 
     exit;
-    
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    
+
     if (isset($_POST['BotaoSair'])) {
 
         session_unset();
@@ -21,11 +20,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         session_destroy();
 
         header("Location: pagina_login.php");
-
     }
-
 }
-?> 
+?>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -38,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alarme de Emergência</title>
     <link rel="stylesheet" href="../css/alarme.css?v=<?php echo time(); ?>">
-    <link rel="stylesheet" href="../javascript/teste.js?v=<?php echo time(); ?>"> 
+    <link rel="stylesheet" href="../javascript/teste.js?v=<?php echo time(); ?>">
 </head>
 
 <header>
@@ -53,46 +50,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <br>
                 <br>
 
-<form method="POST" action="">
-    <label for="estado_usuario">Escolha o Estado:</label>
-    <select name="estado_usuario" id="estado_usuario">
-        <option value="padrao">--- Escolha ---</option>
-        <option value="caso1">Ativar o Aviso de Incêncdio</option>
-        <option value="caso2">Ativar o Aviso de Evacuação</option>
-        <option value="falso">Desativar</option>
-    </select>
-    <button type="submit">Atualizar</button>
-</form> 
+            <div class="instruções"> <!--Essa div mostra os textos do alarme-->
+                <?php
 
-<?php
+                if (!empty($alertas)) {
 
+                    foreach ($alertas as $alerta) {
 
+                        echo '<h3>' . $alerta['tipo_alerta'] . '</h3>';
+                        echo '<br>';
 
-?>
+                        echo '<h4>' . $alerta['mensagem_alerta'] . '</h4>';
+                        echo '<br>';
 
-<div class="instruções"> <!--Essa div mostra os textos do alarme-->
-1. MANTENHA A CALMA. Não corra nem provoque pânico.
-<br>
-2. NÃO TOQUE NA PORTA enquanto o trem estiver em movimento. Aguarde parada total.
-<br>
-<br>
-EM CASO DE EVACUAÇÃO:
-<br>
-1. Siga as rotas de fuga sinalizadas.
-<br>
-2. Utilize escadas de emergência (evite elevadores).
-<br>
-3. Ajude idosos, crianças e pessoas com dificuldade de locomoção.
-<br>
-<br>
-EM INCÊNDIOS:
-<br>
-1. Cubra nariz e boca com pano úmido.
-<br>
-2. Agache-se se houver fumaça.
-<br>
-INFORME-SE pelos canais oficiais antes de compartilhar informações.
-</div>
+                        echo '<h5>' . $alerta['data_alerta'] . '</h5>';
+                        echo '<br>';
+
+                        echo '<hr>';
+                    }
+                }
+
+                ?>
+            </div>
             </p>
 
             <div class="entrar_pagina2"> <!--Essa div gera o botão que volta pra tela inicial-->
@@ -112,7 +91,7 @@ INFORME-SE pelos canais oficiais antes de compartilhar informações.
         </button>
         <audio id="alarmeAudio" src="../midias/alarme.mp3"></audio>
     </div>
-    <script> 
+    <script>
         function som() {
             var audio = document.getElementById('alarmeAudio');
             audio.currentTime = 0;
