@@ -261,11 +261,11 @@ label.menu-icon {
 
     .ProblemaSaudeRadio {
 
-        border-radius: 100%;
         padding: 3.5rem 3.5rem;
         margin: 30px;
         width: 100%;
-        max-width: 0px;
+        height: 100%;
+        /* max-width: 0px; */
         cursor: pointer;
 
     }
@@ -278,6 +278,7 @@ label.menu-icon {
 }
 
 @media screen and (max-width: 400px) {
+
     .grid-bolinhas {
         display: grid;
         justify-content: space-evenly;
@@ -290,6 +291,8 @@ label.menu-icon {
         justify-content: space-evenly;
         grid-template-columns: auto auto;
 
+
+
     }
 
 
@@ -299,7 +302,53 @@ label.menu-icon {
         font-family: 'Times New Roman', Times, serif;
         font-size: 1rem;
     }
+
+    .ProblemaSaudeRadio {
+
+        padding: 3.5rem 3.5rem;
+        margin: 30px;
+        width: 100%;
+        height: 50%;
+        /* max-width: 0px; */
+        cursor: pointer;
+
+    }
+
 }
+
+
+@media screen and (max-width: 1023px) {
+
+
+    .ProblemaSaudeRadio {
+
+        opacity: 100%;
+
+        background-color: red;
+
+        border: dotted;
+
+        border-color: #000;
+
+        border-width: 1px;
+
+
+
+
+        padding: 2rem 2rem;
+        margin: 30px;
+        width: 100%;
+        height: 45%;
+        cursor: pointer;
+        font-family: 'Times New Roman', Times, serif;
+
+    }
+
+
+}
+
+
+
 
 @keyframes vem-de-cima {
     from {
@@ -327,29 +376,7 @@ label.menu-icon {
 
 }
 
-.ProblemaSaudeRadio {
 
-    opacity: 100%;
-
-    background-color: red;
-
-    border: dotted;
-
-    border-color: #000;
-
-    border-width: 1px;
-
-
-
-
-    padding: 2rem 2rem;
-    margin: 30px;
-    width: 100%;
-    max-width: 0px;
-    cursor: pointer;
-    font-family: 'Times New Roman', Times, serif;
-
-}
 
 #RadioTudo {
 
@@ -357,4 +384,7 @@ label.menu-icon {
     justify-content: space-evenly;
     grid-template-columns: auto auto auto;
 
+    position: absolute;
+
+    top: 14%
 }
