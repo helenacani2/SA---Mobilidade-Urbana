@@ -26,7 +26,48 @@ radios.forEach(radio => {
   
   */
 
-$_SESSION = [];
+  /* function inicio() {
+
+    VomWidth = document.getElementById("VomitoBolinha").style.width;
+    VomHeight = document.getElementById("VomitoBolinha").style.height;
+
+    VomTop = document.getElementById("VomitoBolinha").style.top;
+    VomLeft = document.getElementById("VomitoBolinha").style.left;
+
+    alert(VomWidth);
+
+
+
+    document.getElementById("VomitoInput").style.width = VomWidth;
+    document.getElementById("VomitoInput").style.height = VomHeight;
+    
+    document.getElementById("VomitoInput").style.top = VomTop;
+    document.getElementById("VomitoInput").style.left = VomLeft;
+
+  } */
+
+
+
+
+
+
+
+
+    function setProblema(tipo) {
+  document.getElementById("mensagem").innerHTML = "Descreva seu problema relacionado à: " + tipo.toLowerCase();
+  document.getElementById("ProblemaSaudeTipo").value = tipo;
+}
+
+
+
+
+
+
+
+
+
+
+/*
 
   function vomito() {
 
@@ -58,7 +99,7 @@ $_SESSION = [];
 
   }
 
-  /* function outros() {
+  function outros() {
 
     document.getElementById("mensagem").innerHTML = "Descreva seu problema relacionado à: " + "outros";
 

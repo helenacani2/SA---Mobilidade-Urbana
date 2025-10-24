@@ -9,6 +9,23 @@ $ProblemaSaude = $_POST['ProblemaSaude'];
 $DataAtualString = date("Y-m-d H:i:s");
 
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $_SESSION['ProblemaSaudeTipo'] = $_POST['ProblemaSaudeTipo'] ?? 'Não especificado';
+
+    // Exemplo de inserção:
+    $tipo = $_SESSION['ProblemaSaudeTipo'];
+    $descricao = $_POST['ProblemaSaude'] ?? '';
+
+    echo "Tipo: " . htmlspecialchars($tipo) . "<br>";
+    echo "Descrição: " . htmlspecialchars($descricao);
+
+    // Lógica do INSERT de dados no banco
+}
+
+
+
+
+
 $stmt = $conn->prepare("INSERT INTO registro_medico (problema_medic, data_medic, funcionario_medic, tipo_medic) VALUES (?, ?, ?, ?)");
 
 $stmt->bind_param("ssis", $ProblemaSaude, $DataAtualString, $_SESSION["id_funcionario"], $_SESSION['ProblemaSaudeTipo']);
@@ -27,6 +44,9 @@ if($stmt->execute()) {
 
     $stmt->close();
     $conn->close();
+
+
+
 
 
 ?>
