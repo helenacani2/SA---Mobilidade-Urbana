@@ -50,6 +50,27 @@
         <br>
         <br>
 
+        <label for="TremEstacao" class="Legenda">Estação do Trem</label>
+        
+        <input type="text" id="TremEstacao" class="Texto" name="TremEstacao" required>
+
+        <br>
+        <br>
+
+        <label for="TremLinha" class="Legenda">Linha do Trem</label>
+        
+        <input type="text" id="TremLinha" class="Texto" name="TremLinha" required>
+
+        <br>
+        <br>
+
+        <label for="TremMaquinista" class="Legenda">Maquinista do Trem</label>
+        
+        <input type="text" id="TremMaquinista" class="Texto" name="TremMaquinista" required>
+
+        <br>
+        <br>
+
         <input type="submit" id="BotaoEnviar" name="BotaoEnviar">
 
     </form>
