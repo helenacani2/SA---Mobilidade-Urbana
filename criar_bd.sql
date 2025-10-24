@@ -42,7 +42,8 @@ CREATE TABLE alertas (
 
     id_alerta INT PRIMARY KEY AUTO_INCREMENT,
     tipo_alerta VARCHAR(45) NOT NULL,
-    data_alerta DATETIME NOT NULL
+    mensagem_alerta VARCHAR(200) NOT NULL,
+    data_alerta TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
 
 );
 
@@ -65,7 +66,7 @@ CREATE TABLE manutencao (
     data_inicio_manutencao DATETIME NOT NULL,
     data_termino_manutencao DATETIME NOT NULL,
     problema_manutencao VARCHAR(8000) NOT NULL,
-    reolvido_manutencao VARCHAR(10) NOT NULL DEFAULT 'Não',
+    resolvido_manutencao VARCHAR(10) NOT NULL DEFAULT 'Não',
     trem_manutencao INT,
     FOREIGN KEY (trem_manutencao) REFERENCES trens(id_trem),
     funcionario_manutencao INT,

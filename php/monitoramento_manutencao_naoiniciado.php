@@ -107,7 +107,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <div id="table1">
             <div id="table2">
-                <h3>Alertas</h3>
+                <h3>Notificação</h3>
             </div>
             <div id="table3">
                 <h3>Em tempo real</h3>
