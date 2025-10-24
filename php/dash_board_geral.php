@@ -163,10 +163,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ?>
         </div>
         <div id="table5">
-            <h3>Saída 10:00 estação Moinho</h3> <!--placeholder-->
-            <hr>
-            <h3>Saída as 10:01 estação Sul</h3> <!--placeholder-->
-            <hr>
+
+            <?php
+
+            if (!empty($trens)) {
+
+                foreach ($trens as $trem) {
+
+                    echo '<h3>' . 'Placeholder' . '</h3>';
+                
+                echo '<hr>';
+                }
+            }
+
+            ?>
 
         </div>
     </div>
