@@ -45,7 +45,7 @@ $FuncionarioEscolhido = $resultado->fetch_assoc();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    $Contador = 1;
+    /* $Contador = 1;
 
     foreach ($FuncionarioEscolhido as $linhaRedirect) {
 
@@ -57,6 +57,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         $Contador++;
+    } */
+
+    $query = "SELECT id_medic FROM registro_medico";
+
+
+
+
+
+    $stmt = $conn->prepare($query);
+    $stmt->execute();
+
+    /* store the result in an internal buffer */
+    $stmt->store_result();
+
+
+
+
+    $QuantidadeDeLinhas = $stmt->num_rows;
+
+
+    for ($i = 1; $i <= $QuantidadeDeLinhas; $i++) {
+
+        if (isset($_POST["Botao$i"])) {
+
+            $sql = "UPDATE registro_medico SET resolvido_medic='Sim' WHERE id_medic = $i AND funcionario_medic = $_SESSION[IDFuncionarioEscolhido]";
+
+            $conn->query($sql);
+        }
     }
 }
 
@@ -137,7 +165,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                     <div id="RegistrosNaoResolvidos">
 
-                    <h4>Registros médicos não resolvidos:</h4>
+                        <h4>Registros médicos não resolvidos:</h4>
 
                         <?php
 
@@ -196,14 +224,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                             </tr>";
 
-                            /*
+                                /*
                             
                                 echo "<td><input class='cellHead' type='submit' value='Acessar Perfil' name='Funcionario$ValorFuncionario'></td>
 
                             </tr>";
 
                             */
-
                             }
 
                             echo "</tbody>
@@ -214,7 +241,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         } else {
 
                             echo "<h5>Nenhum registro médico foi feito por este usuário</h5>";
-                            
                         }
 
 
@@ -279,7 +305,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <td class="cell"> ' . $linhaMedico["resolvido_medic"] . ' </td>
 
                             </tr>';
-                            
                             }
 
                             echo "</tbody>
@@ -288,7 +313,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         } else {
 
                             echo "<h5>Nenhum registro médico foi feito por este usuário</h5>";
-
                         }
 
 
@@ -318,5 +342,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </footer>
 
 <script src="../javascript/teste.js?v=<?php echo time(); ?>"></script>
+
+<script>
+
+/* function Comeco() {
+
+        console.log("<?php /* echo "$QuantidadeDeLinhas" */ ?>");
+
+        setInterval(Comeco, 1000);
+
+    } */
+
+</script>
 
 </html>

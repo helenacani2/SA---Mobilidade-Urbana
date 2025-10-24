@@ -266,26 +266,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <script src="../javascript/teste.js" ?v=<?php echo time(); ?>></script>
 
 <script>
-    function loop() {
-
-        console.log("<?php echo "$_SESSION[ProblemaSaudeTipo]" ?>");
-
-        setTimeout(loop, 1000);
-
-    }
+    
 
 
 
-    function outros() {
+    /* function outros() {
 
         document.getElementById("mensagem").innerHTML = "Descreva seu problema relacionado à: " + "outros";
 
-        <?php $_SESSION['ProblemaSaudeTipo'] = "Outros"; ?>
+        <?php /* $_SESSION['ProblemaSaudeTipo'] = "Outros"; */ ?>
 
-        <?php //header("Location: dash_board_geral.php"); 
-        ?>
+        
 
-    };
+    }; */
 </script>
 
 </html>
