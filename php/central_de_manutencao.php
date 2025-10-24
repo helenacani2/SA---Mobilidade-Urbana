@@ -39,10 +39,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <header>
             <section id="topo">
                 <div class="entrar_pagina2 ; texto_topo">
-                    <a href="central_apoio_condutor.html">Central de Apoio </a>
+                    <a href="central_apoio_condutor.php">Central de Apoio </a>
                 </div>
                 <div class="texto_topo">
-                    <a href="central_de_manutencao.html">Relatórios</a>
+                    <a href="central_de_manutencao.php">Relatórios</a>
                     <hr>
                 </div>
             </section>
@@ -115,7 +115,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 </body>
 
-<!-- <script src="central_apoio_condutor.html"></script> -->
+<script src="../javascript/central_apoio_condutor.js?v=<?php echo time(); ?>"></script>
 <script src="../javascript/teste.js?v=<?php echo time(); ?>"></script>
 
 </html>
