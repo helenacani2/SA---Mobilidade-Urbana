@@ -1,4 +1,4 @@
-CREATE DATABASE db_train_info; 
+CREATE DATABASE if not exists db_train_info; 
 
 USE db_train_info;
 
