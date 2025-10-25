@@ -64,9 +64,10 @@ CREATE TABLE manutencao (
 
     id_manutencao INT PRIMARY KEY AUTO_INCREMENT,
     data_inicio_manutencao DATETIME NOT NULL,
-    data_termino_manutencao DATETIME NOT NULL,
+    data_termino_manutencao DATETIME,
     problema_manutencao VARCHAR(8000) NOT NULL,
     resolvido_manutencao VARCHAR(10) NOT NULL DEFAULT 'Não',
+    tipo_manutencao VARCHAR(45) NOT NULL DEFAULT 'Não especificado',
     trem_manutencao INT,
     FOREIGN KEY (trem_manutencao) REFERENCES trens(id_trem),
     funcionario_manutencao INT,

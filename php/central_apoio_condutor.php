@@ -67,10 +67,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-//$Problema = "";
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -120,90 +116,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </nav>
 
             <main>
-
-                <!--<form id="meuForm" method="POST" action="registro_medico_aux.php">
-
-                    <section class="grid-bolinhas">
-
-                        <div name="bolinha" data-id="Vomito" id="VomitoBolinha">
-                            <div class="bolinha_selecao"></div>
-                            <p class="texto-bolinha">Vômito</p>
-                        </div>
-
-
-                        <div name="bolinha" data-id="Enxaqueca" id="EnxaquecaBolinha">
-                            <div class="bolinha_selecao"></div>
-                            <p class="texto-bolinha">Enxaqueca</p>
-                        </div>
-
-
-                        <div name="bolinha" data-id="nausea" id="NauseaBolinha">
-                            <div class="bolinha_selecao"></div>
-                            <p class="texto-bolinha">Náusea</p>
-                        </div>
-
-
-                        <div name="bolinha" data-id="cansaco" id="CansacoBolinha">
-                            <div class="bolinha_selecao"></div>
-                            <p class="texto-bolinha">Cansaço</p>
-                        </div>
-
-
-                        <div name="bolinha" data-id="Febre" id="FebreBolinha">
-                            <div class="bolinha_selecao"></div>
-                            <p class="texto-bolinha">Febre</p>
-                        </div>
-
-
-                        <div name="bolinha" data-id="Outros" id="OutrosBolinha">
-                            <div class="bolinha_selecao"></div>
-                            <p class="texto-bolinha">Outros</p>
-                        </div>
-
-                    </section>
-
-
-
-
-                    
-
-
-                    <section>
-
-                        <div id="RadioTudo">
-
-                                <input class="ProblemaSaudeRadio" type="radio" name="ProblemaSaudeRadio" value="Vômito" onclick="vomito()" id="VomitoInput">
-                                <input class="ProblemaSaudeRadio" type="radio" name="ProblemaSaudeRadio" value="Enxaqueca" onclick="enxaqueca()" id="EnxaquecaInput">
-                                <input class="ProblemaSaudeRadio" type="radio" name="ProblemaSaudeRadio" value="Náusea" onclick="nausea()" id="NauseaInput">
-
-
-                                <input class="ProblemaSaudeRadio" type="radio" name="ProblemaSaudeRadio" value="Cansaco" onclick="cansaco()" id="CansacoInput">
-                                <input class="ProblemaSaudeRadio" type="radio" name="ProblemaSaudeRadio" value="Febre" onclick="febre()" id="FebreInput">
-                                <input class="ProblemaSaudeRadio" type="radio" name="ProblemaSaudeRadio" value="Outros" onclick="outros()" id="OutrosInput">
-
-                        </div>
-
-                        <div class="input-container">
-                            <label for="problem-description" id="mensagem">Nenhum problema selecionado</label>
-                            <textarea type="text" id="problem-description" name="ProblemaSaude" placeholder="Digite sua descrição aqui..."></textarea>
-                        </div>
-
-                        <div class="botao_envio">
-                            <input id="botao_envio_apoio" type="submit" value="Enviar Relatório">
-
-                            <div id="resultado"></div>
-                        </div>
-
-
-
-                    </section>
-                </form> -->
-
-
-
-
-
-
 
                 <form id="meuForm" method="POST" action="registro_medico_aux.php">
                     <input type="hidden" id="ProblemaSaudeTipo" name="ProblemaSaudeTipo" value="Não especificado">
@@ -264,21 +176,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <script src="../javascript/central_apoio_condutor.js?v=<?php echo time(); ?>"></script>
 <script src="../javascript/teste.js" ?v=<?php echo time(); ?>></script>
-
-<script>
-    
-
-
-
-    /* function outros() {
-
-        document.getElementById("mensagem").innerHTML = "Descreva seu problema relacionado à: " + "outros";
-
-        <?php /* $_SESSION['ProblemaSaudeTipo'] = "Outros"; */ ?>
-
-        
-
-    }; */
-</script>
 
 </html>
