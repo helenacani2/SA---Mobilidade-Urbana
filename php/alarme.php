@@ -52,21 +52,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <br>
         </div>
 
-        <?php
-
-        if ($_SESSION["cargo_funcionario"] == "Gerente") {
-
-            echo '<a href="cadastrar_alerta.php" id="BotaoCadastrarAlerta">ㅤCadastrar novo alertaㅤ</a>';
-            echo '<br>';
-        }
-
-        ?>
-
         <div class="texto_alarme">
             <p>O alarme de emergência foi acionado. Por favor, siga as instruções de segurança das Centrais de Apoio:
 
                 <br>
                 <br>
+            </p>
+
+            <?php
+
+            if ($_SESSION["cargo_funcionario"] == "Gerente") {
+
+                echo '<a href="cadastrar_alerta.php" id="BotaoCadastrarAlerta">ㅤCadastrar novo alertaㅤ</a>';
+                echo '<br>';
+                echo '<br>';
+            }
+
+            ?>
 
             <div class="instruções"> <!--Essa div mostra os textos do alarme-->
                 <?php
@@ -93,7 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 ?>
             </div>
-            </p>
+
 
             <div class="entrar_pagina2"> <!--Essa div gera o botão que volta pra tela inicial-->
                 <a href="pagina_inicial.php"> Voltar</a>

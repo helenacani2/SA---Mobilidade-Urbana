@@ -189,5 +189,15 @@ img:active {
     text-decoration: none;
 
     margin-left: 11px;
+
+    width: 300px; 
+
+    height: 40px; 
+
+    display: inline-block; 
+
+    text-align: center; 
+    
+    line-height: 40px; 
     
 }
