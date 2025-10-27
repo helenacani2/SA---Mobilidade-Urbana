@@ -177,7 +177,7 @@ label.menu-icon {
 
 }
 
-#BotaoCadastrarTrem {
+#BotaoCadastrarTrem, #BotaoCadastrarNotificacao {
 
     border-style:solid;
 
@@ -195,24 +195,15 @@ label.menu-icon {
 
     margin-left: 11px;
 
+    width: 300px; 
+
+    height: 40px; 
+
+    display: inline-block; 
+
+    text-align: center; 
+    
+    line-height: 40px; 
 }
 
-#BotaoCadastrarNotificacao {
 
-    border-style:solid;
-
-    border-width: 1px;
-
-    background-color: #285775;
-
-    color: #ffffff;
-
-    border-color: black;
-
-    border-radius: 4px;
-
-    text-decoration: none;
-
-    margin-left: 11px;
-
-}
