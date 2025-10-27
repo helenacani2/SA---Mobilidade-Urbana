@@ -243,7 +243,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <input type="hidden" id="ProblemaTremTipo" name="ProblemaTremTipo" value="Não especificado">
 
                     <section class="grid-bolinhas">
-                        <div onclick="setProblema('Vômito')">
+                        <div onclick="setProblema('Colisão')">
                             <div class="bolinha_selecao"></div>
                             <p class="texto-bolinha">Colisão</p>
                         </div>
@@ -263,7 +263,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <p class="texto-bolinha">Trilho</p>
                         </div>
 
-                        <div onclick="setProblema('Veiculo')">
+                        <div onclick="setProblema('Veículo')">
                             <div class="bolinha_selecao"></div>
                             <p class="texto-bolinha">Veículo</p>
                         </div>
@@ -278,6 +278,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <label id="mensagem">Nenhum problema selecionado</label>
                         <textarea name="ProblemaTrem" placeholder="Digite sua descrição aqui..." id="problem-description"></textarea>
                     </div>
+
+                    <label for="trens">Informe o trem com problema:</label>
+
+                    <select id="trens" name="trens">
+
+                        <?php
+
+                        $stmt = $conexao->prepare("SELECT * FROM usuario");
+                        $stmt->execute();
+
+                        $resultado = $stmt->get_result();
+
+
+                        if ($resultado && $resultado->num_rows >= 1) {
+
+                            $usuariosSelect = $resultado->fetch_all(MYSQLI_ASSOC);
+                        }
+
+                        if (!empty($usuariosSelect)) {
+
+                            foreach ($usuariosSelect as $linha) {
+
+                                echo '<option value="' . $linha['ID_usuario'] . '">' . $linha['nome_usuario'] . '</option>';
+                            }
+                        }
+
+                        ?>
+
+                    </select>
+
+                    <br>
 
                     <input type="submit" value="Enviar Relatório" id="botao_envio_apoio">
 
@@ -296,7 +327,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 </body>
 
-<script src="../javascript/central_apoio_condutor.js?v=<?php echo time(); ?>"></script>
+<script src="../javascript/central_de_manutencao.js?v=<?php echo time(); ?>"></script>
 <script src="../javascript/teste.js" ?v=<?php echo time(); ?>></script>
 
 </html>
