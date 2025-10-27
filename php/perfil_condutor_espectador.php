@@ -39,10 +39,6 @@ $resultado = $stmt->get_result();
 $FuncionarioEscolhido = $resultado->fetch_assoc();
 
 
-
-
-
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     /* $Contador = 1;
@@ -121,7 +117,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <form method="post">
                     <li><a href="pagina_inicial.php">Início</a></li>
                     <li><a href="pagina_cadastro.php">Criar usuário</a></li>
-                    <li><a href="todos_usuarios.html">Todos os usuários</a></li>
+                    <li><a href="todos_usuarios.php">Todos os usuários</a></li>
                     <li><input type="submit" name="BotaoSair" id="BotaoSair" value="Sair"></li>
                 </form>
             </ul>

@@ -4,19 +4,21 @@ require_once "train_info_bd.php";
 
 session_start();
 
-    $stmt = $conn->prepare("SELECT * FROM trens");
-    $stmt->execute();
+$stmt = $conn->prepare("SELECT * FROM trens");
+$stmt->execute();
 
-    $resultado = $stmt->get_result();
+$resultado = $stmt->get_result();
 
-    $trens = $resultado->fetch_all(MYSQLI_ASSOC);
+$trens = $resultado->fetch_all(MYSQLI_ASSOC);
 
-    $stmt = $conn->prepare("SELECT * FROM notificacao");
-    $stmt->execute();
+$NumeroDeTrens = $resultado->num_rows;
 
-    $resultado = $stmt->get_result();
+$stmt = $conn->prepare("SELECT * FROM notificacao");
+$stmt->execute();
 
-    $notificacao = $resultado->fetch_all(MYSQLI_ASSOC);
+$resultado = $stmt->get_result();
+
+$notificacao = $resultado->fetch_all(MYSQLI_ASSOC);
 
 if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != true) {
 
@@ -107,27 +109,47 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <?php
 
+
+
+
+
             if (!empty($trens)) {
+
+                $contador = 1;
 
                 foreach ($trens as $trem) {
 
-                    echo '<h3>' . $trem['nome_trem'] . '</h3><hr>';
+                    echo '<h3>' . $trem['nome_trem'] . '</h3>';
+
+                    if ($contador != $NumeroDeTrens) {
+
+                        echo '<hr>';
+                    }
+
+                    $contador++;
                 }
             }
 
             ?>
-            </div>
+        </div>
 
         <div id="table5">
             <?php
 
             if (!empty($trens)) {
 
+                $contador = 1;
+
                 foreach ($trens as $trem) {
 
                     echo '<h3>' . $trem['estacao_atual_trem'] . '</h3>';
-                
-                echo '<hr>';
+
+                    if ($contador != $NumeroDeTrens) {
+
+                        echo '<hr>';
+                    }
+
+                    $contador++;
                 }
             }
 
@@ -156,9 +178,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             if (!empty($trens)) {
 
+                $contador = 1;
+
                 foreach ($trens as $trem) {
 
-                    echo '<h3>' . $trem['nome_trem'] . '</h3><hr>';
+                    echo '<h3>' . $trem['nome_trem'] . '</h3>';
+
+                    if ($contador != $NumeroDeTrens) {
+
+                        echo '<hr>';
+                    }
+
+                    $contador++;
+
                 }
             }
 
@@ -170,11 +202,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             if (!empty($trens)) {
 
+                $contador = 1;
+
                 foreach ($trens as $trem) {
 
                     echo '<h3>' . 'Placeholder' . '</h3>';
-                
-                echo '<hr>';
+
+                    if ($contador != $NumeroDeTrens) {
+
+                        echo '<hr>';
+                    }
+
+                    $contador++;
                 }
             }
 
@@ -193,22 +232,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div id="white">
         <br>
 
-            <?php
+        <?php
 
-            if (!empty($notificacao)) {
+        if (!empty($notificacao)) {
 
-                foreach ($notificacao as $notificacoes) {
-                    echo '<hr>'; 
-                    echo '<h4>' . $notificacoes['titulo_notificacao'] . '</h4>';
-                    echo '<div class="notificacao">';
-                    echo '<h5>' . $notificacoes['mensagem_notificacao'] . '</h5>';
-                    echo '<h6>' . $notificacoes['data_notificacao'] . '</h6><hr>';
-                    echo '</div>';
-                    echo '<hr>';
-                }
+            foreach ($notificacao as $notificacoes) {
+                echo '<hr>';
+                echo '<h4>' . $notificacoes['titulo_notificacao'] . '</h4>';
+                echo '<div class="notificacao">';
+                echo '<h5>' . $notificacoes['mensagem_notificacao'] . '</h5>';
+                echo '<h6>' . $notificacoes['data_notificacao'] . '</h6><hr>';
+                echo '</div>';
+                echo '<hr>';
             }
+        }
 
-            ?>
+        ?>
 
         <br>
     </div>
