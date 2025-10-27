@@ -110,7 +110,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <li><a href="gestao_rotas.php">Rotas</a></li>
                         <li><a href="dash_board_geral.php">Dashboard</a></li>
                         <li><a href="relatorio_analise.php">Relatórios</a></li>
-                        <li><input type="submit" name="BotaoSair" id="BotaoSair" value="Sair">• Sair</li>
+                        <li><input type="submit" name="BotaoSair" id="BotaoSair" value="Sair"></li>
                     </form>
                 </ul>
             </nav>
@@ -160,12 +160,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <input type="submit" value="Enviar Relatório" id="botao_envio_apoio">
 
                 </form>
-
-
-
-
-
-
 
             </main>
 

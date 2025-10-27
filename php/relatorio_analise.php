@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <li><a href="gestao_rotas.html">Rotas</a></li>
                     <li><a href="dash_board_geral.html">Dashboard</a></li>
                     <li><a href="central_apoio_condutor.html">Central de Apoio</a></li>
-                    <li><input type="submit" name="BotaoSair" id="BotaoSair" value="Sair">• Sair</li>
+                    <li><input type="submit" name="BotaoSair" id="BotaoSair" value="Sair"></li>
                 </form>
             </ul>
             <div class="configura_topo">
