@@ -68,8 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <li><a href="gestao_rotas.php">Rotas</a></li>
                 <li><a href="relatorio_analise.php">Relatórios</a></li>
                 <li><a href="central_apoio_condutor.php">Central de Apoio</a></li>
-
-                <li><input type="submit" name="BotaoSair" id="BotaoSair" value="Sair">• Sair</li>
+                <li><input type="submit" name="BotaoSair" id="BotaoSair" value="Sair"></li>
             </form>
         </ul>
     </nav>

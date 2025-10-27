@@ -194,29 +194,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 </form>
 
-
-
-
-
-
-
             </main>
 
         </div>
     </div>
 
 </body>
-
-<script>
-
-function loop() {
-
-
-
-}
-
-</script>
-
 
 <script src="../javascript/central_de_manutencao.js?v=<?php echo time(); ?>"></script>
 <script src="../javascript/teste.js" ?v=<?php echo time(); ?>></script>

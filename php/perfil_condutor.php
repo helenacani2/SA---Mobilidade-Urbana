@@ -80,7 +80,7 @@ $DadosFuncionario = $resultado->fetch_assoc();
     
 ?>
                     
-                    <li><input type="submit" name="BotaoSair" id="BotaoSair" value="Sair">• Sair</li>
+                    <li><input type="submit" name="BotaoSair" id="BotaoSair" value="Sair"></li>
                 </form>
             </ul>
         </nav>

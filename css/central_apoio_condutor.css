@@ -231,14 +231,6 @@ label.menu-icon {
 
 #RadioTudo {
 
-    /* display: grid;
-    justify-content: space-evenly;
-    grid-template-columns: auto auto auto;
-
-    position: absolute;
-
-    top: 14%; */
-
     opacity: 100%;
 
 }
@@ -282,14 +274,6 @@ label.menu-icon {
         cursor: pointer;
     }
 
-    #RadioTudo {
-
-        /* display: grid;
-        justify-content: space-evenly;
-        grid-template-columns: auto auto; */
-
-    }
-
 
     .ProblemaSaudeRadio {
 
@@ -317,14 +301,6 @@ label.menu-icon {
         display: grid;
         justify-content: space-evenly;
         grid-template-columns: auto auto;
-    }
-
-    #RadioTudo {
-
-        /* display: grid;
-        justify-content: space-evenly;
-        grid-template-columns: auto auto; */
-
     }
 
 
@@ -415,3 +391,8 @@ label.menu-icon {
 
 
 
+#BotaoSair {
+
+    width: 100%;
+
+}
