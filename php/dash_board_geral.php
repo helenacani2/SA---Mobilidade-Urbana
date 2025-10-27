@@ -81,6 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         echo '<a href="cadastrar_trem.php" id="BotaoCadastrarTrem">ㅤCadastrar novo tremㅤ</a>';
         echo '<br>';
+        echo '<br>';
         echo '<a href="cadastrar_trem.php" id="BotaoCadastrarNotificacao">ㅤCadastrar nova notificaçãoㅤ</a>';
     }
 
