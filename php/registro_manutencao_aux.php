@@ -6,6 +6,8 @@ require_once "train_info_bd.php";
 
 $ProblemaTrem = $_POST['ProblemaTrem'];
 
+$TremComProblema = $_POST['TremComProblema'];
+
 $DataAtualString = date("Y-m-d H:i:s");
 
 
@@ -28,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 $stmt = $conn->prepare("INSERT INTO manutencao (problema_manutencao, data_inicio_manutencao, tipo_manutencao, trem_manutencao) VALUES (?, ?, ?, ?)");
 
-$stmt->bind_param("sssi", $ProblemaTrem, $DataAtualString, $_SESSION["id_funcionario"], $_SESSION['ProblemaSaudeTipo']);
+$stmt->bind_param("ssss", $ProblemaTrem, $DataAtualString, $_SESSION['ProblemaTremTipo'], $TremComProblema);
 
 if($stmt->execute()) {
 

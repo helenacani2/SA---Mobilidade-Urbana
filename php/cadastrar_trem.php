@@ -50,7 +50,7 @@
         <br>
         <br>
 
-        <label for="TremEstacao" class="Legenda">Estação do Trem</label>
+        <!-- <label for="TremEstacao" class="Legenda">Estação do Trem</label>
         
         <input type="text" id="TremEstacao" class="Texto" name="TremEstacao" required>
 
@@ -69,7 +69,7 @@
         <input type="text" id="TremMaquinista" class="Texto" name="TremMaquinista" required>
 
         <br>
-        <br>
+        <br> -->
 
         <input type="submit" id="BotaoEnviar" name="BotaoEnviar">
 

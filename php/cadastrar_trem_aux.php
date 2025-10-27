@@ -21,9 +21,13 @@ $MaquinistaTrem = $_POST['TremMaquinista'];
 echo date("Y-m-d", strtotime($FabricacaoTrem));
 
 
-$stmt = $conn->prepare("INSERT INTO trens (nome_trem, estacao_atual_trem, linha_atual_trem, data_fabricacao_trem, fabricante_trem, maquinista_trem) VALUES (?, ?, ?, ?, ?, ?)");
+/* $stmt = $conn->prepare("INSERT INTO trens (nome_trem, estacao_atual_trem, linha_atual_trem, data_fabricacao_trem, fabricante_trem, maquinista_trem) VALUES (?, ?, ?, ?, ?, ?)"); */
 
-$stmt->bind_param("ssssss", $NomeTrem, $EstacaoTrem, $LinhaTrem, $FabricacaoTrem, $FabricanteTrem, $MaquinistaTrem);
+/* $stmt->bind_param("ssssss", $NomeTrem, $EstacaoTrem, $LinhaTrem, $FabricacaoTrem, $FabricanteTrem, $MaquinistaTrem); */
+
+$stmt = $conn->prepare("INSERT INTO trens (nome_trem, data_fabricacao_trem, fabricante_trem) VALUES (?, ?, ?)");
+
+$stmt->bind_param("sss", $NomeTrem, $FabricacaoTrem, $FabricanteTrem);
 
 if($stmt->execute()) {
 
