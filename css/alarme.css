@@ -171,3 +171,23 @@ img:active {
     }
 
 }
+
+#BotaoCadastrarAlerta {
+
+    border-style:solid;
+
+    border-width: 1px;
+
+    background-color: #3b82ad;
+
+    color: #ffffff;
+
+    border-color: black;
+
+    border-radius: 4px;
+
+    text-decoration: none;
+
+    margin-left: 11px;
+
+}

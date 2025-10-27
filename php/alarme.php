@@ -4,6 +4,13 @@ require_once "train_info_bd.php";
 
 session_start();
 
+$stmt = $conn->prepare("SELECT * FROM alertas");
+$stmt->execute();
+
+$resultado = $stmt->get_result();
+
+$alertas = $resultado->fetch_all(MYSQLI_ASSOC);
+
 if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != true) {
 
     header("Location: pagina_login.php");
@@ -44,6 +51,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <h2>Alerta de Emergência</h2>
             <br>
         </div>
+
+        <?php
+
+        if ($_SESSION["cargo_funcionario"] == "Gerente") {
+
+            echo '<a href="cadastrar_alerta.php" id="BotaoCadastrarAlerta">ㅤCadastrar novo alertaㅤ</a>';
+            echo '<br>';
+        }
+
+        ?>
+
         <div class="texto_alarme">
             <p>O alarme de emergência foi acionado. Por favor, siga as instruções de segurança das Centrais de Apoio:
 
@@ -55,7 +73,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 if (!empty($alertas)) {
 
-                    foreach ($alertas as $alerta) { 
+                    foreach ($alertas as $alerta) {
+
+                        echo '<hr>';
+                        echo '<br>';
 
                         echo '<h3>' . $alerta['tipo_alerta'] . '</h3>';
                         echo '<br>';

@@ -29,14 +29,14 @@
 
     <form action="cadastrar_alerta_aux.php" method="POST">
 
-        <label for="AlertaTipo" class="Legenda">Título da notificação</label>
+        <label for="AlertaTipo" class="Legenda">Tipo do Alerta</label>
         
         <input type="text" id="AlertaTipo" class="Texto" name="AlertaTipo" required>
 
         <br>
         <br>
 
-        <label for="AlertaMensagem" class="Legenda">Mensagem da Notificação</label>
+        <label for="AlertaMensagem" class="Legenda">Mensagem do Alerta</label>
         
         <input type="text" id="AlertaMensagem" class="Texto" name="AlertaMensagem" required>
 
