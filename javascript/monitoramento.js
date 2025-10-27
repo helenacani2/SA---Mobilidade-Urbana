@@ -24,3 +24,175 @@ function andamento3() {
 boton3.addEventListener("click", andamento3);
 boton2.addEventListener("click", andamento2);
 boton1.addEventListener("click", andamento1);
+
+
+<fieldset>
+                <div id="bodydiv">
+
+                    <button id="BotaoNaoResolvidos" onclick="BotaoNaoResolvidos()" class="cellHead">Não Resolvidos</button>
+                    <button id="BotaoResolvidos" onclick="BotaoResolvidos()" class="cellHead">Resolvidos</button>
+
+                    <div id="RegistrosNaoResolvidos">
+
+                        <h4>Registros médicos não resolvidos:</h4>
+
+                        <?php
+
+                        $stmt = $conn->prepare("SELECT * FROM registro_medico WHERE funcionario_medic = $_SESSION[IDFuncionarioEscolhido] AND resolvido_medic='Não'");
+                        $stmt->execute();
+
+                        $resultado = $stmt->get_result();
+
+                        $ProblemasMedicos = $resultado->fetch_all(MYSQLI_ASSOC);
+
+                        if (!empty($ProblemasMedicos)) {
+
+                            echo '<form method="POST">
+
+                        <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th class="cellHead">ID</th>
+
+                                <th class="cellHead">Problema descrito</th>
+
+                                <th class="cellHead">Data de envio</th>
+
+                                <th class="cellHead">Tipo de problema</th>
+
+                                <th class="cellHead">Resolvido</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>';
+
+                            foreach ($ProblemasMedicos as $linhaMedico) {
+
+                                $ValorBotao = $linhaMedico['id_medic'];
+
+                                echo '<tr>
+
+                                <td class="cell"> ' . $linhaMedico["id_medic"] . ' </td>
+
+                                <td class="cell"> ' . $linhaMedico["problema_medic"] . ' </td>
+
+                                <td class="cell"> ' . $linhaMedico["data_medic"] . ' </td>
+
+                                <td class="cell"> ' . $linhaMedico["tipo_medic"] . ' </td>
+
+                                <td class="cell"> ' . $linhaMedico["resolvido_medic"] . ' </td>
+
+                            ';
+
+                                echo "<td><input class='cellHeadConcluir' type='submit' value='Marcar como resolvido' name='Botao$ValorBotao'></td>
+
+                            </tr>";
+
+                                /*
+                            
+                                echo "<td><input class='cellHead' type='submit' value='Acessar Perfil' name='Funcionario$ValorFuncionario'></td>
+
+                            </tr>";
+
+                            */
+                            }
+
+                            echo "</tbody>
+
+                        </table>
+                    
+                        </form>";
+                        } else {
+
+                            echo "<h5>Nenhum registro médico foi feito por este usuário</h5>";
+                        }
+
+
+
+                        ?>
+
+                    </div>
+
+                    <div id="RegistrosResolvidos">
+
+                        <h4>Registros médicos resolvidos:</h4>
+
+                        <?php
+
+                        $stmt = $conn->prepare("SELECT * FROM registro_medico WHERE funcionario_medic = $_SESSION[IDFuncionarioEscolhido] AND resolvido_medic='Sim'");
+                        $stmt->execute();
+
+                        $resultado = $stmt->get_result();
+
+                        $ProblemasMedicos = $resultado->fetch_all(MYSQLI_ASSOC);
+
+                        if (!empty($ProblemasMedicos)) {
+
+                            echo '
+
+                        <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th class="cellHead">ID</th>
+
+                                <th class="cellHead">Problema descrito</th>
+
+                                <th class="cellHead">Data de envio</th>
+
+                                <th class="cellHead">Tipo de problema</th>
+
+                                <th class="cellHead">Resolvido</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>';
+
+                            foreach ($ProblemasMedicos as $linhaMedico) {
+
+                                $ValorBotao = $linhaMedico['id_medic'];
+
+                                echo '<tr>
+
+                                <td class="cell"> ' . $linhaMedico["id_medic"] . ' </td>
+
+                                <td class="cell"> ' . $linhaMedico["problema_medic"] . ' </td>
+
+                                <td class="cell"> ' . $linhaMedico["data_medic"] . ' </td>
+
+                                <td class="cell"> ' . $linhaMedico["tipo_medic"] . ' </td>
+
+                                <td class="cell"> ' . $linhaMedico["resolvido_medic"] . ' </td>
+
+                            </tr>';
+                            }
+
+                            echo "</tbody>
+
+                        </table>";
+                        } else {
+
+                            echo "<h5>Nenhum registro médico foi feito por este usuário</h5>";
+                        }
+
+
+
+                        ?>
+
+                    </div>
+
+
+
+
+                </div>
+            </fieldset>
+
