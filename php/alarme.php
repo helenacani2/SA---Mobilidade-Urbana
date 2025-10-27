@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 if (!empty($alertas)) {
 
-                    foreach ($alertas as $alerta) {
+                    foreach ($alertas as $alerta) { 
 
                         echo '<h3>' . $alerta['tipo_alerta'] . '</h3>';
                         echo '<br>';

@@ -150,7 +150,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="white">
                 <img
                     src="https://images.icon-icons.com/1744/PNG/512/3643728-balloon-chat-conversation-speak-word_113413.png">
-                <a href="enviar_relatorio.php">Enviar Relatório</a>
+                <a href="central_de_manutencao.php">Enviar Relatório</a>
             </div>
 
         </div>
