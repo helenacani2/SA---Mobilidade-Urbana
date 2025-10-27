@@ -79,6 +79,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($_SESSION["cargo_funcionario"] == "Gerente") {
 
         echo '<a href="cadastrar_trem.php" id="BotaoCadastrarTrem">ㅤCadastrar novo tremㅤ</a>';
+        echo '<br>';
+        echo '<a href="cadastrar_trem.php" id="BotaoCadastrarNotificacao">ㅤCadastrar nova notificaçãoㅤ</a>';
     }
 
     ?>
