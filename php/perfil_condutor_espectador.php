@@ -39,10 +39,6 @@ $resultado = $stmt->get_result();
 $FuncionarioEscolhido = $resultado->fetch_assoc();
 
 
-
-
-
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     /* $Contador = 1;

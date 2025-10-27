@@ -33,18 +33,18 @@ if ($resultado && $resultado->num_rows >= 1) {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    $Contador = 1;
 
     foreach ($funcionarios as $linhaRedirect) {
 
+        $Contador = $linhaRedirect['id_funcionario'];
+
         if (isset($_POST["Funcionario$Contador"])) {
 
-            $_SESSION["IDFuncionarioEscolhido"] = $linhaRedirect['id_funcionario'];
+            $_SESSION["IDFuncionarioEscolhido"] = $linhaRedirect['id_funcionario']; //arrumar D:
 
             header("Location: perfil_condutor_espectador.php");
         }
 
-        $Contador++;
     }
 }
 
