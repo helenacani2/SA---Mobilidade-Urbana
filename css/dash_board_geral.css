@@ -197,6 +197,26 @@ label.menu-icon {
 
 }
 
+#BotaoCadastrarNotificacao {
+
+    border-style:solid;
+
+    border-width: 1px;
+
+    background-color: #285775;
+
+    color: #ffffff;
+
+    border-color: black;
+
+    border-radius: 4px;
+
+    text-decoration: none;
+
+    margin-left: 11px;
+
+}
+
 #BotaoSair {
 
     width: 100%;
