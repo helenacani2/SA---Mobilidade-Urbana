@@ -110,7 +110,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <li><a href="gestao_rotas.php">Rotas</a></li>
                         <li><a href="dash_board_geral.php">Dashboard</a></li>
                         <li><a href="relatorio_analise.php">Relatórios</a></li>
-                        <li><input type="submit" name="BotaoSair" id="BotaoSair" value="Sair">• Sair</li>
+                        <li><input type="submit" name="BotaoSair" id="BotaoSair" value="Sair"></li>
                     </form>
                 </ul>
             </nav>
@@ -157,13 +157,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <textarea name="ProblemaTrem" placeholder="Digite sua descrição aqui..." id="problem-description"></textarea>
                     </div>
 
-                    <label for="trens">Informe o trem com problema:</label>
+                    <label for="TremComProblema">Informe o trem com problema:</label>
 
-                    <select id="trens" name="trens">
+                    <select id="TremComProblema" name="TremComProblema">
 
                         <?php
 
-                        $stmt = $conexao->prepare("SELECT * FROM trens");
+                        $stmt = $conn->prepare("SELECT * FROM trens");
                         $stmt->execute();
 
                         $resultado = $stmt->get_result();
@@ -178,7 +178,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                             foreach ($TremSelect as $linha) {
 
-                                echo '<option value="' . $linha['id_trem'] . '">' . $linha['nome_usuario'] . '</option>';
+                                echo '<option value="' . $linha['id_trem'] . '">' . $linha['nome_trem'] . '</option>';
 
                             }
                             
@@ -206,6 +206,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 
 </body>
+
+<script>
+
+function loop() {
+
+
+
+}
+
+</script>
+
 
 <script src="../javascript/central_de_manutencao.js?v=<?php echo time(); ?>"></script>
 <script src="../javascript/teste.js" ?v=<?php echo time(); ?>></script>
