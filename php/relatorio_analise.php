@@ -9,11 +9,10 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != true) {
     header("Location: pagina_login.php");
 
     exit;
-    
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    
+
     if (isset($_POST['BotaoSair'])) {
 
         session_unset();
@@ -21,11 +20,47 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         session_destroy();
 
         header("Location: pagina_login.php");
-
     }
-
 }
-?> 
+
+    $ValG1_1 = rand(0, 10);
+    $ValG1_2 = rand(0, 10);
+    $ValG1_3 = rand(0, 10);
+    $ValG1_4 = rand(0, 10);
+    $ValG1_5 = rand(0, 10);
+    $ValG1_6 = rand(0, 10);
+    $ValG1_7 = rand(0, 10);
+    $ValG1_8 = rand(0, 10);
+    $ValG1_9 = rand(0, 10);
+    $ValG1_10 = rand(0, 10);
+    $ValG1_11 = rand(0, 10);
+
+    $ValG2_1 = rand(0, 10);
+    $ValG2_2 = rand(0, 10);
+    $ValG2_3 = rand(0, 10);
+    $ValG2_4 = rand(0, 10);
+    $ValG2_5 = rand(0, 10);
+    $ValG2_6 = rand(0, 10);     //Esses valores são Placoholders que serão substituídos quando acontecer progresso na SA de IoT
+    $ValG2_7 = rand(0, 10);     //Isso foi feito para facilitar a aplicação dos dados de sensores quando os mesmos estiverem prontos
+    $ValG2_8 = rand(0, 10);
+    $ValG2_9 = rand(0, 10);
+    $ValG2_10 = rand(0, 10);
+    $ValG2_11 = rand(0, 10);
+
+    $ValG3_1 = rand(0, 10);
+    $ValG3_2 = rand(0, 10);
+    $ValG3_3 = rand(0, 10);
+    $ValG3_4 = rand(0, 10);
+    $ValG3_5 = rand(0, 10);
+    $ValG3_6 = rand(0, 10);
+    $ValG3_7 = rand(0, 10);
+    $ValG3_8 = rand(0, 10);
+    $ValG3_9 = rand(0, 10);
+    $ValG3_10 = rand(0, 10);
+    $ValG3_11 = rand(0, 10);
+
+
+?>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -94,7 +129,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <div>
                     <p class="valor_dinheiro">R$00.000,00</p>
                 </div>
-                <div>                                               <!--Valores-->
+                <div> <!--Valores-->
                     <p>00,00%</p>
                 </div>
             </div>
@@ -119,6 +154,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
             <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
             <script>
+
+                <?php echo "
                 const ctx = document.getElementById('graficoAnual');
 
                 new Chart(ctx, {
@@ -127,7 +164,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         labels: ['Janeiro', 'Fevereiro', 'Abril', 'Maio', 'junho', 'julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
                         datasets: [{
                             label: 'ganho',
-                            data: [1, 3, 4, 3.5, 2, 4.5, 5, 2, 7, 10, 8.5],
+                            data: [$ValG1_1, $ValG1_2, $ValG1_3, $ValG1_4, $ValG1_5, $ValG1_6, $ValG1_7, $ValG1_8, $ValG1_9, $ValG1_10, $ValG1_11],
                             borderWidth: 1
                         }]
                     },
@@ -140,10 +177,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         }
                     }
                 });
+                "; ?>
             </script>
         </section><!--Grafico-->
 
-        <section id="investidores" class="bordaStatus">         <!--Seção dos investidores-->
+        <section id="investidores" class="bordaStatus"> <!--Seção dos investidores-->
             <p class="posicaoTitulo">Investidores</p>
 
             <div class="pessoas">
@@ -189,6 +227,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
             <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
             <script>
+
+                <?php echo "
                 const ctx2 = document.getElementById('desempenhoTrens');
 
                 new Chart(ctx2, {
@@ -197,7 +237,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         labels: ['Janeiro', 'Fevereiro', 'Abril', 'Maio', 'junho', 'julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
                         datasets: [{
                             label: 'ganho',
-                            data: [1, 3, 4, 3.5, 2, 4.5, 5, 2, 7, 10, 8.5],
+                            data: [$ValG2_1, $ValG2_2, $ValG2_3, $ValG2_4, $ValG2_5, $ValG2_6, $ValG2_7, $ValG2_8, $ValG2_9, $ValG2_10, $ValG2_11],
                             borderWidth: 1
                         }]
                     },
@@ -210,16 +250,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         }
                     }
                 });
+                "; ?>
             </script>
         </section>
 
         <section id="ConsumoEnergia" class="bordaStatus">
             <div class="posicaoTitulo">Consumo de energia dos trens</div>
-             <div class="tamanhoGrafico">
+            <div class="tamanhoGrafico">
                 <canvas id="consumoTrens"></canvas>
             </div>
             <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            
+
             <script>
+
+                <?php echo "
                 const ctx3 = document.getElementById('consumoTrens');
 
                 new Chart(ctx3, {
@@ -228,7 +273,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         labels: ['Janeiro', 'Fevereiro', 'Abril', 'Maio', 'junho', 'julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
                         datasets: [{
                             label: 'ganho',
-                            data: [1, 3, 4, 3.5, 2, 4.5, 5, 2, 7, 10, 8.5],
+                            data: [$ValG3_1, $ValG3_2, $ValG3_3, $ValG3_4, $ValG3_5, $ValG3_6, $ValG3_7, $ValG3_8, $ValG3_9, $ValG3_10, $ValG3_11],
                             borderWidth: 1
                         }]
                     },
@@ -241,7 +286,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         }
                     }
                 });
+                "; ?>
             </script>
+
         </section>
 
     </main>
