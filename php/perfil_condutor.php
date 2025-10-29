@@ -98,7 +98,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                         echo '
 
-                <li><a href="todos_usuarios.html">Todos os usuários</a></li>
+                <li><a href="todos_usuarios.php">Todos os usuários</a></li>
 
                 ';
                     }

@@ -37,19 +37,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <script src="../javascript/dashboard_geral.js?v=<?php echo time(); ?>"></script>
 </head>
 
-<body>
+<body onload="Comeco()">
     <header>
         <!--buton tem 3 pra poder controlar pelo CSS-->
         <br>
         <h1>Manutenção</h1>
         <div id="butoesjuntos">
-            <div id="buton1">
+            <div id="buton1" onclick="NaoIniciado()">
                  <button>Não Iniciado</button>
             </div>
-            <div id="buton2">
+            <div id="buton2" onclick="Fazendo()">
                 <button>Fazendo</button>
             </div>
-            <div id="buton3">
+            <div id="buton3" onclick="Finalizado()">
                 <button>Finalizado</button>
             </div>
         </div>
@@ -74,62 +74,215 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </ul>
     </nav>
 
-    <section id="trens">
+   <section id="trens">
 
-        <div id="table1">
-            <div id="table2">
-                <h3>Trens</h3>
-            </div>
-            <div id="table3">
-                <h3>Status dos trens</h3>
-            </div>
+    <!-- Cabeçalho principal -->
+    <div id="table1">
+        <div id="table2">
+            <h3>Trens</h3>
         </div>
-        <div id="divbody">
-            <div id="table4">
-                <h2>Nome Trem</h2>
-            </div>
-            <div id="table5">
-                <h2>Status</h2>
-            </div>
+        <div id="table3">
+            <h3>Status dos trens</h3>
         </div>
-        <div id="divbody"> <!--Essa div mostra os status do trem-->
-            <div id="table4">
+    </div>
+
+    <!-- Cabeçalhos das colunas -->
+    <div id="divbody">
+        <div id="table4">
+            <h2>Nome Trem</h2>
+        </div>
+        <div id="table5">
+            <h2>Status</h2>
+        </div>
+    </div>
+
+    <!-- Linhas de dados dos trens -->
+     <section id="NaoIniciado">
+    <div id="divbody">
+        <div id="table4">
+            <?php
+
+                $stmt = $conn->prepare("SELECT * FROM manutencao WHERE resolvido_manutencao = 'Não'");
+                $stmt->execute();
+
+                $resultado = $stmt->get_result();
+
+                $manutencao = $resultado->fetch_all(MYSQLI_ASSOC);
+
+                $NumeroDeManutencao = $resultado->num_rows;
+
+            if (!empty($manutencao)) {
                 
-            </div>
-            <div id="table5">
+                $contador = 1;
+                foreach ($manutencao as $trem) {
+                    echo '<h3>' . $trem['trem_manutencao'] . '</h3>';
+                    if ($contador != $NumeroDeManutencao) echo '<hr>';
+                    $contador++;
+                }
+            }
+            ?>
+        </div>
+
+        <div id="table5">
+            <?php
+               $stmt = $conn->prepare("SELECT * FROM manutencao WHERE resolvido_manutencao = 'Não'");
+                $stmt->execute();
+
+                $resultado = $stmt->get_result();
+
+                $manutencao = $resultado->fetch_all(MYSQLI_ASSOC);
+
+                $NumeroDeManutencao = $resultado->num_rows;
+
+            if (!empty($manutencao)) {
+                $contador = 1;
+                foreach ($manutencao as $trem) {
+                    echo '<h3>' . $trem['problema_manutencao'] . '</h3>';
+                    if ($contador != $NumeroDeManutencao) echo '<hr>';
+                    $contador++;
+                }
+            }
+            ?>
+        </div>
+    </div>
+        </section>
+
+
+ <section id="Fazendo">
+    <div id="divbody">
+        <div id="table4">
+            <?php
+
+     $stmt = $conn->prepare("SELECT * FROM manutencao WHERE resolvido_manutencao = 'Andamento'");
+                $stmt->execute();
+
+                $resultado = $stmt->get_result();
+
+                $manutencao = $resultado->fetch_all(MYSQLI_ASSOC);
+
+                $NumeroDeManutencao = $resultado->num_rows;
                 
-            </div>
+
+            if (!empty($manutencao)) {
+                
+                $contador = 1;
+                foreach ($manutencao as $trem) {
+                    echo '<h3>' . $trem['trem_manutencao'] . '</h3>';
+                    if ($contador != $NumeroDeManutencao) echo '<hr>';
+                    $contador++;
+                }
+            }
+            ?>
         </div>
 
-    </section>
+     <div id="table5">
+            <?php
+               $stmt = $conn->prepare("SELECT * FROM manutencao WHERE resolvido_manutencao = 'Andamento'");
+                $stmt->execute();
 
-    <section id="alertas_tempo">
+                $resultado = $stmt->get_result();
 
-        <div id="table1">
-            <div id="table2">
-                <h3>Notificação</h3>
-            </div>
-            <div id="table3">
-                <h3>Em tempo real</h3>
-            </div>
+                $manutencao = $resultado->fetch_all(MYSQLI_ASSOC);
+
+                $NumeroDeManutencao = $resultado->num_rows;
+
+            if (!empty($manutencao)) {
+                $contador = 1;
+                foreach ($manutencao as $trem) {
+                    echo '<h3>' . $trem['problema_manutencao'] . '</h3>';
+                    if ($contador != $NumeroDeManutencao) echo '<hr>';
+                    $contador++;
+                }
+            }
+            ?>
+        </div>
+    </div>
+        </section>
+
+
+ <section id="Finalizado">
+    <div id="divbody">
+        <div id="table4">
+            <?php
+
+                $stmt = $conn->prepare("SELECT * FROM manutencao WHERE resolvido_manutencao = 'Sim'");
+                $stmt->execute();
+
+                $resultado = $stmt->get_result();
+
+                $manutencao = $resultado->fetch_all(MYSQLI_ASSOC);
+
+                $NumeroDeManutencao = $resultado->num_rows;
+
+            if (!empty($manutencao)) {
+                
+                $contador = 1;
+                foreach ($manutencao as $trem) {
+                    echo '<h3>' . $trem['trem_manutencao'] . '</h3>';
+                    if ($contador != $NumeroDeManutencao) echo '<hr>';
+                    $contador++;
+                }
+            }
+            ?>
         </div>
 
+        <div id="table5">
+            <?php
+               $stmt = $conn->prepare("SELECT * FROM manutencao WHERE resolvido_manutencao = 'Sim'");
+                $stmt->execute();
 
-        <div id="divfinal">
-            <br>
-            <h4>O trem “Cascata” precisará de manutenção emergencial quando chegar na estação</h4>
+                $resultado = $stmt->get_result();
 
-            <h4>O trem “Centro Histórico” precisará de manutenção preventiva antes de ser inaugurado</h4>
+                $manutencao = $resultado->fetch_all(MYSQLI_ASSOC);
 
-            <h4>O trem “Norte-Sul” precisa de uma porta de caldeira nova (resolvido)</h4>
+                $NumeroDeManutencao = $resultado->num_rows;
 
-            <h4>O trem “Escola SESI Moinho” tem defeito na caldeira, com risco de reação exlosiva (resolvido)</h4>
-
-            <h4>O trem “Cascata” precisa ter sua pintura re-feita (resolvido)</h4>
-            <br>
+            if (!empty($manutencao)) {
+                $contador = 1;
+                foreach ($manutencao as $trem) {
+                    echo '<h3>' . $trem['problema_manutencao'] . '</h3>';
+                    if ($contador != $NumeroDeManutencao) echo '<hr>';
+                    $contador++;
+                }
+            }
+            ?>
         </div>
+    </div>
+        </section>
 
-    </section>
+
+    <div id="table1">
+        <div id="table2">
+            <h3>Notificações</h3>
+        </div> <!--Área das notificações-->
+        <div id="table3">
+            <h3>Em tempo real</h3>
+        </div>
+    </div>
+    <div id="white">
+        <br>
+
+        <?php
+
+        if (!empty($notificacao)) {
+
+            foreach ($notificacao as $notificacoes) {
+                echo '<hr>';
+                echo '<h4>' . $notificacoes['titulo_notificacao'] . '</h4>';
+                echo '<div class="notificacao">';
+                echo '<h5>' . $notificacoes['mensagem_notificacao'] . '</h5>';
+                echo '<h6>' . $notificacoes['data_notificacao'] . '</h6><hr>';
+                echo '</div>';
+                echo '<hr>';
+            }
+        }
+
+        ?>
+
+        <br>
+    </div>
+
+</section>
 
     <section id="reportar_problema">
 
