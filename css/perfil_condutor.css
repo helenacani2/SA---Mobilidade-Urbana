@@ -247,3 +247,36 @@ footer {
     border-width: 1px;
 
 }
+
+#BotaoRedefinicao {
+
+    margin-left: 15px;
+    cursor: pointer;
+    text-decoration: none;
+    width: 100%;
+    max-width: 100px;
+    padding: 10px;
+    margin: 5px 0 20px 0;
+    border: 2px solid white;
+    border-radius: 5px;
+    color: rgb(255, 255, 255);
+    background: linear-gradient(to right, #244e68, #43718d);
+    font-size: 14px;
+    font-family: 'Times New Roman', Times, serif;
+    z-index: 200;
+    opacity: 100%;
+
+}
+
+.MensagemRedefinicao {
+
+    position: fixed;
+    bottom: 1px;
+    left: 17px;
+    z-index: 300;
+    background-color: #ffffff;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+
+}

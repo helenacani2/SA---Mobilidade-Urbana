@@ -30,6 +30,55 @@ $resultado = $stmt->get_result();
 
 $DadosFuncionario = $resultado->fetch_assoc();
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    $SenhaNova1 = $_POST['NovaSenhaEspaco'];
+
+    $SenhaNova2 = $_POST['NovaSenhaNovaSenhaConfirmaEspaco'];
+
+    $EmailConfirma = $_POST['EmailConfirmacaoEspaco'];
+
+    if ($EmailConfirma != $_SESSION["email_funcionario"]) {
+
+        EmailErrado();
+    } else {
+
+        if ($SenhaNova1 != $SenhaNova2) {
+
+            SenhaErrada();
+        } else {
+
+            if (strlen($SenhaNova1) >= 8) {
+
+                $stmt = $conn->prepare("SELECT * FROM funcionario WHERE id_funcionario = $_SESSION[id_funcionario]");
+                $stmt->execute();
+
+                $resultado = $stmt->get_result();
+
+                $FuncionarioEscolhido = $resultado->fetch_assoc();
+
+                $query = "SELECT senha_funcionario FROM funcionario";
+
+                $stmt = $conn->prepare($query);
+                $stmt->execute();
+
+
+                $stmt->store_result();
+
+                $sql = "UPDATE funcionario SET senha_funcionario=$SenhaNova1 WHERE id_funcionario = $_SESSION[id_funcionario]";
+
+                $conn->query($sql);
+
+                RedefinicaoSucesso();
+
+            } else {
+
+                SenhaInvalida();
+            }
+        }
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -118,15 +167,15 @@ $DadosFuncionario = $resultado->fetch_assoc();
                     <h5>Email (recuperação e redefinição de senha):</h5>
             </fieldset> -->
             <fieldset>
-                
+
                 <div id="bodydiv">
 
-                    <form>
+                    <form method="POST">
 
                         <div class="flexivel">
 
                             <label for="NovaSenha" id="NovaSenha">Nova Senha:ㅤ</label>
-                            <input name="NovaSenha" placeholder="Digite sua nova senha" id="NovaSenhaEspaco" class="RedefinirSenha" type="password">
+                            <input placeholder="Digite sua nova senha" id="NovaSenhaEspaco" name="NovaSenhaEspaco" class="RedefinirSenha" type="password">
 
                         </div>
 
@@ -135,7 +184,7 @@ $DadosFuncionario = $resultado->fetch_assoc();
                         <div class="flexivel">
 
                             <label for="NovaSenhaConfirma" id="NovaSenhaConfirma">Nova Senha (confirmação):ㅤ</label>
-                            <input name="NovaSenhaConfirma" placeholder="Confirme sua nova senha" id="NovaSenhaNovaSenhaConfirmaEspaco" class="RedefinirSenha" type="password">
+                            <input placeholder="Confirme sua nova senha" id="NovaSenhaNovaSenhaConfirmaEspaco" name="NovaSenhaNovaSenhaConfirmaEspaco" class="RedefinirSenha" type="password">
 
                         </div>
 
@@ -144,11 +193,43 @@ $DadosFuncionario = $resultado->fetch_assoc();
                         <div class="flexivel">
 
                             <label for="EmailConfirmacao" id="EmailConfirmacao">E-mail de confirmação:ㅤ</label>
-                            <textarea name="EmailConfirmacao" placeholder="Digite seu E-mail de confirmação" id="EmailConfirmacaoEspaco" class="RedefinirSenha"></textarea>
+                            <textarea placeholder="Digite seu E-mail de confirmação" id="EmailConfirmacaoEspaco" name="EmailConfirmacaoEspaco" class="RedefinirSenha"></textarea>
 
                         </div>
 
+                        <br>
+
+                        <input type="submit" value="Redefinir Senha" id="BotaoRedefinicao">
+
                     </form>
+
+                    <?php
+
+                    function EmailErrado()
+                    {
+
+                        echo '<h1 class="MensagemRedefinicao">E-mail não condiz com o E-mail logado</h1>';
+                    }
+
+                    function SenhaErrada()
+                    {
+
+                        echo '<h1 class="MensagemRedefinicao">Senhas enviadas são diferentes</h1>';
+                    }
+
+                    function SenhaInvalida()
+                    {
+
+                        echo '<h1 class="MensagemRedefinicao">Senhas enviadas são inválidas</h1>';
+                    }
+
+                    function RedefinicaoSucesso()
+                    {
+
+                        echo '<h1 class="MensagemRedefinicao">Senha Redefinida com sucesso!</h1>';
+                    }
+
+                    ?>
 
                 </div>
 
