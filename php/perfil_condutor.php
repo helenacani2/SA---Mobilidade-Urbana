@@ -50,7 +50,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             if (strlen($SenhaNova1) >= 8) {
 
+                $stmt = $conn->prepare("SELECT * FROM funcionario WHERE id_funcionario = $_SESSION[id_funcionario]");
+                $stmt->execute();
+
+                $resultado = $stmt->get_result();
+
+                $FuncionarioEscolhido = $resultado->fetch_assoc();
+
+                $query = "SELECT senha_funcionario FROM funcionario";
+
+                $stmt = $conn->prepare($query);
+                $stmt->execute();
+
+
+                $stmt->store_result();
+
+                $sql = "UPDATE funcionario SET senha_funcionario=$SenhaNova1 WHERE id_funcionario = $_SESSION[id_funcionario]";
+
+                $conn->query($sql);
+
                 RedefinicaoSucesso();
+
             } else {
 
                 SenhaInvalida();
@@ -207,25 +227,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     {
 
                         echo '<h1 class="MensagemRedefinicao">Senha Redefinida com sucesso!</h1>';
-
-                        $stmt = $conn->prepare("SELECT * FROM funcionario WHERE id_funcionario = $_SESSION[id_funcionario]");
-                        $stmt->execute();
-
-                        $resultado = $stmt->get_result();
-
-                        $FuncionarioEscolhido = $resultado->fetch_assoc();
-
-                        $query = "SELECT senha_funcionario FROM funcionario";
-
-                        $stmt = $conn->prepare($query);
-                        $stmt->execute();
-
-
-                        $stmt->store_result();
-
-                        $sql = "UPDATE funcionario SET senha_funcionario=$SenhaNova1 WHERE id_funcionario = $i AND funcionario_medic = $_SESSION[IDFuncionarioEscolhido]";
-
-                        $conn->query($sql);
                     }
 
                     ?>
