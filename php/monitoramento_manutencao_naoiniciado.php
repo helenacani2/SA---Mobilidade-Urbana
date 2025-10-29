@@ -125,8 +125,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <div id="table5">
             <?php
-
-                $stmt = $conn->prepare("SELECT * FROM manutencao WHERE resolvido_manutencao = 'Não'");
+               $stmt = $conn->prepare("SELECT * FROM manutencao WHERE resolvido_manutencao = 'Não'");
                 $stmt->execute();
 
                 $resultado = $stmt->get_result();
@@ -135,9 +134,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 $NumeroDeManutencao = $resultado->num_rows;
 
-            if (!empty($trens)) {
+            if (!empty($manutencao)) {
                 $contador = 1;
-                foreach ($trens as $trem) {
+                foreach ($manutencao as $trem) {
                     echo '<h3>' . $trem['problema_manutencao'] . '</h3>';
                     if ($contador != $NumeroDeManutencao) echo '<hr>';
                     $contador++;
@@ -154,7 +153,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div id="table4">
             <?php
 
-                $stmt = $conn->prepare("SELECT * FROM manutencao WHERE resolvido_manutencao = 'Andamento'");
+     $stmt = $conn->prepare("SELECT * FROM manutencao WHERE resolvido_manutencao = 'Andamento'");
                 $stmt->execute();
 
                 $resultado = $stmt->get_result();
@@ -176,11 +175,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ?>
         </div>
 
-        <div id="table5">
+     <div id="table5">
             <?php
-            if (!empty($trens)) {
+               $stmt = $conn->prepare("SELECT * FROM manutencao WHERE resolvido_manutencao = 'Andamento'");
+                $stmt->execute();
+
+                $resultado = $stmt->get_result();
+
+                $manutencao = $resultado->fetch_all(MYSQLI_ASSOC);
+
+                $NumeroDeManutencao = $resultado->num_rows;
+
+            if (!empty($manutencao)) {
                 $contador = 1;
-                foreach ($trens as $trem) {
+                foreach ($manutencao as $trem) {
                     echo '<h3>' . $trem['problema_manutencao'] . '</h3>';
                     if ($contador != $NumeroDeManutencao) echo '<hr>';
                     $contador++;
@@ -196,9 +204,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div id="divbody">
         <div id="table4">
             <?php
-            if (!empty($manutencao)) {
+
                 $stmt = $conn->prepare("SELECT * FROM manutencao WHERE resolvido_manutencao = 'Sim'");
-                        $stmt->execute();
+                $stmt->execute();
+
+                $resultado = $stmt->get_result();
+
+                $manutencao = $resultado->fetch_all(MYSQLI_ASSOC);
+
+                $NumeroDeManutencao = $resultado->num_rows;
+
+            if (!empty($manutencao)) {
+                
                 $contador = 1;
                 foreach ($manutencao as $trem) {
                     echo '<h3>' . $trem['trem_manutencao'] . '</h3>';
@@ -211,9 +228,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <div id="table5">
             <?php
-            if (!empty($trens)) {
+               $stmt = $conn->prepare("SELECT * FROM manutencao WHERE resolvido_manutencao = 'Sim'");
+                $stmt->execute();
+
+                $resultado = $stmt->get_result();
+
+                $manutencao = $resultado->fetch_all(MYSQLI_ASSOC);
+
+                $NumeroDeManutencao = $resultado->num_rows;
+
+            if (!empty($manutencao)) {
                 $contador = 1;
-                foreach ($trens as $trem) {
+                foreach ($manutencao as $trem) {
                     echo '<h3>' . $trem['problema_manutencao'] . '</h3>';
                     if ($contador != $NumeroDeManutencao) echo '<hr>';
                     $contador++;
