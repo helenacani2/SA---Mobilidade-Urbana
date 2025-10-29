@@ -9,11 +9,10 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != true) {
     header("Location: pagina_login.php");
 
     exit;
-    
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    
+
     if (isset($_POST['BotaoSair'])) {
 
         session_unset();
@@ -21,9 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         session_destroy();
 
         header("Location: pagina_login.php");
-
     }
-
 }
 
 $stmt = $conn->prepare("SELECT * FROM funcionario WHERE id_funcionario = $_SESSION[id_funcionario]");
@@ -33,7 +30,7 @@ $resultado = $stmt->get_result();
 
 $DadosFuncionario = $resultado->fetch_assoc();
 
-?> 
+?>
 
 <!DOCTYPE html>
 <html lang="pt_BR">
@@ -66,20 +63,19 @@ $DadosFuncionario = $resultado->fetch_assoc();
                     <li><a href="pagina_inicial.php">Início</a></li>
                     <li><a href="pagina_cadastro.php">Criar usuário</a></li>
 
-<?php
+                    <?php
 
-            if ($_SESSION["cargo_funcionario"] == (("Gerente") || ("Equipe_Atendimento"))) {
+                    if ($_SESSION["cargo_funcionario"] == (("Gerente") || ("Equipe_Atendimento"))) {
 
-                echo '
+                        echo '
 
                 <li><a href="todos_usuarios.html">Todos os usuários</a></li>
 
                 ';
+                    }
 
-            }
-    
-?>
-                    
+                    ?>
+
                     <li><input type="submit" name="BotaoSair" id="BotaoSair" value="Sair"></li>
                 </form>
             </ul>
@@ -116,16 +112,52 @@ $DadosFuncionario = $resultado->fetch_assoc();
                 </div>
             </fieldset>
             <br>
-            <fieldset>
+            <!-- <fieldset>
                 <div id="bodydiv">
                     <h5>Senha:</h5>
-                    <h5>Email (recuperação e redefinição de senha):</h5>    <!--Dados mais importantes do condutor-->
-            </fieldset>
-        </div>
+                    <h5>Email (recuperação e redefinição de senha):</h5>
+            </fieldset> -->
+            <fieldset>
+                
+                <div id="bodydiv">
 
-        <br>
-        <br>
-    </div>
+                    <form>
+
+                        <div class="flexivel">
+
+                            <label for="NovaSenha" id="NovaSenha">Nova Senha:ㅤ</label>
+                            <input name="NovaSenha" placeholder="Digite sua nova senha" id="NovaSenhaEspaco" class="RedefinirSenha" type="password">
+
+                        </div>
+
+                        <br>
+
+                        <div class="flexivel">
+
+                            <label for="NovaSenhaConfirma" id="NovaSenhaConfirma">Nova Senha (confirmação):ㅤ</label>
+                            <input name="NovaSenhaConfirma" placeholder="Confirme sua nova senha" id="NovaSenhaNovaSenhaConfirmaEspaco" class="RedefinirSenha" type="password">
+
+                        </div>
+
+                        <br>
+
+                        <div class="flexivel">
+
+                            <label for="EmailConfirmacao" id="EmailConfirmacao">E-mail de confirmação:ㅤ</label>
+                            <textarea name="EmailConfirmacao" placeholder="Digite seu E-mail de confirmação" id="EmailConfirmacaoEspaco" class="RedefinirSenha"></textarea>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </fieldset>
+
+
+            <br>
+            <br>
+        </div>
 </body>
 
 <footer>

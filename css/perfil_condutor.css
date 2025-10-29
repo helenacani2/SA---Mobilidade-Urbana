@@ -237,3 +237,13 @@ footer {
     opacity: 100%;
 
 }
+
+.RedefinirSenha {
+
+    width: 15%;
+    opacity: 100%;
+    border-color: #35739b;
+    border-style: solid;
+    border-width: 1px;
+
+}
