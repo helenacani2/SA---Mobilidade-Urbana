@@ -4,6 +4,13 @@ require_once "train_info_bd.php";
 
 session_start();
 
+$stmt = $conn->prepare("SELECT * FROM notificacao");
+$stmt->execute();
+
+$resultado = $stmt->get_result();
+
+$notificacao = $resultado->fetch_all(MYSQLI_ASSOC);
+
 if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != true) {
 
     header("Location: pagina_login.php");
@@ -26,6 +33,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 
 <!DOCTYPE html>
+
+
+
 <html lang="pt_BR">
 
 <head>
@@ -125,7 +135,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <div id="table5">
             <?php
-               $stmt = $conn->prepare("SELECT * FROM manutencao WHERE resolvido_manutencao = 'Não'");
+                $stmt = $conn->prepare("SELECT * FROM manutencao WHERE resolvido_manutencao = 'Não'");
                 $stmt->execute();
 
                 $resultado = $stmt->get_result();
