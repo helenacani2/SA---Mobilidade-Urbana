@@ -214,7 +214,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <div class="quadrado">
 
-                <img src="../midias/rota_dois.png">
+                <img src="../midias/roda_dois.png">
 
                 <h3>Joinville - SC</h3>
 
