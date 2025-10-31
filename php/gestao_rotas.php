@@ -69,47 +69,7 @@ $NumeroDeRotas = $resultado->num_rows;
 
     <div id="tudo">
 
-        <div id="topo">
-
-            <section id="rotas">
-
-                <?php
-
-                $ContadorRotas = 1;
-
-                foreach ($rotas as $RotaSelecionada) {
-
-                    echo "<li>
-
-                    <input type='radio' id='imag_$ContadorRotas' name='bagulho' checked>
-
-                    <label for='imag_um' onclick='rota_$ContadorRotas()'>" . $RotaSelecionada['nome'] . "</label>
-
-                </li>";
-
-                $ContadorRotas++;
-
-                }
-
-                ?>
-
-            </section>
-
-        </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        
 
 
 
@@ -122,7 +82,9 @@ $NumeroDeRotas = $resultado->num_rows;
 
         <div id="mapaRota" style="position: relative;">
 
-            <img id="imagem_rota" src="../midias/rota_um.png">
+            <!-- <img id="imagem_rota" src="../midias/rota_1.png"> -->
+
+            <iframe src='mapa.php' style='border-radius:50px;width:100%;height:800px;' title='Iframe Example' id="MapaJanela"></iframe>
 
             <div id="legenda_rota_maior">
 
@@ -200,26 +162,28 @@ $NumeroDeRotas = $resultado->num_rows;
 <script src="../javascript/teste.js?v=<?php echo time(); ?>"></script>
 
 <script>
+    <?php
 
-<?php
+    $ContadorRotas = 1;
 
-$ContadorRotas = 1;
+    foreach ($rotas as $RotaSelecionada) {
 
-echo "
 
-function rota_1() {
+
+        echo "
+
+function rota_$ContadorRotas() {
 
     var image = document.getElementById('imagem_rota');
 
     var trem = document.getElementById('imagem_trem');
 
-    if (image.src != '../midias/rota_$ContadorRotas.png?v=<?php echo time(); ?>') {
 
-        image.src = '../midias/rota_$ContadorRotas.png?v=<?php echo time(); ?>';
+        image.src = '../midias/rota_$ContadorRotas.png';
 
-        trem.src = '../midias/trem$ContadorRotas.png?v=<?php echo time(); ?>';
+        trem.src = '../midias/trem$ContadorRotas.png';
         
-    };
+
 
     document.getElementById('linha').innerHTML = 'Norte-Sul - Linha Roxa';
     
@@ -233,8 +197,10 @@ function rota_1() {
 
 ";
 
-?>
+        $ContadorRotas++;
+    };
 
+    ?>
 </script>
 
 </html>
