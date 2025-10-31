@@ -24,16 +24,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         header("Location: pagina_login.php");
     }
 }
-
-$stmt = $conn->prepare("SELECT * FROM rotas");
-$stmt->execute();
-
-$resultado = $stmt->get_result();
-
-$rotas = $resultado->fetch_all(MYSQLI_ASSOC);
-
-$NumeroDeRotas = $resultado->num_rows;
-
 ?>
 
 <!DOCTYPE html>
