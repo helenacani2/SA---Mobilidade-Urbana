@@ -196,7 +196,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <h1>Linhas ></h1>
 
         <div class="flexivel">
-            <iframe src="mapa.html" style="border-radius:50px;width:100%;height:800px;" title="Iframe Example"></iframe>
+            <iframe src="mapa.php" style="border-radius:50px;width:100%;height:800px;" title="Iframe Example"></iframe>
 
         </div>
 
