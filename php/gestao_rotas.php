@@ -4,12 +4,12 @@ require_once "train_info_bd.php";
 
 session_start();
 
+
 if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != true) {
 
     header("Location: pagina_login.php");
 
     exit;
-    
 }
 
 
@@ -73,29 +73,28 @@ $NumeroDeRotas = $resultado->num_rows;
 
             <section id="rotas"> <!--Essa section define os botões que mudam a rota mostrada-->
 
-                <li>
+                <?php
 
-                    <input type="radio" id="imag_um" name="bagulho" checked>
+                //for ($i = 1; $i <= $NumeroDeRotas; $i++) {
 
-                    <label for="imag_um" onclick="rota_um()">Rota Um</label>
+                $ContadorRotas = 1;
 
-                </li>
+                foreach ($rotas as $RotaSelecionada) {
 
-                <li>
+                    echo "<li>
 
-                    <input type="radio" id="imag_dois" name="bagulho" checked>
+                    <input type='radio' id='imag_um' name='bagulho' checked>
 
-                    <label for="imag_dois" onclick="rota_dois()">Rota Dois</label>
+                    <label for='imag_um' onclick='rota_$ContadorRotas()'>" . $RotaSelecionada['nome'] . "</label>
 
-                </li>
+                </li>";
+                }
 
-                <li>
 
-                    <input type="radio" id="imag_tres" name="bagulho" checked>
 
-                    <label for="imag_tres" onclick="rota_tres()">Rota Três</label>
+                ?>
 
-                </li>
+
 
             </section>
 
