@@ -22,9 +22,11 @@ body {
 
     background-color: red;
 
-    height: 20%;
-    margin-right: 5px;
-    margin-top: 5px;
+    height: 3%;
+
+    position: absolute;
+    right: 8px;
+    top: 8px;
 
 }
 
@@ -238,6 +240,12 @@ body {
 }
 
 @media screen and (min-width: 1024px) {
+
+    #paginas_redondas {
+
+        margin-top: -220px;
+
+    }
 
     #barra_de_cima {
 
