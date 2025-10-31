@@ -22,9 +22,11 @@ body {
 
     background-color: red;
 
-    height: 20%;
-    margin-right: 5px;
-    margin-top: 5px;
+    height: 3%;
+
+    position: absolute;
+    right: 8px;
+    top: 8px;
 
 }
 
@@ -221,17 +223,6 @@ body {
     font-family: 'Times New Roman', Times, serif;
 }
 
-.quadrado img {
-
-    border-radius: 50px;
-
-    width: 90%;
-
-    height: 70%;
-
-    font-family: 'Times New Roman', Times, serif;
-}
-
 #paginas_redondas {
 
     margin-top: -60px;
@@ -249,6 +240,12 @@ body {
 }
 
 @media screen and (min-width: 1024px) {
+
+    #paginas_redondas {
+
+        margin-top: -220px;
+
+    }
 
     #barra_de_cima {
 
