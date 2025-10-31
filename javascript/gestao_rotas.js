@@ -8,7 +8,7 @@ function ao_entrar() {
 
 };
 
-function rota_1() {
+/* function rota_1() {
 
     var image = document.getElementById("imagem_rota");
 
@@ -78,7 +78,7 @@ function rota_3() {
 
     em_viagem();
 
-};
+}; */
 
 function tempo_estimado() {
 

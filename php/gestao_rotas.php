@@ -71,11 +71,9 @@ $NumeroDeRotas = $resultado->num_rows;
 
         <div id="topo">
 
-            <section id="rotas"> <!--Essa section define os botões que mudam a rota mostrada-->
+            <section id="rotas">
 
                 <?php
-
-                //for ($i = 1; $i <= $NumeroDeRotas; $i++) {
 
                 $ContadorRotas = 1;
 
@@ -83,22 +81,43 @@ $NumeroDeRotas = $resultado->num_rows;
 
                     echo "<li>
 
-                    <input type='radio' id='imag_um' name='bagulho' checked>
+                    <input type='radio' id='imag_$ContadorRotas' name='bagulho' checked>
 
                     <label for='imag_um' onclick='rota_$ContadorRotas()'>" . $RotaSelecionada['nome'] . "</label>
 
                 </li>";
+
+                $ContadorRotas++;
+
                 }
 
-
-
                 ?>
-
-
 
             </section>
 
         </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         <div id="mapaRota" style="position: relative;">
@@ -113,13 +132,11 @@ $NumeroDeRotas = $resultado->num_rows;
 
                     <div class="flexivel">
 
-                        <h3 id="rota_atual">Rota atual </h3> <!--Placa que mostra as informações da rota atual-->
+                        <h3 id="rota_atual">Rota atual</h3>
 
                         <div class="flexivel">
 
                             <h3 id="hora">. Chega na estação àsㅤ</h3>
-
-                            <p id="hora_rota"></p>
 
                         </div>
 
@@ -181,5 +198,43 @@ $NumeroDeRotas = $resultado->num_rows;
 
 <script src="../javascript/gestao_rotas.js?v=<?php echo time(); ?>"></script>
 <script src="../javascript/teste.js?v=<?php echo time(); ?>"></script>
+
+<script>
+
+<?php
+
+$ContadorRotas = 1;
+
+echo "
+
+function rota_1() {
+
+    var image = document.getElementById('imagem_rota');
+
+    var trem = document.getElementById('imagem_trem');
+
+    if (image.src != '../midias/rota_$ContadorRotas.png?v=<?php echo time(); ?>') {
+
+        image.src = '../midias/rota_$ContadorRotas.png?v=<?php echo time(); ?>';
+
+        trem.src = '../midias/trem$ContadorRotas.png?v=<?php echo time(); ?>';
+        
+    };
+
+    document.getElementById('linha').innerHTML = 'Norte-Sul - Linha Roxa';
+    
+    document.getElementById('preco_passagem').innerHTML = '9,99';
+    
+    document.getElementById('linha_nome').innerHTML = '📍 Linha Férrea da Paçoca';
+
+    em_viagem();
+
+};
+
+";
+
+?>
+
+</script>
 
 </html>
