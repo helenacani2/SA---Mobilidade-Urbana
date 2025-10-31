@@ -1,3 +1,11 @@
+<?php
+
+require_once "train_info_bd.php";
+
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>

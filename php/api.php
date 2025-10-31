@@ -7,17 +7,17 @@ header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type');
 
 // Configurações do banco de dados
-$host = 'localhost';
-$dbname = 'trem';
-$username = 'root';
-$password = 'root';
+    $host = "localhost";
+    $usuario = "root";
+    $senha = "root";
+    $banco = "db_train_info";
 
-// Criar conexão MySQLi
-$mysqli = new mysqli($host, $username, $password, $dbname);
+// Criar conexão mysqli
+$conn = new mysqli($host, $usuario, $senha, $banco);
 
 // Verificar conexão
-if ($mysqli->connect_error) {
-    echo json_encode(['success' => false, 'message' => 'Erro de conexão: ' . $mysqli->connect_error]);
+if ($conn->connect_error) {
+    echo json_encode(['success' => false, 'message' => 'Erro de conexão: ' . $conn->connect_error]);
     exit;
 }
 
@@ -37,31 +37,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 switch ($action) {
     case 'get_stations':
-        getStations($mysqli);
+        getStations($conn);
         break;
         
     case 'get_routes':
-        getRoutes($mysqli);
+        getRoutes($conn);
         break;
         
     case 'save_station':
-        saveStation($mysqli, $input);
+        saveStation($conn, $input);
         break;
         
     case 'delete_station':
-        deleteStation($mysqli, $input);
+        deleteStation($conn, $input);
         break;
         
     case 'save_route':
-        saveRoute($mysqli, $input);
+        saveRoute($conn, $input);
         break;
         
     case 'delete_route':
-        deleteRoute($mysqli, $input);
+        deleteRoute($conn, $input);
         break;
         
     case 'update_station_position':
-        updateStationPosition($mysqli, $input);
+        updateStationPosition($conn, $input);
         break;
         
     default:
@@ -70,9 +70,9 @@ switch ($action) {
 }
 
 // Função para obter estações
-function getStations($mysqli) {
+function getStations($conn) {
     try {
-        $result = $mysqli->query("SELECT * FROM estacoes ORDER BY nome");
+        $result = $conn->query("SELECT * FROM estacoes ORDER BY nome");
         if ($result) {
             $stations = [];
             while ($row = $result->fetch_assoc()) {
@@ -80,7 +80,7 @@ function getStations($mysqli) {
             }
             echo json_encode($stations);
         } else {
-            throw new Exception($mysqli->error);
+            throw new Exception($conn->error);
         }
     } catch (Exception $e) {
         echo json_encode(['success' => false, 'message' => 'Erro ao obter estações: ' . $e->getMessage()]);
@@ -88,12 +88,12 @@ function getStations($mysqli) {
 }
 
 // Função para obter rotas com suas estações
-function getRoutes($mysqli) {
+function getRoutes($conn) {
     try {
         // Primeiro, obtemos as rotas
-        $result = $mysqli->query("SELECT * FROM rotas ORDER BY nome");
+        $result = $conn->query("SELECT * FROM rotas ORDER BY nome");
         if (!$result) {
-            throw new Exception($mysqli->error);
+            throw new Exception($conn->error);
         }
         
         $routes = [];
@@ -103,7 +103,7 @@ function getRoutes($mysqli) {
         
         // Para cada rota, obtemos suas estações em ordem
         foreach ($routes as &$route) {
-            $stmt = $mysqli->prepare("
+            $stmt = $conn->prepare("
                 SELECT e.* 
                 FROM estacoes e 
                 JOIN rota_estacoes re ON e.id = re.id_estacao 
@@ -128,7 +128,7 @@ function getRoutes($mysqli) {
 }
 
 // Função para salvar estação
-function saveStation($mysqli, $input) {
+function saveStation($conn, $input) {
     try {
         $id = $input['id'] ?? null;
         $nome = $input['nome'] ?? '';
@@ -143,7 +143,7 @@ function saveStation($mysqli, $input) {
         
         if ($id) {
             // Atualizar estação existente
-            $stmt = $mysqli->prepare("
+            $stmt = $conn->prepare("
                 UPDATE estacoes 
                 SET nome = ?, endereco = ?, latitude = ?, longitude = ? 
                 WHERE id = ?
@@ -151,7 +151,7 @@ function saveStation($mysqli, $input) {
             $stmt->bind_param("ssddi", $nome, $endereco, $latitude, $longitude, $id);
         } else {
             // Inserir nova estação
-            $stmt = $mysqli->prepare("
+            $stmt = $conn->prepare("
                 INSERT INTO estacoes (nome, endereco, latitude, longitude) 
                 VALUES (?, ?, ?, ?)
             ");
@@ -159,7 +159,7 @@ function saveStation($mysqli, $input) {
         }
         
         if ($stmt->execute()) {
-            $newId = $id ?: $mysqli->insert_id;
+            $newId = $id ?: $conn->insert_id;
             echo json_encode(['success' => true, 'id' => $newId]);
         } else {
             throw new Exception($stmt->error);
@@ -172,7 +172,7 @@ function saveStation($mysqli, $input) {
 }
 
 // Função para excluir estação
-function deleteStation($mysqli, $input) {
+function deleteStation($conn, $input) {
     try {
         $id = $input['id'] ?? null;
         
@@ -182,7 +182,7 @@ function deleteStation($mysqli, $input) {
         }
         
         // Verificar se a estação está sendo usada em alguma rota
-        $stmt = $mysqli->prepare("
+        $stmt = $conn->prepare("
             SELECT COUNT(*) as count 
             FROM rota_estacoes 
             WHERE id_estacao = ?
@@ -199,7 +199,7 @@ function deleteStation($mysqli, $input) {
         }
         
         // Excluir estação
-        $stmt = $mysqli->prepare("DELETE FROM estacoes WHERE id = ?");
+        $stmt = $conn->prepare("DELETE FROM estacoes WHERE id = ?");
         $stmt->bind_param("i", $id);
         
         if ($stmt->execute()) {
@@ -215,7 +215,7 @@ function deleteStation($mysqli, $input) {
 }
 
 // Função para salvar rota
-function saveRoute($mysqli, $input) {
+function saveRoute($conn, $input) {
     try {
         $nome = $input['nome'] ?? '';
         $estacoes_json = $input['estacoes'] ?? '[]';
@@ -230,7 +230,7 @@ function saveRoute($mysqli, $input) {
         
         // Calcular distância total
         $distancia_total = 0;
-        $stmt = $mysqli->prepare("SELECT latitude, longitude FROM estacoes WHERE id = ?");
+        $stmt = $conn->prepare("SELECT latitude, longitude FROM estacoes WHERE id = ?");
         
         for ($i = 0; $i < count($estacoes) - 1; $i++) {
             $stmt->bind_param("i", $estacoes[$i]);
@@ -263,20 +263,21 @@ function saveRoute($mysqli, $input) {
         // Calcular tempo estimado (60 km/h em média)
         $tempo_estimado = round(($distancia_total / 60) * 60);
         
-        $mysqli->begin_transaction();
-        
+        $conn->begin_transaction();
+
+        $distancia_formatada = round($distancia_total, 2);
+
         // Inserir rota
-        $round = round($distancia_total, 2);
-        $stmt = $mysqli->prepare("INSERT INTO rotas (nome, distancia_km, tempo_estimado_min) VALUES (?, ?, ?)");
-        $stmt->bind_param("sdi", $nome, $round, $tempo_estimado);
+        $stmt = $conn->prepare("INSERT INTO rotas (nome, distancia_km, tempo_estimado_min) VALUES (?, ?, ?)");
+        $stmt->bind_param("sdi", $nome, $distancia_formatada, $tempo_estimado);
         if (!$stmt->execute()) {
             throw new Exception($stmt->error);
         }
-        $id_rota = $mysqli->insert_id;
+        $id_rota = $conn->insert_id;
         $stmt->close();
         
         // Inserir estações da rota
-        $stmt = $mysqli->prepare("INSERT INTO rota_estacoes (id_rota, id_estacao, ordem) VALUES (?, ?, ?)");
+        $stmt = $conn->prepare("INSERT INTO rota_estacoes (id_rota, id_estacao, ordem) VALUES (?, ?, ?)");
         
         foreach ($estacoes as $index => $id_estacao) {
             $stmt->bind_param("iii", $id_rota, $id_estacao, $index);
@@ -286,17 +287,17 @@ function saveRoute($mysqli, $input) {
         }
         
         $stmt->close();
-        $mysqli->commit();
+        $conn->commit();
         
         echo json_encode(['success' => true, 'id' => $id_rota]);
     } catch (Exception $e) {
-        $mysqli->rollback();
+        $conn->rollback();
         echo json_encode(['success' => false, 'message' => 'Erro ao salvar rota: ' . $e->getMessage()]);
     }
 }
 
 // Função para excluir rota
-function deleteRoute($mysqli, $input) {
+function deleteRoute($conn, $input) {
     try {
         $id = $input['id'] ?? null;
         
@@ -306,7 +307,7 @@ function deleteRoute($mysqli, $input) {
         }
         
         // Excluir rota (as rota_estacoes serão excluídas em cascade)
-        $stmt = $mysqli->prepare("DELETE FROM rotas WHERE id = ?");
+        $stmt = $conn->prepare("DELETE FROM rotas WHERE id = ?");
         $stmt->bind_param("i", $id);
         
         if ($stmt->execute()) {
@@ -322,7 +323,7 @@ function deleteRoute($mysqli, $input) {
 }
 
 // Função para atualizar posição da estação
-function updateStationPosition($mysqli, $input) {
+function updateStationPosition($conn, $input) {
     try {
         $id = $input['id'] ?? null;
         $latitude = $input['latitude'] ?? 0;
@@ -333,7 +334,7 @@ function updateStationPosition($mysqli, $input) {
             return;
         }
         
-        $stmt = $mysqli->prepare("UPDATE estacoes SET latitude = ?, longitude = ? WHERE id = ?");
+        $stmt = $conn->prepare("UPDATE estacoes SET latitude = ?, longitude = ? WHERE id = ?");
         $stmt->bind_param("ddi", $latitude, $longitude, $id);
         
         if ($stmt->execute()) {
@@ -349,5 +350,5 @@ function updateStationPosition($mysqli, $input) {
 }
 
 // Fechar conexão
-$mysqli->close();
+$conn->close();
 ?>

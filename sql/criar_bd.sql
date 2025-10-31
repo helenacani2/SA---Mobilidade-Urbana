@@ -84,5 +84,4 @@ CREATE TABLE registro_medico (
     tipo_medic VARCHAR(20) NOT NULL DEFAULT 'Não especificado',
     funcionario_medic INT,
     FOREIGN KEY (funcionario_medic) REFERENCES funcionario(id_funcionario)
-
 );
