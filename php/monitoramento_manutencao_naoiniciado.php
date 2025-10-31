@@ -325,3 +325,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <script src="../javascript/teste.js?v=<?php echo time(); ?>"></script>
 
 </html>
+
+//

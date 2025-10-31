@@ -8,7 +8,7 @@ function ao_entrar() {
 
 };
 
-function rota_um() {
+function rota_1() {
 
     var image = document.getElementById("imagem_rota");
 
@@ -32,7 +32,7 @@ function rota_um() {
 
 };
 
-function rota_dois() {
+function rota_2() {
 
     var image = document.getElementById("imagem_rota");
 
@@ -56,7 +56,7 @@ function rota_dois() {
 
 };
 
-function rota_tres() {
+function rota_3() {
 
     var image = document.getElementById("imagem_rota");
 
