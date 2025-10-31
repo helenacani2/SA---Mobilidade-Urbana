@@ -9,11 +9,10 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != true) {
     header("Location: pagina_login.php");
 
     exit;
-    
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    
+
     if (isset($_POST['BotaoSair'])) {
 
         session_unset();
@@ -21,9 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         session_destroy();
 
         header("Location: pagina_login.php");
-
     }
-
 }
 
 ?>
@@ -56,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <p id="lupa_pesquisa">🔍︎</p>
 
                 <p id="texto_pesquisa">Pesquisar</p>
-                
+
             </div>
 
         </div>
@@ -70,11 +67,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </section>
 
     <section id="barra_paginas">
-        
+
         <h2 id="paginas_texto"></h2>
-        
+
         <div id="segura_imagem">
-        
+
             <img id="paginas_imagem" onclick="clicar()">
 
         </div>
@@ -90,7 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <p id="bola_quatro">∙</p>
 
             <p id="bola_cinco">∙</p>
-            </div>
+        </div>
 
     </section>
 
@@ -105,7 +102,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <img onclick="dashboard()" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcDbUBMHseZhclrQl3aAD7VD3t6rGU9vQ0yQ&s">
 
                 <h2 onclick="dashboard()">Dashboard</h2>
-            
+
             </div>
 
             <div class="redondo">
@@ -113,7 +110,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <img onclick="mapa()" src="https://www.metrocptm.com.br/wp-content/uploads/2019/09/mapa-rede-metro-cptm-0125-abre-1.jpg">
 
                 <h2 onclick="mapa()">Mapa</h2>
-            
+
             </div>
 
             <div class="redondo">
@@ -121,7 +118,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <img onclick="central()" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0ihsPCgIqz3F36VJxfbMq3_w-K979rfhuzQ&s">
 
                 <h2 onclick="central()">Central</h2>
-            
+
             </div>
 
             <?php
@@ -139,10 +136,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
 
                 ';
-
             }
 
-                ?>
+            ?>
 
         </div>
 
@@ -153,7 +149,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <img onclick="manutencao()" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTF6VgephvuGwEgrK6gaIbxqwLV2khVTb-bCA&s">
 
                 <h2 onclick="manutencao()">Manutenção</h2>
-            
+
             </div>
 
             <div class="redondo">
@@ -187,7 +183,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
 
                 ';
-
             }
 
             ?>
@@ -201,36 +196,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <h1>Linhas ></h1>
 
         <div class="flexivel">
-
-            <div class="quadrado">
-
-                <img src="../midias/rota_um.png">
-
-                <h3>Joinville - SC</h3>
-
-                <h2>Norte-Sul</h2>
-
-            </div>
-
-            <div class="quadrado">
-
-                <img src="../midias/roda_dois.png">
-
-                <h3>Joinville - SC</h3>
-
-                <h2>Sul-Centro</h2>
-
-            </div>
-
-            <div class="quadrado">
-
-                <img src="../midias/rota_tres.png">
-
-                <h3>Joinville - SC</h3>
-
-                <h2>Cascata</h2>
-
-            </div>
+            <iframe src="mapa.html" style="border-radius:50px;width:100%;height:800px;" title="Iframe Example"></iframe>
 
         </div>
 
